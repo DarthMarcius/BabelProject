@@ -523,51 +523,40 @@
 			"file": "gulpfile.js",
 			"settings":
 			{
-				"buffer_size": 1016,
+				"buffer_size": 1032,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "style/app.css",
+			"file": "server.js",
 			"settings":
 			{
-				"buffer_size": 30,
+				"buffer_size": 284,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "compiled/css/app.css",
+			"file": "views/layouts/main.handlebars",
 			"settings":
 			{
-				"buffer_size": 104,
+				"buffer_size": 306,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n	<meta charset=\"UTF-8\">\n	<title>Document</title>\n	<link rel=\"stylesheet\" href=\"bootstrap/css/bootstrap.min.css\">\n	<link rel=\"stylesheet\" href=\"bootstrap/css/bootstrap.min.css\">\n</head>\n<body>\n\n	<script src=\"bootstrap/css/bootstrap.min.css\"></script>\n	<script src=\"script/compiled/app.js\"></script>\n</body>\n</html>",
-			"file": "index.html",
-			"file_size": 301,
-			"file_write_time": 130954608737454870,
+			"file": "views/partials/scripts.handlebars",
 			"settings":
 			{
-				"buffer_size": 353,
+				"buffer_size": 189,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "script/multiply.js",
+			"file": "server/helpers.js",
 			"settings":
 			{
-				"buffer_size": 58,
+				"buffer_size": 271,
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "package.json",
-			"settings":
-			{
-				"buffer_size": 598,
-				"line_ending": "Unix"
 			}
 		}
 	],
@@ -668,13 +657,33 @@
 	"expanded_folders":
 	[
 		"/D/GoogleDrive/Lessons/Babel",
-		"/D/GoogleDrive/Lessons/Babel/compiled",
-		"/D/GoogleDrive/Lessons/Babel/compiled/css",
-		"/D/GoogleDrive/Lessons/Babel/script"
+		"/D/GoogleDrive/Lessons/Babel/server",
+		"/D/GoogleDrive/Lessons/Babel/views",
+		"/D/GoogleDrive/Lessons/Babel/views/layouts",
+		"/D/GoogleDrive/Lessons/Babel/views/partials"
 	],
 	"file_history":
 	[
+		"/D/GoogleDrive/Lessons/Babel/package.json",
+		"/D/GoogleDrive/Lessons/Babel/script/multiply.js",
+		"/D/GoogleDrive/myProjects/superCompiler/cloudCompiler/helpers.js",
+		"/D/GoogleDrive/Lessons/Practice/StayingSharpWithAngular/StayingSharpWithAngularSTB/server/routes.js",
+		"/D/GoogleDrive/Lessons/Babel/views/layouts/main.handlebars",
+		"/D/GoogleDrive/Lessons/Babel/server/helpers.js",
+		"/D/GoogleDrive/Lessons/Babel/views/partials/scripts.handlebars",
+		"/D/GoogleDrive/Lessons/Babel/server.js",
 		"/D/GoogleDrive/Lessons/Babel/script/app.js",
+		"/D/GoogleDrive/Lessons/Babel/style/app.css",
+		"/D/GoogleDrive/Lessons/Babel/compiled/js/app.js",
+		"/D/GoogleDrive/Lessons/Babel/views/home.handlebars",
+		"/D/GoogleDrive/Lessons/Babel/views/scripts.handlebars",
+		"/D/GoogleDrive/Lessons/Babel/index.html",
+		"/D/GoogleDrive/Lessons/Babel/server/helpers/router.js",
+		"/D/GoogleDrive/Lessons/Babel/server/app.js",
+		"/D/GoogleDrive/Lessons/Practice/StayingSharpWithAngular/StayingSharpWithAngularSTB/app.js",
+		"/D/GoogleDrive/myProjects/superCompiler/cloudCompiler/app.js",
+		"/D/GoogleDrive/Lessons/Babel/.gitignore",
+		"/D/GoogleDrive/Lessons/Babel/.git/config",
 		"/D/GoogleDrive/Lessons/Babel/style/compiled/app.css",
 		"/D/GoogleDrive/Lessons/Babel/style/dev/app.css",
 		"/D/GoogleDrive/Lessons/Babel/dist/bundle.js",
@@ -687,7 +696,6 @@
 		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/beautymag/includes/components/newsfeedcontent.isml",
 		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/beautymag/includes/components/listingheader.isml",
 		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/beautymag/includes/components/instanthappinesscontent.isml",
-		"/D/GoogleDrive/Lessons/Babel/package.json",
 		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/lib/_mediaquery.scss",
 		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/myaccount/_login.scss",
 		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/_header.scss",
@@ -720,7 +728,6 @@
 		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/css/ie_app_4.css",
 		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/checkout/_identification.scss",
 		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/newsletter/rendering/newsletterpopin.isml",
-		"/D/GoogleDrive/myProjects/superCompiler/cloudCompiler/helpers.js",
 		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/newsletter/newsletterminipush.isml",
 		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/newsletter/newslettermediumpush.isml",
 		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/newsletter/newsletterfooter.isml",
@@ -784,24 +791,7 @@
 		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sassDummy/input/develop__cart.scss",
 		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sassDummy/input/develop__beauty_profile.scss",
 		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/components/header/htmlhead_UI.isml",
-		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/node_modules/gulp-compass/lib/compass.js",
-		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/node_modules/gulp-compass/package.json",
-		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/config.rb",
-		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/_main_4.scss",
-		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/app.scss",
-		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/checkout/_opc.scss",
-		"/D/GoogleDrive/Lessons/markdownLessons/PostCSS/gulpfile.js",
-		"/D/GoogleDrive/OSF/MyProjects/libsassResearch/gulpfile.js",
-		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/package.json",
-		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/components/newsletter/components/newsletterconfirmationencourageuser.isml",
-		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/components/newsletter/subscribeconfirmation.isml",
-		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/lib/_sprites.scss",
-		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lora/cartridges/app_lora/cartridge/templates/default/header/components/headermenu.isml",
-		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/forms/default/newsletter.xml",
-		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/myaccount/_login_responsive.scss",
-		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lora/cartridges/app_ui/cartridge/static/default/sass/common_elements/_form_elements.scss",
-		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/mixins/_mixins.scss",
-		"/D/GoogleDrive/OSF/MyProjects/libsassResearch/package.json"
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/node_modules/gulp-compass/lib/compass.js"
 	],
 	"find":
 	{
@@ -947,6 +937,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"exphbs",
 			".js",
 			"./app.jsx",
 			"tablet-small",
@@ -1073,8 +1064,7 @@
 			".level_2_list_item_link",
 			".header_wrapper.fixed-item",
 			".header_wrapper.fixed-item {",
-			"$('.search_button').removeClass('js_hide');",
-			"ui-dialog-titlebar"
+			"$('.search_button').removeClass('js_hide');"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -1093,7 +1083,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -1102,127 +1092,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1016,
+						"buffer_size": 1032,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								394,
-								394
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 57.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "style/app.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 30,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								24,
-								24
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "compiled/css/app.css",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 104,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 353,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								216,
-								216
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "script/multiply.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 58,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								40,
-								40
+								753,
+								753
 							]
 						],
 						"settings":
@@ -1237,33 +1115,115 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "package.json",
+					"buffer": 1,
+					"file": "server.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 598,
+						"buffer_size": 284,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								204,
-								204
+								266,
+								266
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": -0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "views/layouts/main.handlebars",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 306,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "views/partials/scripts.handlebars",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 189,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6,
+								10
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "server/helpers.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 271,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								252,
+								252
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]

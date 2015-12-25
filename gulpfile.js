@@ -8,7 +8,7 @@ gulp.task('build', function () {
         .transform('babelify', {presets: ['es2015']})
         .bundle()
         .pipe(source('app.js'))
-        .pipe(gulp.dest('./compiled/js'));
+        .pipe(gulp.dest('./public/compiled/js'));
 });
 
 gulp.task('css', function () {
@@ -23,10 +23,10 @@ gulp.task('css', function () {
         	browsers: ['last 10 versions']
         })]) )
         .pipe( sourcemaps.write('.') )
-        .pipe( gulp.dest('./compiled/css') );
+        .pipe( gulp.dest('./public/compiled/css') );
 });
 
 gulp.task('watch', function () {
    gulp.watch('./style/**/*.css', ['css']);
-   gulp.watch('./script/**/*.js', ['css']);
+   gulp.watch('./script/**/*.js', ['build']);
 });
