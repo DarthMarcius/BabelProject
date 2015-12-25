@@ -1,0 +1,1874 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"bo",
+				"border-radius"
+			],
+			[
+				"oute",
+				"outerHeight"
+			],
+			[
+				"ca",
+				"cache"
+			],
+			[
+				"set",
+				"setTimeout"
+			],
+			[
+				"op",
+				"opacity"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"fo",
+				"font-size"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"pro",
+				"prototype"
+			],
+			[
+				"dialog",
+				"dialogContainer"
+			],
+			[
+				"ov",
+				"overflow"
+			],
+			[
+				"pa",
+				"padding"
+			],
+			[
+				"wi",
+				"window"
+			],
+			[
+				"back",
+				"background"
+			],
+			[
+				"bla",
+				"black-grey"
+			],
+			[
+				"padd",
+				"padding-bottom"
+			],
+			[
+				"f",
+				"font-size"
+			],
+			[
+				"padding",
+				"padding-top"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"paddi",
+				"padding-bottom"
+			],
+			[
+				"line",
+				"line-height"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"no",
+				"nowrap"
+			],
+			[
+				"margi",
+				"margin-top"
+			],
+			[
+				"fl",
+				"float"
+			],
+			[
+				"catrrid",
+				"cartridges"
+			],
+			[
+				"te",
+				"template"
+			],
+			[
+				"me",
+				"message"
+			],
+			[
+				"get",
+				"getMessages"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"shift",
+				"shiftTop"
+			],
+			[
+				"hight",
+				"highlightedElements"
+			],
+			[
+				"sh",
+				"shiftLeft"
+			],
+			[
+				"parse",
+				"parseFloat"
+			],
+			[
+				"tooltipN",
+				"tooltipNumberPosAdjustments"
+			],
+			[
+				"curre",
+				"currentStep"
+			],
+			[
+				"remove",
+				"removeClass"
+			],
+			[
+				"tomE",
+				"topElement"
+			],
+			[
+				"bottom",
+				"bottomElOrBoxHeight"
+			],
+			[
+				"top",
+				"topElement"
+			],
+			[
+				"wra",
+				"wrapperBoxes"
+			],
+			[
+				"botto",
+				"bottomElement"
+			],
+			[
+				"crea",
+				"createBoxes"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"outer",
+				"outerWidth"
+			],
+			[
+				"str",
+				"stringify"
+			],
+			[
+				"high",
+				"highlightExtraHighlights"
+			],
+			[
+				"intro",
+				"introJs"
+			],
+			[
+				"mo",
+				"mobileSteps"
+			],
+			[
+				"scroll",
+				"scrollTo"
+			],
+			[
+				"need",
+				"need-tour-refresh"
+			],
+			[
+				"inv",
+				"invisible-wrapper"
+			],
+			[
+				"ou",
+				"outerWidth"
+			],
+			[
+				"safe",
+				"safeLeft"
+			],
+			[
+				"off",
+				"offset"
+			],
+			[
+				"append",
+				"appendTo"
+			],
+			[
+				"c",
+				"cache"
+			],
+			[
+				"homepageF",
+				"homepageFooterMainContent"
+			],
+			[
+				"homepagef",
+				"homepageFooterMainContent"
+			],
+			[
+				"appe",
+				"append"
+			],
+			[
+				"initi",
+				"initialize"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"seri",
+				"serializedForm"
+			],
+			[
+				"ma",
+				"margin-bottom"
+			],
+			[
+				"a",
+				"auto"
+			],
+			[
+				"call",
+				"callback"
+			],
+			[
+				"shippinga",
+				"shippingAddressFormPhone"
+			],
+			[
+				"unde",
+				"undefined"
+			],
+			[
+				"val",
+				"value"
+			],
+			[
+				"ke",
+				"key"
+			],
+			[
+				"font-s",
+				"font-size"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"pr",
+				"price"
+			],
+			[
+				"d",
+				"display"
+			],
+			[
+				"in",
+				"initial"
+			],
+			[
+				"has",
+				"hasClass"
+			],
+			[
+				"shopp",
+				"shoppingCart"
+			],
+			[
+				"va",
+				"value"
+			],
+			[
+				"de",
+				"description"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"bl",
+				"black"
+			],
+			[
+				"backg",
+				"background"
+			],
+			[
+				"marg",
+				"margin-top"
+			],
+			[
+				"sa",
+				"save-checkbox"
+			],
+			[
+				"inpu",
+				"input-field"
+			],
+			[
+				"white",
+				"white-space"
+			],
+			[
+				"wor",
+				"word-spacing"
+			],
+			[
+				"dis",
+				"display"
+			],
+			[
+				"ads",
+				"ads-banner"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"left",
+				"left"
+			],
+			[
+				"con",
+				"console"
+			],
+			[
+				"im",
+				"important"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"tr",
+				"transparent"
+			],
+			[
+				"he",
+				"height"
+			],
+			[
+				"prod",
+				"product-variant-imageselect"
+			],
+			[
+				"inli",
+				"inline-block"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"po",
+				"position"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"prevent",
+				"preventDefault"
+			],
+			[
+				"ri",
+				"right"
+			],
+			[
+				"list-sty",
+				"list-style-type"
+			],
+			[
+				"ico",
+				"icon"
+			],
+			[
+				"is",
+				"iscomment"
+			],
+			[
+				"produ",
+				"productname"
+			],
+			[
+				"modal",
+				"modal-body"
+			],
+			[
+				"form",
+				"form-group"
+			],
+			[
+				"login",
+				"loginListeners"
+			],
+			[
+				"backboneModels",
+				"backboneModelsOut"
+			],
+			[
+				"preloader",
+				"preloader-text"
+			],
+			[
+				"ce",
+				"center"
+			],
+			[
+				"perce",
+				"percentPreloader"
+			],
+			[
+				"ima",
+				"imagesLoaded"
+			],
+			[
+				"l",
+				"log"
+			],
+			[
+				"clos",
+				"closest"
+			],
+			[
+				"add",
+				"addClass"
+			],
+			[
+				"accordio",
+				"accordion-arrow"
+			],
+			[
+				"slide",
+				"slidesArrows"
+			],
+			[
+				"ta",
+				"tasksView"
+			],
+			[
+				"ap",
+				"App"
+			],
+			[
+				"tas",
+				"tasks"
+			],
+			[
+				"ex",
+				"extend"
+			],
+			[
+				"Ta",
+				"tasks"
+			],
+			[
+				"comp",
+				"compleated"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "gulpfile.js",
+			"settings":
+			{
+				"buffer_size": 1016,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "style/app.css",
+			"settings":
+			{
+				"buffer_size": 30,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "compiled/css/app.css",
+			"settings":
+			{
+				"buffer_size": 104,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n	<meta charset=\"UTF-8\">\n	<title>Document</title>\n	<link rel=\"stylesheet\" href=\"bootstrap/css/bootstrap.min.css\">\n	<link rel=\"stylesheet\" href=\"bootstrap/css/bootstrap.min.css\">\n</head>\n<body>\n\n	<script src=\"bootstrap/css/bootstrap.min.css\"></script>\n	<script src=\"script/compiled/app.js\"></script>\n</body>\n</html>",
+			"file": "index.html",
+			"file_size": 301,
+			"file_write_time": 130954608737454870,
+			"settings":
+			{
+				"buffer_size": 353,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "script/multiply.js",
+			"settings":
+			{
+				"buffer_size": 58,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 598,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 127.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"mark",
+				"Markdown Preview: Save to HTML"
+			],
+			[
+				"markdown",
+				"Markdown Preview: Save to HTML"
+			],
+			[
+				"Markdown",
+				"Markdown Preview: Save to HTML"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Discover Packages"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: instal",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: I",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control:in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control:install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: i",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control:ins",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 125.0,
+		"history":
+		[
+			"import urllib.request,os; pr='Preferences.sublime-settings'; ip='ignored_packages'; n='Package Control'; s=sublime.load_settings(pr); ig=s.get(ip); ig.append(n); s.set(ip,ig); sublime.save_settings('Preferences.sublime-settings'); pf=n+'.sublime-package'; urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler())); by=urllib.request.urlopen('https://packagecontrol.io/'+pf.replace(' ','%20')).read(); open(os.path.join(sublime.installed_packages_path(),pf),'wb').write(by); ig.remove(n); s.set(ip,ig); sublime.save_settings(pr); print('Package Control: 3.0.0 upgrade successful!')",
+			"_example.scss",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/GoogleDrive/Lessons/Babel",
+		"/D/GoogleDrive/Lessons/Babel/compiled",
+		"/D/GoogleDrive/Lessons/Babel/compiled/css",
+		"/D/GoogleDrive/Lessons/Babel/script"
+	],
+	"file_history":
+	[
+		"/D/GoogleDrive/Lessons/Babel/script/app.js",
+		"/D/GoogleDrive/Lessons/Babel/style/compiled/app.css",
+		"/D/GoogleDrive/Lessons/Babel/style/dev/app.css",
+		"/D/GoogleDrive/Lessons/Babel/dist/bundle.js",
+		"/D/GoogleDrive/Lessons/Babel/script/compiled/app.js",
+		"/D/GoogleDrive/Lessons/Babel/dist/app.js",
+		"/D/GoogleDrive/Lessons/Babel/bundle.js",
+		"/D/GoogleDrive/Lessons/Babel/script/main.js",
+		"/D/GoogleDrive/Lessons/Babel/.babelrc.js",
+		"/D/GoogleDrive/Lessons/Babel/dist/all.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/beautymag/includes/components/newsfeedcontent.isml",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/beautymag/includes/components/listingheader.isml",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/beautymag/includes/components/instanthappinesscontent.isml",
+		"/D/GoogleDrive/Lessons/Babel/package.json",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/lib/_mediaquery.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/myaccount/_login.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/_header.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/footer/components/mobilesubscribe/mobilesubscribe.isml",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/clcfile.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/.sass-cache/2b7b62b03343d29bf9f91134dfb575114d787caf/_login.scssc",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-ud/cartridges/int_singlepagecheckout_urbandecay/cartridge/static/default/js/app.custom.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/content/home/homepage.isml",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/js/components/global.navigation.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/js/components/global.scrollevents.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/js/app.custom.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/js/components/global.header.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/_navigation.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/js/components/beautymag.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/js/components/landing.pages.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-ud/cartridges/app_urbandecay/cartridge/static/default/js/responsive.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/js/components/global.application.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/.sass-cache/08e1b2c5f7100c304faaf47537ac804919e83c45/_categoryl1responsive.scssc",
+		"/C/Users/Marcius/.ssh/id_rsa.pub",
+		"/D/GoogleDrive/myProjects/superCompiler/clcfile.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/category-landing/_cl2_layout.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/category-landing/_cl2_refinements.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/_categoryl1responsive.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/_categoryl1.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/_sidebar.scss",
+		"/D/GoogleDrive/myProjects/superCompiler/config.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/.git/config",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/css/app.css",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/css/ie_app_3.css",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/css/ie_app_4.css",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/checkout/_identification.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/newsletter/rendering/newsletterpopin.isml",
+		"/D/GoogleDrive/myProjects/superCompiler/cloudCompiler/helpers.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/newsletter/newsletterminipush.isml",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/newsletter/newslettermediumpush.isml",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/newsletter/newsletterfooter.isml",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/common_elements/_base.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/_footer.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/dwcontrollerstest/dwcontrollerstest/cartridge/scripts/app.ds",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/js/components/global.newsletter.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/myaccount/_myreviews.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/checkout/components/footer.isml",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/category-landing/_cl2_swatches.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/css/ie_app_5.css",
+		"/C/Users/Marcius/Desktop/cra",
+		"/D/GoogleDrive/my_sources/access_child_iframe/-¥-+-¦-ï-¦ -é-¦-¦-ü-é-+-¦-ï-¦ -¦-+-¦-â-+-¦-+-é.txt",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/checkout/address/checkoutshippingaddress.isml",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/checkout/shipping/containers/shippingmethodslist.isml",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/forms/default/billingaddress.xml",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/settings/_guidelines.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/myaccount/_generalstyles.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lora/cartridges/int_singlepagecheckout_extended/cartridge/static/default/sass/_shipping-billing.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/myaccount/_create_account.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/dwcontrollerstest/dwcontrollerstest/cartridge/scripts/second.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/dwcontrollerstest/dwcontrollerstest/cartridge/controllers/Hello.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/dwcontrollerstest/dwcontrollerstest/cartridge/controllers/HelloWorld.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/dwcontrollerstest/dwcontrollerstest/cartridge/controllers/second.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lora/cartridges/app_lora_richUI/cartridge/static/default/js/head.min.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/resources/forms.properties",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/js/components/account.addresses.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/checkout/_checkout-order-summary.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/transversal/_store_locator.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/myaccount/_addressbook.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/.sass-cache/7b2c2a95a0d93a04b44e7ffa26b9eafab2b1618d/_addressbook.scssc",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lora/cartridges/app_lora_richUI/cartridge/static/default/js/components/account.addresses.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lora/cartridges/app_lora_richUI/cartridge/static/default/js/components/account.ratingsandreviews.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lora/cartridges/app_core/cartridge/templates/default/util/inputfield.isml",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lora/cartridges/int_ratingsandreviews/cartridge/templates/default/demandwarernr/component/writeproductreviewformfields.isml",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lora/cartridges/app_ui/cartridge/static/default/js/core/app.messages.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lora/cartridges/app_lora_richUI/cartridge/static/default/js/jquery.validate-1.9.0.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lora/cartridges/app_lora_richUI/cartridge/static/default/js/app.validator.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-ud-kr/cartridges/app_urbandecay_kr/cartridge/static/default/sass/sections/pdp/_pdp.scss",
+		"/D/GoogleDrive/myProjects/superCompiler/cloudCompilerServer/users/galexandru/lancometest/package.json",
+		"/D/GoogleDrive/myProjects/superCompiler/cloudCompilerServer/users/users.json",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lora/cartridges/app_lora_richUI/cartridge/static/default/js/app.demandwarerr.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lora/cartridges/app_lora_richUI/cartridge/static/default/js/components/product.ratingsandreviews.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-ud-kr/cartridges/app_urbandecay_kr/cartridge/templates/resources/forms.properties",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lora/cartridges/app_lora/cartridge/templates/resources/forms.properties",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-ud-kr/cartridges/app_urbandecay_kr/cartridge/static/default/sass/settings/_general.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-ud-kr/cartridges/app_urbandecay_kr/cartridge/templates/resources/forms_ko_KR.properties",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lora/cartridges/int_ratingsandreviews/cartridge/forms/default/productreview.xml",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lora/cartridges/app_lora_richUI/cartridge/static/default/js/components/product.writereview.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-ud-kr/cartridges/app_urbandecay_kr/cartridge/forms/default/rrfields.xml",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/_product_finder.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/common_elements/_formelements.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/_product_finder_responsive.scss",
+		"/C/Users/Marcius/Desktop/mega.txt",
+		"/D/GoogleDrive/myProjects/superCompiler/server.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/gulpfile.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/scripts/util/ViewHelpersExtended.ds",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/header/components/headermenulevel1noncategory.isml",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/header/components/headermenu.isml",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/_cart.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sassDummy/input/develop__cart.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sassDummy/input/develop__beauty_profile.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/components/header/htmlhead_UI.isml",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/node_modules/gulp-compass/lib/compass.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/node_modules/gulp-compass/package.json",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/config.rb",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/_main_4.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/app.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/checkout/_opc.scss",
+		"/D/GoogleDrive/Lessons/markdownLessons/PostCSS/gulpfile.js",
+		"/D/GoogleDrive/OSF/MyProjects/libsassResearch/gulpfile.js",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/package.json",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/components/newsletter/components/newsletterconfirmationencourageuser.isml",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/components/newsletter/subscribeconfirmation.isml",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/lib/_sprites.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lora/cartridges/app_lora/cartridge/templates/default/header/components/headermenu.isml",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/forms/default/newsletter.xml",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/myaccount/_login_responsive.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lora/cartridges/app_ui/cartridge/static/default/sass/common_elements/_form_elements.scss",
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/mixins/_mixins.scss",
+		"/D/GoogleDrive/OSF/MyProjects/libsassResearch/package.json"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au, *.scss",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au, *.isml",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au, *.js",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au, *.isml",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au, *.scss",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace, *.js",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace, *.js",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au, *.js",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au, *.scss",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au, *.js",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\static\\default\\sass",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au, *.scss",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au, *.scss",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au, *.sass",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\static\\default\\sass",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\static\\default\\sass",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace, *.scss",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace, *.ds",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace, *.isml",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace, *.js",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace, *.js",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-ud-kr\\cartridges\\app_urbandecay_kr\\cartridge\\static\\default\\sass",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-ud-kr\\cartridges\\app_urbandecay_kr\\cartridge\\static\\default\\sass",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace, *.isml",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace, *.js",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace, *.js",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-ud-kr\\cartridges\\app_urbandecay_kr\\cartridge\\static",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-ud-kr\\cartridges\\app_urbandecay_kr\\cartridge\\static, *.js",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-ud-kr\\cartridges\\app_urbandecay_kr\\cartridge\\static",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-ud-kr",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\static\\default\\sass",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au, *.isml",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\static\\default\\sass\\sections",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace, *.isml",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\static\\default\\sass",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\static\\default\\sass",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace, *.isml",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace, *.js",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace, *.isml",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au, *.isml",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au, *.js",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace, *.isml",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au, *.isml",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\static\\default\\sass",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\static\\default\\sass",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace, *.isml",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace, *.properties",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\static\\default\\images",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace, *.properties",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-ud-kr",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-ud-kr",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-ud-kr\\cartridges\\app_urbandecay_kr",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-ud-kr",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-ud-kr\\cartridges\\app_urbandecay_kr\\cartridge\\templates\\default\\demandwarernr",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-ud-kr",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-ud-kr",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace",
+			"D:\\GoogleDrive\\myProjects\\SyntaxPractice",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\kiehls\\repo\\cartridges\\app_kiehls",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\kiehls\\repo",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\kiehls\\lora",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\kiehls\\repo\\cartridges\\app_kiehls",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\kiehls\\repo\\cartridges\\int_tutorial",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\kiehls\\repo\\cartridges\\app_kiehls",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\kiehls\\lora",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\kiehls\\repo",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\kiehls\\lora",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\kiehls\\repo\\cartridges\\app_kiehls",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\kiehls\\lora",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\kiehls\\repo",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\kiehls\\lora",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\kiehls\\repo",
+			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\kiehls\\lora",
+			"D:\\Demandware\\Loreal\\myTrainRepo\\cartridges\\app_mark\\cartridge\\static\\default\\js",
+			"D:\\Demandware\\Loreal\\myTrainRepo\\cartridges\\app_mark\\cartridge\\static\\default\\sass",
+			"D:\\Demandware\\Loreal\\myTrainRepo\\cartridges",
+			"D:\\Demandware\\Loreal\\myTrainRepo\\cartridges\\app_mark",
+			"D:\\Demandware\\Loreal\\myTrainRepo\\cartridges",
+			"D:\\Demandware\\Loreal\\myTrainRepo\\cartridges\\app_mark",
+			"D:\\Demandware\\Loreal\\myTrainRepo\\cartridges",
+			"D:\\Demandware\\Loreal\\training",
+			"D:\\Demandware\\upstream\\demandware",
+			"D:\\Demandware\\upstream\\demandware\\cartridges\\mmi_storefront2",
+			"D:\\Demandware\\upstream\\demandware\\cartridges\\mmi_storefront2\\cartridge\\static\\default\\sass",
+			"D:\\Demandware\\upstream\\demandware",
+			"D:\\Demandware\\upstream\\demandware\\cartridges\\mmi_storefront2\\cartridge\\static\\default\\sass",
+			"D:\\Demandware\\upstream\\demandware",
+			"D:\\Demandware\\upstream\\demandware\\cartridges\\mmi_storefront2\\cartridge\\static\\default\\sass",
+			"D:\\Demandware\\upstream\\demandware",
+			"D:\\Demandware\\upstream\\demandware\\cartridges\\mmi_storefront2\\cartridge\\static\\default\\sass",
+			"D:\\Demandware\\upstream\\demandware\\cartridges\\mmi_storefront2",
+			"D:\\Demandware\\upstream\\demandware",
+			"D:\\Demandware\\upstream\\demandware\\cartridges\\mmi_storefront2\\cartridge\\static\\default\\sass",
+			"D:\\Demandware\\upstream\\demandware"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			".js",
+			"./app.jsx",
+			"tablet-small",
+			"subscribe-confirmation",
+			"newsletter_subscribe_mob_content",
+			"top: -200px !important",
+			"80",
+			"minScroll",
+			"calculateHamburgerPos",
+			"is(\":visible\")",
+			"active",
+			"'active'",
+			"Class.('active')",
+			"Class.(\"active\")",
+			"account_navigation_link",
+			"popin_content_4",
+			"account_navigation_link",
+			"accountNavigationLink",
+			"account_navigation_login",
+			"account_navigation_list_item",
+			"account_navigation_list",
+			"account_navigation_link",
+			"38",
+			"top: 38",
+			"headerOffset = $(\".header\").offset()",
+			"headerOffset.top + headerHeight",
+			"headerBottom = headerOffset.top + headerHeight",
+			"top: 97px",
+			"97",
+			"$('.navigation_header').animate({'top': hamburgerPos + \"px\"}, 200);",
+			"if(hamburgerPos > 0) {\n                            $('.navigation_header').animate({'top': hamburgerPos + \"px\"}, 200);\n                        }",
+			"if(hamburgerPos > 0) {\n                                $('.navigation_header').animate({'top': hamburgerPos + \"px\"}, 200);\n                            }",
+			"if(hamburgerPos > 0) {",
+			"hamburgerPos",
+			"$('body').find('.navigation_header')",
+			"pt_storefront",
+			"$white",
+			".level_1_list_item_link",
+			"navFunctionality",
+			"$cache.navigation",
+			"navigation",
+			"$cache.navButton",
+			".navigation_header",
+			".navigation_header\").toggleC",
+			".navigation_header\").addClass",
+			".navigation_header",
+			"$cache.navigation",
+			"$('.navigation_header')",
+			"$cache.navigation",
+			"navigation_header",
+			"expanded",
+			"enableMobileNav",
+			"toggleClass('expanded",
+			"toggleClass(\"expanded\"",
+			"expanded",
+			"$navHeader",
+			"navigation_header",
+			"h2.navigation_header",
+			"navigation",
+			"navigation_wrapper",
+			"$(\"body\").toggleClass",
+			"$(\"body\").addClass",
+			".open-sidebar",
+			".open-sidebar ",
+			"onMyAccountClick",
+			".main-menu",
+			"scrolling-main-menu-mob",
+			"nav-wrap-mobile",
+			"$(\".navigation_header\").click",
+			"$(\".navigation_header\").on",
+			"$cache.navigation",
+			"$('.navigation_header')",
+			"$navHeader",
+			"navigation_header",
+			"expanded",
+			"addClass(\"expanded\")",
+			"headerWrapperOffset",
+			"headerWrapperOffset.top",
+			" + (headerHeight / 2)",
+			" - (navHeaderHeight / 2)",
+			"$(\".header_wrapper\").offset()",
+			"$(\".header\").offset()",
+			".navigation_header",
+			"setHeightOnElems",
+			"setBCF",
+			"setHeightOnElems()",
+			"$header",
+			",\n",
+			"$('body').find('.navigation_header').css('top', navHeaderPos);",
+			"cookieHeight",
+			"$browserCompatWrapperHeight",
+			".navigation_header",
+			"$('.navigation_header')",
+			"'.navigation_wrapper'",
+			"$navHeader",
+			"navigation_header",
+			"$cache.navigation",
+			".navigation_header",
+			"navButton",
+			".navigation_header",
+			"$cache.navButton",
+			"navButton",
+			"navigation_header",
+			".navigation_header",
+			"$(\".country_selector\")",
+			"$('.navigation_header')",
+			"$('.navigation_header').",
+			"$('.navigation_header').css('top",
+			"navigation_header",
+			"navButton",
+			"$cache.navButton",
+			"navigation_header",
+			"$cache.assetPopin",
+			"popin_content",
+			"popin_content_4",
+			"$cache.header",
+			"$cache.navigation.css('top",
+			"$cache.navigation",
+			"navigation_header",
+			".fgh",
+			".level_1_list_item_link",
+			"level_2_list_item_link",
+			".cat_L2_Axe_Skincare_ProductCategory",
+			".level_2_list_item_link",
+			".header_wrapper.fixed-item",
+			".header_wrapper.fixed-item {",
+			"$('.search_button').removeClass('js_hide');",
+			"ui-dialog-titlebar"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			""
+		],
+		"reverse": false,
+		"show_context": false,
+		"use_buffer2": false,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "gulpfile.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1016,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								394,
+								394
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 57.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "style/app.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 30,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								24,
+								24
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "compiled/css/app.css",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 104,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 353,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								216,
+								216
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "script/multiply.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 58,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								40,
+								40
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "package.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 598,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								204,
+								204
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 32.0
+	},
+	"input":
+	{
+		"height": 40.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 68.0
+	},
+	"output.find_results":
+	{
+		"height": 233.0
+	},
+	"pinned_build_system": "",
+	"project": "babel.sublime-project",
+	"replace":
+	{
+		"height": 74.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"components/newsfeedcontent.isml",
+				"ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\templates\\default\\beautymag\\includes\\components\\newsfeedcontent.isml"
+			],
+			[
+				"listingheader.isml",
+				"ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\templates\\default\\beautymag\\includes\\components\\listingheader.isml"
+			],
+			[
+				"instanthappinesscontent.isml",
+				"ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\templates\\default\\beautymag\\includes\\components\\instanthappinesscontent.isml"
+			],
+			[
+				"_login.scss",
+				"ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\static\\default\\sass\\sections\\myaccount\\_login.scss"
+			],
+			[
+				"_header.scss",
+				"ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\static\\default\\sass\\sections\\_header.scss"
+			],
+			[
+				"app.custom",
+				"ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\static\\default\\js\\app.custom.js"
+			],
+			[
+				"global.scrollevents.js",
+				"ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\static\\default\\js\\components\\global.scrollevents.js"
+			],
+			[
+				"_category1.scss",
+				"ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\static\\default\\sass\\sections\\_categoryl1.scss"
+			],
+			[
+				"_sidebar.scss",
+				"ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\static\\default\\sass\\sections\\_sidebar.scss"
+			],
+			[
+				"_identification.scss",
+				"ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\static\\default\\sass\\sections\\checkout\\_identification.scss"
+			],
+			[
+				"global.newsletter.js",
+				"ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\static\\default\\js\\components\\global.newsletter.js"
+			],
+			[
+				"head.min.js",
+				"ecom-lora\\cartridges\\app_lora_richUI\\cartridge\\static\\default\\js\\head.min.js"
+			],
+			[
+				"beautymag.js",
+				"ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\static\\default\\js\\components\\beautymag.js"
+			],
+			[
+				"forms.properties",
+				"ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\templates\\resources\\forms.properties"
+			],
+			[
+				"_checkout-order-summary.scss",
+				"ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\static\\default\\sass\\sections\\checkout\\_checkout-order-summary.scss"
+			],
+			[
+				"_store_locator.scss",
+				"ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\static\\default\\sass\\sections\\transversal\\_store_locator.scss"
+			],
+			[
+				"_addressbook.scss",
+				"ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\static\\default\\sass\\sections\\myaccount\\_addressbook.scss"
+			],
+			[
+				"jquery.va",
+				"ecom-lora\\cartridges\\app_lora_richUI\\cartridge\\static\\default\\js\\jquery.validate-1.9.0.js"
+			],
+			[
+				"demandwarerr.js",
+				"ecom-lora\\cartridges\\app_lora_richUI\\cartridge\\static\\default\\js\\app.demandwarerr.js"
+			],
+			[
+				"inputfield",
+				"ecom-lora\\cartridges\\app_core\\cartridge\\templates\\default\\util\\inputfield.isml"
+			],
+			[
+				"productreview.xml",
+				"ecom-lora\\cartridges\\int_ratingsandreviews\\cartridge\\forms\\default\\productreview.xml"
+			],
+			[
+				"app.demandwarerr.js",
+				"ecom-lora\\cartridges\\app_lora_richUI\\cartridge\\static\\default\\js\\app.demandwarerr.js"
+			],
+			[
+				"viewhelpersextended.ds",
+				"ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\scripts\\util\\ViewHelpersExtended.ds"
+			],
+			[
+				"headermenulevel1noncategory",
+				"ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\templates\\default\\header\\components\\headermenulevel1noncategory.isml"
+			],
+			[
+				"newsletterconfirmationencourageuser",
+				"ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\templates\\default\\components\\newsletter\\components\\newsletterconfirmationencourageuser.isml"
+			],
+			[
+				"subscribeconfirmation",
+				"ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\templates\\default\\components\\newsletter\\subscribeconfirmation.isml"
+			],
+			[
+				"_navigation.scss",
+				"ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\static\\default\\sass\\sections\\_navigation.scss"
+			],
+			[
+				"headermenu.isml",
+				"ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\templates\\default\\header\\components\\headermenu.isml"
+			],
+			[
+				"newsletterpopin.isml",
+				"ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\templates\\default\\newsletter\\rendering\\newsletterpopin.isml"
+			],
+			[
+				"footersocial.isml",
+				"ecom-ud-kr\\cartridges\\app_urbandecay_kr\\cartridge\\templates\\default\\footer\\components\\footersocial.isml"
+			],
+			[
+				"quickview.scss",
+				"ecom-lancome-au\\cartridges\\app_lancome_au\\cartridge\\static\\default\\sass\\sections\\_quickview.scss"
+			],
+			[
+				"displayliproduct",
+				"ecom-ud-kr\\cartridges\\app_urbandecay_kr\\cartridge\\templates\\default\\product\\components\\displayliproduct.isml"
+			],
+			[
+				"isdisplayliproduct",
+				"ecom-lora\\cartridges\\int_singlepagecheckout_extended\\cartridge\\templates\\default\\product\\components\\displayliproduct.isml"
+			],
+			[
+				"cartitemdetails",
+				"ecom-ud\\cartridges\\int_singlepagecheckout_urbandecay\\cartridge\\templates\\default\\cart\\components\\cartitemdetails.isml"
+			],
+			[
+				"cartlineitemsregular",
+				"ecom-ud\\cartridges\\int_singlepagecheckout_urbandecay\\cartridge\\templates\\default\\cart\\components\\cartlineitemsregular.isml"
+			],
+			[
+				"jsonresponse",
+				"ecom-lora\\cartridges\\app_lora\\cartridge\\templates\\default\\util\\jsonresponse.isml"
+			],
+			[
+				"writeproductreviewformfields.isml",
+				"ecom-lora\\cartridges\\int_ratingsandreviews\\cartridge\\templates\\default\\demandwarernr\\component\\writeproductreviewformfields.isml"
+			],
+			[
+				"reviewsheader.isml",
+				"ecom-lora\\cartridges\\int_ratingsandreviews\\cartridge\\templates\\default\\demandwarernr\\component\\reviewsheader.isml"
+			],
+			[
+				"reviewline.isml",
+				"ecom-lora\\cartridges\\int_ratingsandreviews\\cartridge\\templates\\default\\demandwarernr\\component\\reviewline.isml"
+			],
+			[
+				"rrfields",
+				"ecom-lora\\cartridges\\int_ratingsandreviews\\cartridge\\forms\\default\\rrfields.xml"
+			],
+			[
+				"productreview.x",
+				"ecom-lora\\cartridges\\int_ratingsandreviews\\cartridge\\forms\\default\\productreview.xml"
+			],
+			[
+				"writeproductreviewformfields",
+				"ecom-lora\\cartridges\\int_ratingsandreviews\\cartridge\\templates\\default\\demandwarernr\\component\\writeproductreviewformfields.isml"
+			],
+			[
+				"reviewline",
+				"ecom-lora\\cartridges\\int_ratingsandreviews\\cartridge\\templates\\default\\demandwarernr\\component\\reviewline.isml"
+			],
+			[
+				"reviewsheader",
+				"ecom-lora\\cartridges\\int_ratingsandreviews\\cartridge\\templates\\default\\demandwarernr\\component\\reviewsheader.isml"
+			],
+			[
+				"tutorial",
+				"int_tutorial\\cartridge\\templates\\default\\tutorialbody.isml"
+			],
+			[
+				"components.con",
+				"repo\\cartridges\\app_kiehls\\cartridge\\static\\default\\js\\components\\components.config.specific.js"
+			],
+			[
+				"html_",
+				"repo\\cartridges\\app_kiehls\\cartridge\\templates\\default\\components\\header\\htmlhead_UI.isml"
+			],
+			[
+				"footer_ui.isml",
+				"repo\\cartridges\\app_kiehls\\cartridge\\templates\\default\\footer\\containers\\footer_UI.isml"
+			],
+			[
+				"intro",
+				"repo\\cartridges\\app_kiehls\\cartridge\\static\\default\\js\\intro.js"
+			],
+			[
+				"global.tutorialbase.js",
+				"repo\\cartridges\\app_kiehls\\cartridge\\static\\default\\js\\components\\global.tutorialbase.js"
+			],
+			[
+				"userjourney.js",
+				"repo\\cartridges\\int_tutorial\\cartridge\\static\\default\\js\\kiehls\\tutorial-userjourney.js"
+			],
+			[
+				"pt_storefront_vars",
+				"lora\\app_lora\\cartridge\\templates\\default\\content\\home\\pt_storefront_VARS.isml"
+			],
+			[
+				"footer.isml",
+				"lora\\app_cc\\cartridge\\templates\\default\\callcenter\\components\\footer.isml"
+			],
+			[
+				"intro.js",
+				"repo\\cartridges\\app_kiehls\\cartridge\\static\\default\\js\\intro.js"
+			],
+			[
+				"globalintro",
+				"repo\\cartridges\\app_kiehls\\cartridge\\static\\default\\js\\components\\global.intro.js"
+			],
+			[
+				"pt_mark",
+				"cartridges\\app_mark\\cartridge\\templates\\default\\content\\content\\pt_mark.isml"
+			],
+			[
+				"pt_storefront",
+				"cartridges\\app_mark\\cartridge\\templates\\default\\content\\home\\pt_storefront.isml"
+			],
+			[
+				"app.js",
+				"cartridges\\app_mark\\cartridge\\static\\default\\js\\app.js"
+			],
+			[
+				"footer_ui",
+				"cartridges\\app_mark\\cartridge\\templates\\default\\footer\\containers\\footer_UI.isml"
+			],
+			[
+				"mobilenavigationmenu",
+				"cartridges\\mmi_cn\\cartridge\\templates\\default\\fragments\\site\\mobilenavigationmenu.isml"
+			],
+			[
+				"mobilenavigationmenu.isml",
+				"cartridges\\mmi_cn\\cartridge\\templates\\default\\fragments\\site\\mobilenavigationmenu.isml"
+			],
+			[
+				"header.isml",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\fragments\\site\\header.isml"
+			],
+			[
+				"override.css",
+				"cartridges\\mmi_mx\\cartridge\\static\\default\\css\\override.css"
+			],
+			[
+				"override",
+				"cartridges\\mmi_fr\\cartridge\\static\\default\\css\\override.css"
+			],
+			[
+				"device.isml",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\fragments\\cart\\device.isml"
+			],
+			[
+				"companions",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\fragments\\cart\\companions.isml"
+			],
+			[
+				"payment.isml",
+				"cartridges\\mmi_fr\\cartridge\\templates\\default\\pages\\checkout\\payment.isml"
+			],
+			[
+				"default.isml",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\decorators\\default.isml"
+			],
+			[
+				"checkoutmodules.isml",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\fragments\\cart\\checkoutmodules.isml"
+			],
+			[
+				"checkout",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\resources\\checkout.properties"
+			],
+			[
+				"cart.isml",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\pages\\checkout\\cart.isml"
+			],
+			[
+				"summary.isml",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\fragments\\cart\\summary.isml"
+			],
+			[
+				"head.isml",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\fragments\\site\\header.isml"
+			],
+			[
+				"config",
+				"cartridges\\mmi_storefront2\\cartridge\\static\\default\\scripts\\config.js"
+			],
+			[
+				"recommendationproduct",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\fragments\\product\\recommendationproduct.isml"
+			],
+			[
+				"co_pg_payment",
+				"cartridges\\mmi_storefront2\\cartridge\\pipelines\\CO_PG_Payment.xml"
+			],
+			[
+				"overr",
+				"cartridges\\mmi_de\\cartridge\\static\\default\\css\\override.css"
+			],
+			[
+				"ove",
+				"cartridges\\mmi_fr\\cartridge\\static\\default\\css\\override.css"
+			],
+			[
+				"header",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\fragments\\site\\header.isml"
+			],
+			[
+				"shopping",
+				"cartridges\\mmi_storefront2\\cartridge\\static\\default\\scripts\\app\\shopping-cart.js"
+			],
+			[
+				"crmoptin.isml",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\fragments\\cart\\crmoptin.isml"
+			],
+			[
+				"confirmation.isml",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\pages\\checkout\\confirmation.isml"
+			],
+			[
+				"header.js",
+				"cartridges\\mmi_storefront2\\cartridge\\static\\default\\scripts\\app\\header.js"
+			],
+			[
+				"app.css",
+				"cartridges\\mmi_storefront2\\cartridge\\static\\default\\css\\app.css"
+			],
+			[
+				"_base.scss",
+				"cartridges\\mmi_storefront2\\cartridge\\static\\default\\.sass-cache\\ee40c4b0f321c4223d0d4237ec80b3693a0ed7b5\\_base.scssc"
+			],
+			[
+				"960",
+				"cartridges\\mmi_storefront2\\cartridge\\static\\default\\sass\\960.scss"
+			],
+			[
+				"payment.is",
+				"cartridges\\mmi_fr\\cartridge\\templates\\default\\pages\\checkout\\payment.isml"
+			],
+			[
+				"g_re",
+				"cartridges\\mmi_storefront2\\cartridge\\static\\default\\scripts\\app\\g_recaptcha.js"
+			],
+			[
+				"summary",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\fragments\\cart\\summary.isml"
+			],
+			[
+				"ads.xml",
+				"cartridges\\mmi_core2\\cartridge\\forms\\default\\ads.xml"
+			],
+			[
+				"recommendation-modal.isml",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\fragments\\cart\\recommendation-modal.isml"
+			],
+			[
+				"cart",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\pages\\checkout\\cart.isml"
+			],
+			[
+				"coupon.isml",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\fragments\\cart\\coupon.isml"
+			],
+			[
+				"summa",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\pages\\checkout\\summary.isml"
+			],
+			[
+				"config.js",
+				"cartridges\\mmi_storefront2\\cartridge\\static\\default\\scripts\\config.js"
+			],
+			[
+				"recommendationproduct.isml",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\fragments\\product\\recommendationproduct.isml"
+			],
+			[
+				"ui.js",
+				"cartridges\\mmi_storefront2\\cartridge\\static\\default\\scripts\\app\\ui.js"
+			],
+			[
+				"addtocartbuttons.isml",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\fragments\\product\\modules\\addtocartbuttons.isml"
+			],
+			[
+				"ajaxcontenttemplateiterator.isml",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\fragments\\content\\ajaxcontenttemplateiterator.isml"
+			],
+			[
+				"smallproduct.isml",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\fragments\\product\\smallproduct.isml"
+			],
+			[
+				"general.scss",
+				"cartridges\\mmi_storefront2\\cartridge\\static\\default\\sass\\general.scss"
+			],
+			[
+				"shippingform",
+				"cartridges\\mmi_mx\\cartridge\\templates\\default\\pages\\checkout\\shippingForm.isml"
+			],
+			[
+				"checkoutstep.isml",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\fragments\\cart\\checkoutstep.isml"
+			],
+			[
+				"int_ads_finance",
+				"cartridges\\int_ads_finance\\cartridge\\int_ads_finance.properties"
+			],
+			[
+				"order_con",
+				"cartridges\\mmi_core\\cartridge\\templates\\default\\mail\\order_confirmation.isml"
+			],
+			[
+				"payment.",
+				"cartridges\\mmi_storefront2\\cartridge\\static\\default\\scripts\\app\\payment.js"
+			],
+			[
+				"res",
+				"cartridges\\mmi_motomaker\\cartridge\\templates\\default\\motomaker\\resourcemessages.isml"
+			],
+			[
+				"order_co",
+				"cartridges\\mmi_core\\cartridge\\templates\\default\\mail\\order_confirmation.isml"
+			],
+			[
+				"shopp",
+				"cartridges\\mmi_storefront2\\cartridge\\static\\default\\scripts\\app\\shopping-cart.js"
+			],
+			[
+				"order_confirma",
+				"cartridges\\mmi_core\\cartridge\\templates\\default\\mail\\order_confirmation.isml"
+			],
+			[
+				"productlineitemvo.ds",
+				"cartridges\\mmi_storefront2\\cartridge\\scripts\\vo\\product\\productLineItemVO.ds"
+			],
+			[
+				"devices",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\fragments\\cart\\devices.isml"
+			],
+			[
+				"device",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\fragments\\cart\\device.isml"
+			],
+			[
+				"devices.isml",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\fragments\\cart\\devices.isml"
+			],
+			[
+				"infocontentasset.isml",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\fragments\\checkout\\infocontentasset.isml"
+			],
+			[
+				"orderh",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\fragments\\account\\orderHistory.isml"
+			],
+			[
+				"util.js",
+				"cartridges\\mmi_motomaker\\cartridge\\static\\default\\js\\motomaker\\app\\scripts\\lib\\util.js"
+			],
+			[
+				"appc",
+				"cartridges\\mmi_motomaker\\cartridge\\static\\default\\js\\motomaker\\app\\scripts\\controllers\\appController.js"
+			],
+			[
+				"confirmationtop",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\fragments\\cart\\confirmationtop.isml"
+			],
+			[
+				"confirmatiom.isml",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\fragments\\cart\\recommendation-modal.isml"
+			],
+			[
+				"confirmation",
+				"cartridges\\mmi_core\\cartridge\\templates\\default\\checkout\\confirmation\\confirmation.isml"
+			],
+			[
+				"app.scss",
+				"cartridges\\mmi_storefront2\\cartridge\\static\\default\\sass\\app.scss"
+			],
+			[
+				"components.scss",
+				"cartridges\\mmi_storefront2\\cartridge\\static\\default\\sass\\components.scss"
+			],
+			[
+				"waypoints.min",
+				"cartridges\\mmi_storefront2\\cartridge\\static\\default\\scripts\\components\\jquery-waypoints\\waypoints.min.js"
+			],
+			[
+				"comparewidgetv",
+				"cartridges\\mmi_motomaker\\cartridge\\static\\default\\js\\motomaker\\app\\scripts\\views\\compareWidgetView.js"
+			],
+			[
+				"util",
+				"cartridges\\mmi_core\\cartridge\\static\\default\\js\\util.js"
+			],
+			[
+				"resourcemessa",
+				"cartridges\\mmi_motomaker\\cartridge\\templates\\default\\motomaker\\resourcemessages.isml"
+			],
+			[
+				"th",
+				"cartridges\\mmi_storefront2\\cartridge\\static\\default\\scripts\\app\\threeSixty.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"D:\\GoogleDrive\\Lessons\\Practice\\ShapingUpWithAngular\\pr.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 348.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 773.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 351.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
