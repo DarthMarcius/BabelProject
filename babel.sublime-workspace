@@ -528,10 +528,27 @@
 			}
 		},
 		{
-			"file": "server.js",
+			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 284,
+				"buffer_size": 739,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/partials/header.handlebars",
+			"settings":
+			{
+				"buffer_size": 2496,
+				"line_ending": "Windows",
+				"name": "<nav class=\"navbar navbar-default\">"
+			}
+		},
+		{
+			"file": "views/partials/scripts.handlebars",
+			"settings":
+			{
+				"buffer_size": 148,
 				"line_ending": "Windows"
 			}
 		},
@@ -539,23 +556,55 @@
 			"file": "views/layouts/main.handlebars",
 			"settings":
 			{
-				"buffer_size": 306,
+				"buffer_size": 315,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "views/partials/scripts.handlebars",
+			"file": "views/partials/footer.handlebars",
 			"settings":
 			{
-				"buffer_size": 189,
+				"buffer_size": 49,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "views/home.handlebars",
+			"settings":
+			{
+				"buffer_size": 78,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/bootstrap/css/bootstrap.min.css",
+			"settings":
+			{
+				"buffer_size": 125678,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "node_modules/handlebars/dist/amd/handlebars/base.js",
+			"settings":
+			{
+				"buffer_size": 7827,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "server/helpers.js",
 			"settings":
 			{
-				"buffer_size": 271,
+				"buffer_size": 1259,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "server.js",
+			"settings":
+			{
+				"buffer_size": 690,
 				"line_ending": "Windows"
 			}
 		}
@@ -567,10 +616,14 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 127.0,
-		"last_filter": "",
+		"height": 104.0,
+		"last_filter": "Package Control: insta",
 		"selected_items":
 		[
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
 			[
 				"Package Control: in",
 				"Package Control: Install Package"
@@ -586,10 +639,6 @@
 			[
 				"Markdown",
 				"Markdown Preview: Save to HTML"
-			],
-			[
-				"Package Control: insta",
-				"Package Control: Install Package"
 			],
 			[
 				"Package Control: ",
@@ -632,7 +681,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 400.0
+		"width": 416.0
 	},
 	"console":
 	{
@@ -664,11 +713,14 @@
 	],
 	"file_history":
 	[
+		"/D/GoogleDrive/Lessons/Babel/node_modules/body-parser/README.md",
+		"/C/Users/Marcius/AppData/Roaming/Sublime Text 3/Packages/Terminal/Terminal.sublime-settings",
 		"/D/GoogleDrive/Lessons/Babel/package.json",
+		"/D/GoogleDrive/Lessons/Babel/views/layouts/main.handlebars",
+		"/D/GoogleDrive/Lessons/Babel/node_modules/express-handlebars/README.md",
 		"/D/GoogleDrive/Lessons/Babel/script/multiply.js",
 		"/D/GoogleDrive/myProjects/superCompiler/cloudCompiler/helpers.js",
 		"/D/GoogleDrive/Lessons/Practice/StayingSharpWithAngular/StayingSharpWithAngularSTB/server/routes.js",
-		"/D/GoogleDrive/Lessons/Babel/views/layouts/main.handlebars",
 		"/D/GoogleDrive/Lessons/Babel/server/helpers.js",
 		"/D/GoogleDrive/Lessons/Babel/views/partials/scripts.handlebars",
 		"/D/GoogleDrive/Lessons/Babel/server.js",
@@ -788,20 +840,18 @@
 		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/header/components/headermenulevel1noncategory.isml",
 		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/header/components/headermenu.isml",
 		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sass/sections/_cart.scss",
-		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sassDummy/input/develop__cart.scss",
-		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sassDummy/input/develop__beauty_profile.scss",
-		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/templates/default/components/header/htmlhead_UI.isml",
-		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/node_modules/gulp-compass/lib/compass.js"
+		"/D/GoogleDrive/OSF/MyProjects/Demandware/Loreal/LORA/Urban Decay HK/codebace/ecom-lancome-au/cartridges/app_lancome_au/cartridge/static/default/sassDummy/input/develop__cart.scss"
 	],
 	"find":
 	{
-		"height": 35.0
+		"height": 36.0
 	},
 	"find_in_files":
 	{
 		"height": 93.0,
 		"where_history":
 		[
+			"D:\\GoogleDrive\\Lessons\\Babel\\node_modules",
 			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au, *.scss",
 			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au, *.isml",
 			"D:\\GoogleDrive\\OSF\\MyProjects\\Demandware\\Loreal\\LORA\\Urban Decay HK\\codebace\\ecom-lancome-au\\cartridges\\app_lancome_au, *.js",
@@ -928,8 +978,7 @@
 			"D:\\Demandware\\upstream\\demandware\\cartridges\\mmi_storefront2\\cartridge\\static\\default\\sass",
 			"D:\\Demandware\\upstream\\demandware\\cartridges\\mmi_storefront2",
 			"D:\\Demandware\\upstream\\demandware",
-			"D:\\Demandware\\upstream\\demandware\\cartridges\\mmi_storefront2\\cartridge\\static\\default\\sass",
-			"D:\\Demandware\\upstream\\demandware"
+			"D:\\Demandware\\upstream\\demandware\\cartridges\\mmi_storefront2\\cartridge\\static\\default\\sass"
 		]
 	},
 	"find_state":
@@ -937,6 +986,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"you posted",
+			": function",
+			": function()",
+			"ifCond",
+			"options",
+			"app",
+			"registerHelper",
 			"exphbs",
 			".js",
 			"./app.jsx",
@@ -1057,14 +1113,7 @@
 			"$cache.navigation.css('top",
 			"$cache.navigation",
 			"navigation_header",
-			".fgh",
-			".level_1_list_item_link",
-			"level_2_list_item_link",
-			".cat_L2_Axe_Skincare_ProductCategory",
-			".level_2_list_item_link",
-			".header_wrapper.fixed-item",
-			".header_wrapper.fixed-item {",
-			"$('.search_button').removeClass('js_hide');"
+			".fgh"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -1083,7 +1132,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -1099,56 +1148,91 @@
 						"selection":
 						[
 							[
-								753,
-								753
+								401,
+								401
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 180.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "server.js",
+					"file": "package.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 284,
+						"buffer_size": 739,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								266,
-								266
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
-						"translation.x": -0.0,
+						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "views/layouts/main.handlebars",
-					"semi_transient": true,
+					"file": "views/partials/header.handlebars",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 306,
+						"buffer_size": 2496,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2238,
+								2238
+							]
+						],
+						"settings":
+						{
+							"auto_name": "<nav class=\"navbar navbar-default\">",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 600.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "views/partials/scripts.handlebars",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 148,
 						"regions":
 						{
 						},
@@ -1167,24 +1251,52 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "views/partials/scripts.handlebars",
-					"semi_transient": false,
+					"buffer": 4,
+					"file": "views/layouts/main.handlebars",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 189,
+						"buffer_size": 315,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6,
-								10
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "views/partials/footer.handlebars",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 49,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								22,
+								22
 							]
 						],
 						"settings":
@@ -1195,29 +1307,152 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "server/helpers.js",
+					"buffer": 6,
+					"file": "views/home.handlebars",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 271,
+						"buffer_size": 78,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								252,
-								252
+								52,
+								52
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "public/bootstrap/css/bootstrap.min.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 125678,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								125678,
+								125678
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "node_modules/handlebars/dist/amd/handlebars/base.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7827,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1201,
+								1201
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 655.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 9,
+					"file": "server/helpers.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1259,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								820,
+								831
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ecmascript Syntax/ecmascript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 240.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "server.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 690,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								624,
+								624
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1246,11 +1481,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -1818,7 +2060,7 @@
 		],
 		"width": 773.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},

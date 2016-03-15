@@ -24,5 +24,8 @@
     "precss": "^1.3.0",
     "rucksack-css": "^0.8.5",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.0"
   }
 }
