@@ -3,6 +3,7 @@
 var path = require("path");
 var express = require('express');
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 var app = express();
 var appRoot = path.normalize(path.resolve(__dirname));
 var passport = require('passport');
@@ -10,7 +11,9 @@ var flash = require('connect-flash');
 var LocalStrategy = require('passport-local').Strategy;
 var bcrypt = require('bcrypt-nodejs');
 
-app.use(flash());
+app.use(express.static('public'));
+
+app.use(cookieParser());
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 

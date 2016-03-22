@@ -33,14 +33,13 @@ module.exports = {
                         // Username does not exist, log error & redirect back
                         if (!user){
                             console.log('User Not Found with username '+username);
-                            return done(null, false,
-                                  req.flash('message', 'User Not found.'));
+                            return done(null, false, { message: 'Incorrect username.' });
                         }
                         // User exists but wrong password, log the error
                         if (!that.isValidPassword(user, password)){
                             console.log('Invalid Password');
                             return done(null, false,
-                                req.flash('message', 'Invalid Password'));
+                                { message: 'Incorrect password.' });
                         }
                         // User and password both match, return user from
                         // done method which will be treated like success
@@ -54,7 +53,7 @@ module.exports = {
               passReqToCallback : true
             },
             function(req, username, password, done) {
-                findOrCreateUser = function() {
+                let findOrCreateUser = function() {
                     // find a user in Mongo with provided username
                     that.models.User.findOne({'username':username}, function(err, user) {
                         // In case of any error return
@@ -65,18 +64,14 @@ module.exports = {
                         // already exists
                         if (user) {
                             console.log('User already exists');
-                            return done(null, false,
-                                req.flash('message','User Already Exists'));
+                            return done(null, false, {'message': 'User Already Exists'});
                         } else {
                             // if there is no user with that email
                             // create the user
-                            var newUser = new that.User();
+                            var newUser = new that.models.User();
                             // set the user's local credentials
                             newUser.username = username;
                             newUser.password = that.createHash(password);
-                            newUser.email = req.param('email');
-                            newUser.firstName = req.param('firstName');
-                            newUser.lastName = req.param('lastName');
 
                             // save the user
                             newUser.save(function(err) {
@@ -96,6 +91,16 @@ module.exports = {
                 process.nextTick(findOrCreateUser);
             })
         );
+
+        that.passport.serializeUser(function(user, done) {console.log("ser")
+          done(null, user.id);
+        });
+
+        that.passport.deserializeUser(function(id, done) {
+          that.User.findById(id, function(err, user) {
+            done(err, user);
+          });
+        });
     },
 
     isValidPassword(user, password) {
@@ -108,10 +113,50 @@ module.exports = {
 
     listenToRoutes(resources) {
         var that = this;
+
         resources.app.engine('handlebars', resources.handlebars({defaultLayout: 'main'}));
         resources.app.set('view engine', 'handlebars');
 
         resources.app.get('/', (req, res) => {
+            res.redirect('/projects');
+        });
+
+        resources.app.get('/login', (req, res) => {
+            res.render('login', {
+                name: "login",
+                title: "Welcome to issue tracker",
+                ifCond(v1, v2, options) {
+                    if(v1 === v2) {
+                      return options.fn(this);
+                    }
+                    return options.inverse(this);
+                }
+            });
+        });
+
+        resources.app.get('/register', (req, res) => {
+            res.render('register', {
+                name: "register",
+                title: "Register",
+                ifCond(v1, v2, options) {
+                    if(v1 === v2) {
+                      return options.fn(this);
+                    }
+                    return options.inverse(this);
+                }
+            });
+        });
+
+        resources.app.post('/register', this.passport.authenticate('signup'), (req, res) => {
+            console.log("registred");
+        });
+
+        resources.app.post('/login', this.passport.authenticate('login'), (req, res) => {
+            console.log("lava", req.user);
+
+        });
+
+        resources.app.get('/projects', that.loggedIn, (req, res) => {
             res.render('projects', {
                 name: "homepage",
                 title: "Welcome to issue tracker",
@@ -124,7 +169,7 @@ module.exports = {
             });
         });
 
-        resources.app.get('issue/:id', (req, res) => {
+        resources.app.get('issue/:id', that.loggedIn,  (req, res) => {
 
         });
 
@@ -241,6 +286,15 @@ module.exports = {
                 that.removeLog(db, res, req.body);
             });
         });
+    },
+
+    loggedIn(req, res, next) {
+        console.log(req.user)
+        if (req.user || req.url == '/login') {
+            next();
+        } else {
+            res.redirect('/login');
+        }
     },
 
     dbConnect(resources, callback) {

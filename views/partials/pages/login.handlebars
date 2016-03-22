@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-offset-3 col-md-6">
+           <h3>Please login</h3>
+           <form class="login-form" method="POST" action="/login">
+              <div class="form-group">
+                <label for="exampleInputEmail1">User Name</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="User Name" name="username">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+              </div>
+              <div class="col-md-offset-3 col-md-6">
+                  <button style="width: 100%" type="submit" class="btn btn-default">Login</button>
+              </div>
+
+              <div class="col-md-offset-3 col-md-6" style="margin-top: 5px;">
+                  <a href="/register" style="width: 100%" type="submit" class="btn btn-info">Register</a>
+              </div>
+            </form>
+      </div>
+    </div>
+</div>
+
+<div id="LoginErrorModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Login Error</h4>
+      </div>
+      <div class="modal-body">
+          <span class="text-danger text-center">Login data you entered is invalid or such user does not exist</span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
