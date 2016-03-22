@@ -10,25 +10,25 @@ var passport = require('passport');
 var flash = require('connect-flash');
 var LocalStrategy = require('passport-local').Strategy;
 var bcrypt = require('bcrypt-nodejs');
+var expressSession = require('express-session');
+var mongoose = require('mongoose');
+var mongoConnectionURL = "mongodb://localhost:27017/issue_tracker";
+var handlebars  = require('express-handlebars');
 
 app.use(express.static('public'));
 
 app.use(cookieParser());
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
-
 // parse application/json
-app.use(bodyParser.json());
 
-var expressSession = require('express-session');
-
-app.use(expressSession({secret: 'mySecretKey'}));
+app.use(expressSession({
+    secret: process.env.SESSION_SECRET || 'secret',
+    resave: false,
+    saveUninitialized: false
+}));
 app.use(passport.initialize());
 app.use(passport.session());
-
-var mongoose = require('mongoose');
-var mongoConnectionURL = "mongodb://localhost:27017/issue_tracker";
-var handlebars  = require('express-handlebars');
 
 var resources = {
     'app': app,

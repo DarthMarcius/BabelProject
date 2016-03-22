@@ -92,13 +92,15 @@ module.exports = {
             })
         );
 
-        that.passport.serializeUser(function(user, done) {console.log("ser")
+        that.passport.serializeUser(function(user, done) {
+          console.log("ser", user.id);
           done(null, user.id);
         });
 
         that.passport.deserializeUser(function(id, done) {
-          that.User.findById(id, function(err, user) {
-            done(err, user);
+          console.log("deserialize", id);
+          that.models.User.findById(id, function(err, user) {
+            done(null, user);
           });
         });
     },
@@ -122,6 +124,7 @@ module.exports = {
         });
 
         resources.app.get('/login', (req, res) => {
+            console.log("luser", req.user);
             res.render('login', {
                 name: "login",
                 title: "Welcome to issue tracker",
@@ -135,6 +138,7 @@ module.exports = {
         });
 
         resources.app.get('/register', (req, res) => {
+            console.log("rSess", req.session);
             res.render('register', {
                 name: "register",
                 title: "Register",
@@ -152,8 +156,9 @@ module.exports = {
         });
 
         resources.app.post('/login', this.passport.authenticate('login'), (req, res) => {
-            console.log("lava", req.user);
-
+            res.send({
+                redirectTo: '/'
+            });
         });
 
         resources.app.get('/projects', that.loggedIn, (req, res) => {

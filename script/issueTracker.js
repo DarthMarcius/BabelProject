@@ -34,8 +34,8 @@ export default class IssueTracker {
             });
         });
 
-        loginPromise.then(() => {
-
+        loginPromise.then((data) => {
+            window.location = data.redirectTo;
         })
         .catch((jqXHR, textStatus) => {
             console.log("login error", jqXHR, textStatus);
@@ -66,6 +66,7 @@ export default class IssueTracker {
 
         registerPromise.then((data) => {
             console.log("success reg:", data);
+            window.location = data.redirectTo;
         })
         .catch((jqXHR, textStatus) => {
             console.log("login error", jqXHR, textStatus);
