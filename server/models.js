@@ -9,6 +9,12 @@ module.exports= {
                 email: String,
                 gender: String,
                 address: String
+            }),
+
+            Projects: mongoose.model('Projects', {
+                name: String,
+                creator: String,
+                description: String
             })
         }
 

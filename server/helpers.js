@@ -93,12 +93,10 @@ module.exports = {
         );
 
         that.passport.serializeUser(function(user, done) {
-          console.log("ser", user.id);
           done(null, user.id);
         });
 
         that.passport.deserializeUser(function(id, done) {
-          console.log("deserialize", id);
           that.models.User.findById(id, function(err, user) {
             done(null, user);
           });
@@ -137,6 +135,11 @@ module.exports = {
             });
         });
 
+        resources.app.get('/logout', function(req, res){
+          req.logout();
+          res.redirect('/');
+        });
+
         resources.app.get('/register', (req, res) => {
             console.log("rSess", req.session);
             res.render('register', {
@@ -152,7 +155,9 @@ module.exports = {
         });
 
         resources.app.post('/register', this.passport.authenticate('signup'), (req, res) => {
-            console.log("registred");
+            res.send({
+                redirectTo: '/'
+            });
         });
 
         resources.app.post('/login', this.passport.authenticate('login'), (req, res) => {
@@ -164,6 +169,7 @@ module.exports = {
         resources.app.get('/projects', that.loggedIn, (req, res) => {
             res.render('projects', {
                 name: "homepage",
+                userName: req.user.username,
                 title: "Welcome to issue tracker",
                 ifCond(v1, v2, options) {
                     if(v1 === v2) {
@@ -294,7 +300,6 @@ module.exports = {
     },
 
     loggedIn(req, res, next) {
-        console.log(req.user)
         if (req.user || req.url == '/login') {
             next();
         } else {

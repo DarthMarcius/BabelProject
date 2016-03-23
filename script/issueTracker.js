@@ -38,7 +38,7 @@ export default class IssueTracker {
             window.location = data.redirectTo;
         })
         .catch((jqXHR, textStatus) => {
-            console.log("login error", jqXHR, textStatus);
+            //console.log("login error", jqXHR, textStatus);
             this.loginErrorModal.modal();
         });
     }
