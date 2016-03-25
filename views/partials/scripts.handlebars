@@ -5,5 +5,8 @@
 <script>
     var resources = new Object();
 
-    resources.username = "{{userName}}";
+    resources.user = {
+        name: "{{user.username}}",
+        id: "{{user._id}}"
+    };
 </script>

@@ -169,7 +169,7 @@ module.exports = {
         resources.app.get('/projects', that.loggedIn, (req, res) => {
             res.render('projects', {
                 name: "homepage",
-                userName: req.user.username,
+                user: req.user,
                 title: "Welcome to issue tracker",
                 ifCond(v1, v2, options) {
                     if(v1 === v2) {
