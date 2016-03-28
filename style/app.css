@@ -1,3 +1,7 @@
 tr {
     cursor: pointer;
 }
+
+.projects-title {
+    text-align: center;
+}

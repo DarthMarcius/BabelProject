@@ -1,0 +1,28 @@
+<div id="templates">
+    <script id="projects-template" type="text/x-handlebars-template">
+        <table class="projects-table table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Creator</th>
+                    <th>Change Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each projectsList}}
+                    <tr data-project-id={{this._id}}>
+                        <td>{{@index}}</td>
+                        <td>{{this.name}}</td>
+                        <td>{{this.description}}</td>
+                        <td>{{this.creator.username}}</td>
+                        <td>{{this.updated}}</td>
+                        <td><button class="project-edit btn btn-info">Edit</button></td>
+                        <td><button class="project-delete btn btn-danger">Delete</button></td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </script>
+</div>

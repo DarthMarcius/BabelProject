@@ -1,1 +1,1 @@
-{"version":3,"sources":["app.css"],"names":[],"mappings":"AAAA;IACI,gBAAgB;CACnB","file":"app.css","sourcesContent":["tr {\n    cursor: pointer;\n}\n"],"sourceRoot":"/source/"}
+{"version":3,"sources":["app.css"],"names":[],"mappings":"AAAA;IACI,gBAAgB;CACnB;;AAED;IACI,mBAAmB;CACtB","file":"app.css","sourcesContent":["tr {\n    cursor: pointer;\n}\n\n.projects-title {\n    text-align: center;\n}\n"],"sourceRoot":"/source/"}

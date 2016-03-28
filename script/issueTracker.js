@@ -13,6 +13,8 @@ export default class IssueTracker {
         this.registerForm = $(".register-form").length ? $(".register-form") : false;
         this.registerErrorModal = $("#RegistrationErrorModal");
         this.addNewProjectForm = $("#addNewProject").length ? $("#addNewProject") : false;
+        this.projectsPage = $(".projects-page").length ? $(".projects-page") : false;
+        this.projectsSection = $(".projects-section");
     }
 
     login($target) {
@@ -77,10 +79,14 @@ export default class IssueTracker {
     }
 
     setListeners() {
-        var that = this;
-
         this.loginAndRegisterListeners();
         this.projectsListeners();
+
+        $(window).load(() => {
+            if(this.projectsPage) {
+                this.populateProjectsPage();
+            }
+        });
     }
 
     projectsListeners() {
@@ -95,6 +101,55 @@ export default class IssueTracker {
             this.addNewProjectForm.on('submit', (ev) => {
                 ev.preventDefault();
                 this.createProject($(ev.target));
+            });
+        }
+    }
+
+    populateProjectsPage() {
+        let projectsPromise = this.getProjects();
+        let projects;
+        let that = this;
+
+        projectsPromise.then((data) => {
+            console.log("success:", data);
+            populateProjectsTemplate(data);
+        })
+        .catch((jqXHR, textStatus) => {
+            console.log("error fetching projects", jqXHR, textStatus);
+            alert("Error fetching projects");
+        });
+
+        function populateProjectsTemplate(projectsList) {
+            console.log(projectsList)
+            let getProjectsPromise = new Promise((resolve, reject) => {
+                let request = $.ajax({
+                   url: "templates/templates.html",
+                   method: "GET",
+                   dataType: 'html'
+                });
+
+                request.done((data) => {
+                    resolve(data);
+                });
+
+                request.fail((jqXHR, textStatus) => {
+                    reject(jqXHR, textStatus);
+                });
+            });
+
+            getProjectsPromise.then((data) => {
+                let source = $(data).find("#projects-template").html();
+                let template = Handlebars.compile(source);
+                let context = {
+                    projectsList: projectsList
+                };
+                let html = template(context);
+                that.projectsSection.html(html);
+
+            })
+            .catch((jqXHR, textStatus) => {
+                console.log("error during projects template fetch", jqXHR, textStatus);
+                alert("Error during project creation");
             });
         }
     }
@@ -127,6 +182,25 @@ export default class IssueTracker {
             console.log("error during project creation", jqXHR, textStatus);
             alert("Error during project creation");
         });
+    }
+
+    getProjects(callback) {
+        let getProjectsPromise = new Promise((resolve, reject) => {
+            let request = $.ajax({
+               url: "/projectsItems",
+               method: "GET"
+            });
+
+            request.done((data) => {
+                console.log("success, ", data);
+                resolve(data);
+            });
+
+            request.fail((jqXHR, textStatus) => {
+                reject(jqXHR, textStatus);
+            });
+        });
+        return getProjectsPromise;
     }
 
     loginAndRegisterListeners() {

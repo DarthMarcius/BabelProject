@@ -177,7 +177,7 @@ module.exports = {
 
         resources.app.get('/projects', that.loggedIn, (req, res) => {
             res.render('projects', {
-                name: "homepage",
+                name: "projects-page",
                 user: req.user,
                 title: "Welcome to issue tracker",
                 port: that.port,
@@ -187,6 +187,14 @@ module.exports = {
                     }
                     return options.inverse(this);
                 }
+            });
+        });
+
+        resources.app.get('/projectsItems', (req, res) => {
+            let projects = this.models.Project.find({})
+            .populate("creator")
+            .exec((err, projects) => {
+                res.send(projects);
             });
         });
 
