@@ -1,5 +1,6 @@
 export default class IssueTracker {
     constructor() {
+        this.socket = io('http://localhost:' + window.resources.port);
         this.initOptions();
         this.setListeners();
     }

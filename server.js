@@ -18,6 +18,17 @@ let mongoConnectionURL = "mongodb://localhost:27017/issue_tracker";
 let handlebars  = require('express-handlebars');
 let eventEmitter = require('events').EventEmitter;
 
+let port = process.env.PORT || 3000;
+
+app.use(function (req, res, next) {
+
+    // Website you wish to allow to connect
+    res.header("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    // Pass to next layer of middleware
+    next();
+});
+
 app.use(express.static('public'));
 
 app.use(cookieParser());
@@ -45,10 +56,11 @@ let resources = {
     'LocalStrategy': LocalStrategy,
     'bcrypt': bcrypt,
     'eventEmitter': eventEmitter,
-    'io': io
+    'io': io,
+    'port': port
 };
 
 var router = require('./server/helpers.js').init(resources);
 app.use(express.static('public'));
 
-app.listen(3000);
+ioServer.listen(port);

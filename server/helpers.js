@@ -10,10 +10,18 @@ module.exports = {
         that.passport = resources.passport;
         that.LocalStrategy = resources.LocalStrategy;
         that.bcrypt = resources.bcrypt;
+        that.port= resources.port;
 
         that.dbConnect(resources, () => {
             that.initLoginStrategies();
             that.listenToRoutes(resources);
+            that.ioListeners(resources);
+        });
+    },
+
+    ioListeners(resources) {
+        resources.io.on('connection', (socket) => {
+
         });
     },
 
@@ -124,6 +132,7 @@ module.exports = {
         resources.app.get('/login', (req, res) => {
             res.render('login', {
                 name: "login",
+                port: that.port,
                 title: "Welcome to issue tracker",
                 ifCond(v1, v2, options) {
                     if(v1 === v2) {
@@ -144,6 +153,7 @@ module.exports = {
             res.render('register', {
                 name: "register",
                 title: "Register",
+                port: that.port,
                 ifCond(v1, v2, options) {
                     if(v1 === v2) {
                       return options.fn(this);
@@ -170,6 +180,7 @@ module.exports = {
                 name: "homepage",
                 user: req.user,
                 title: "Welcome to issue tracker",
+                port: that.port,
                 ifCond(v1, v2, options) {
                     if(v1 === v2) {
                       return options.fn(this);
