@@ -10,11 +10,11 @@ module.exports = {
         that.passport = resources.passport;
         that.LocalStrategy = resources.LocalStrategy;
         that.bcrypt = resources.bcrypt;
+
         that.dbConnect(resources, () => {
             that.initLoginStrategies();
+            that.listenToRoutes(resources);
         });
-
-        that.listenToRoutes(resources);
     },
 
     initLoginStrategies() {
@@ -122,7 +122,6 @@ module.exports = {
         });
 
         resources.app.get('/login', (req, res) => {
-            console.log("luser", req.user);
             res.render('login', {
                 name: "login",
                 title: "Welcome to issue tracker",
@@ -180,122 +179,88 @@ module.exports = {
             });
         });
 
+        resources.app.get('project/:id', that.loggedIn,  (req, res) => {
+
+        });
+
         resources.app.get('issue/:id', that.loggedIn,  (req, res) => {
 
         });
 
         resources.app.post("/project", (req, res) => {
-            that.dbConnect(resources, (db, models) => {
-                that.addProject(db, res, req.body);
-            });
+            that.addProject(this.models, req, res);
         });
 
 		resources.app.put("/project", (req, res) => {
-			that.dbConnect(resources, (db, models) => {
-				that.updateProject(db, res, req.body);
-			});
+			that.updateProject(this.models, req, res);
 		});
 
 		resources.app.get("/project", (req, res) => {
-			that.dbConnect(resources, (db, models) => {
-				that.getProject(db, res, req.body);
-			});
+			that.getProject(this.models, req, res);
 		});
 
 		resources.app.get("/projects", (req, res) => {
-			that.dbConnect(resources, (db, models) => {
-				that.getProjects(db, res, req.body);
-			});
+			that.getProjects(this.models, req, res);
 		});
 
 		resources.app.delete("/project", (req, res) => {
-			that.dbConnect(resources, (db, models) => {
-				that.removeProject(db, res, req.body);
-			});
+			that.removeProject(this.models, req, res);
 		});
 
 		resources.app.post("/issue", (req, res) => {
-			that.dbConnect(resources, (db, models) => {
-				that.addIssue(db, res, req.body);
-			});
+			that.addIssue(this.models, req, res);
 		});
 
 		resources.app.put("/issue", (req, res) => {
-			that.dbConnect(resources, (db, models) => {
-				that.updateIssue(db, res, req.body);
-			});
+			that.updateIssue(this.models, req, res);
 		});
 
 		resources.app.get("/issue", (req, res) => {
-			that.dbConnect(resources, (db, models) => {
-				that.getIssue(db, res, req.body);
-			});
+			that.getIssue(this.models, req, res);
 		});
 
 		resources.app.get("/issues", (req, res) => {
-			that.dbConnect(resources, (db, models) => {
-				that.getIssues(db, res, req.body);
-			});
+			that.getIssues(this.models, req, res);
 		});
 
 		resources.app.delete("/issue", (req, res) => {
-			that.dbConnect(resources, (db, models) => {
-				that.removeIssue(db, res, req.body);
-			});
+			that.removeIssue(this.models, req, res);
 		});
 
 		resources.app.post("/comment", (req, res) => {
-            that.dbConnect(resources, (db, models) => {
-                that.addComment(db, res, req.body);
-            });
+            that.addComment(this.models, req, res);
         });
 
 		resources.app.put("/comment", (req, res) => {
-            that.dbConnect(resources, (db, models) => {
-                that.updateComment(db, res, req.body);
-            });
+            that.updateComment(this.models, req, res);
         });
 
 		resources.app.get("/comment", (req, res) => {
-            that.dbConnect(resources, (db, models) => {
-                that.getComment(db, res, req.body);
-            });
+            that.getComment(this.models, req, res);
         });
 
 		resources.app.get("/comments", (req, res) => {
-			that.dbConnect(resources, (db, models) => {
-				that.getComments(db, res, req.body);
-			});
+			that.getComments(this.models, req, res);
 		});
 
 		resources.app.delete("/comment", (req, res) => {
-            that.dbConnect(resources, (db, models) => {
-                that.removeComment(db, res, req.body);
-            });
+            that.removeComment(this.models, req, res);
         });
 
 		resources.app.post("/log", (req, res) => {
-            that.dbConnect(resources, (db, models) => {
-                that.addLog(db, res, req.body);
-            });
+            that.addLog(this.models, req, res);
         });
 
 		resources.app.put("/log", (req, res) => {
-            that.dbConnect(resources, (db, models) => {
-                that.updateLog(db, res, req.body);
-            });
+            that.updateLog(this.models, req, res);
         });
 
 		resources.app.get("/logs", (req, res) => {
-            that.dbConnect(resources, (db, models) => {
-                that.getLogs(db, res, req.body);
-            });
+            that.getLogs(this.models, req, res);
         });
 
 		resources.app.delete("/log", (req, res) => {
-            that.dbConnect(resources, (db, models) => {
-                that.removeLog(db, res, req.body);
-            });
+            that.removeLog(this.models, req, res);
         });
     },
 
@@ -317,83 +282,103 @@ module.exports = {
         });
     },
 
-    addProject(db, res, data) {
-        console.log(data.projectName)
+    addProject(models, req, res) {
+        console.log(req.body);
+
+        let project = new models.Project({
+            name: req.body.name,
+            creator: req.body.creator,
+            description: req.body.description
+        });
+
+        project.save((err, user) => {
+            console.log(err)
+            if (err) {
+                res.status(400).send('Bad Request:' + err);
+            }else {
+                res.send({
+                    status: "ok"
+                });
+            }
+
+        });
+
+        /**/
     },
 
-	updateProject(db, res, data) {
-
-    },
-
-	getProject(db, res, data) {
-
-	},
-
-	getProjects(db, res, data) {
-
-	},
-
-	removeProject(db, res, data) {
-
-	},
-
-    addIssue(db, res, data) {
-
-    },
-
-	updateIssue(db, res, data) {
-
-    },
-
-	getIssue(db, res, data) {
+	updateProject(models, req, res) {
 
     },
 
-	getIssues(db, res, data) {
+	getProject(models, req, res) {
+
+	},
+
+	getProjects(models, req, res) {
+
+	},
+
+	removeProject(models, req, res) {
+
+	},
+
+    addIssue(models, req, res) {
 
     },
 
-	removeIssue(db, res, data) {
+	updateIssue(models, req, res) {
 
     },
 
-    addComment(db, res, data) {
+	getIssue(models, req, res) {
 
     },
 
-	updateComment(db, res, data) {
-
-	},
-
-	getComment(db, res, data) {
-
-	},
-
-	getComments(db, res, data) {
-
-	},
-
-	removeComment(db, res, data) {
-
-	},
-
-    addLog(db, res, data) {
+	getIssues(models, req, res) {
 
     },
 
-	updateLog(db, res, data) {
+	removeIssue(models, req, res) {
+
+    },
+
+    addComment(models, req, res) {
+
+    },
+
+	updateComment(models, req, res) {
 
 	},
 
-	getLog(db, res, data) {
+	getComment(models, req, res) {
 
 	},
 
-	getLogs(db, res, data) {
+	getComments(models, req, res) {
 
 	},
 
-	removeLog(db, res, data) {
+	removeComment(models, req, res) {
+
+	},
+
+    addLog(models, req, res) {
+
+    },
+
+	updateLog(models, req, res) {
+
+	},
+
+	getLog(models, req, res) {
+
+	},
+
+	getLogs(models, req, res) {
+
+	},
+
+	removeLog(models, req, res) {
 
 	}
 }

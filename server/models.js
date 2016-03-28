@@ -24,7 +24,8 @@ module.exports= {
             creator: {type: Schema.Types.ObjectId, ref: 'User'},
             description: String,
             project: {type: Schema.Types.ObjectId, ref: 'Project'},
-            comments: [{type: Schema.Types.ObjectId, ref: 'Comment'}]
+            comments: [{type: Schema.Types.ObjectId, ref: 'Comment'}],
+            logs:  [{type: Schema.Types.ObjectId, ref: 'Log'}]
         });
 
         this.commentSchema = new Schema({
@@ -32,7 +33,15 @@ module.exports= {
             updated: { type: Date, default: Date.now },
             text: String,
             issue: {type: Schema.Types.ObjectId, ref: 'Issue'}
-        })
+        });
+
+        this.logSchema = new Schema({
+            creator: {type: Schema.Types.ObjectId, ref: 'User'},
+            updated: { type: Date, default: Date.now },
+            text: String,
+            timeSpent: String,
+            issue: {type: Schema.Types.ObjectId, ref: 'Issue'}
+        });
     },
 
     defineModels(mongoose) {
@@ -45,7 +54,9 @@ module.exports= {
 
             Issue: mongoose.model('Issue', this.issueSchema),
 
-            Comment: mongoose.model('Comment', this.commentSchema)
+            Comment: mongoose.model('Comment', this.commentSchema),
+
+            Log: mongoose.model('Log', this.logSchema)
         }
 
         return models;

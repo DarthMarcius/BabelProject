@@ -11,6 +11,7 @@ export default class IssueTracker {
         this.loginErrorModal = $("#LoginErrorModal");
         this.registerForm = $(".register-form").length ? $(".register-form") : false;
         this.registerErrorModal = $("#RegistrationErrorModal");
+        this.addNewProjectForm = $("#addNewProject").length ? $("#addNewProject") : false;
     }
 
     login($target) {
@@ -77,6 +78,11 @@ export default class IssueTracker {
     setListeners() {
         var that = this;
 
+        this.loginAndRegisterListeners();
+        this.projectsListeners();
+    }
+
+    projectsListeners() {
         if(this.createProjectButton) {
             this.createProjectButton.on("click", (ev) => {
                 ev.preventDefault();
@@ -84,10 +90,49 @@ export default class IssueTracker {
             });
         }
 
+        if(this.addNewProjectForm) {
+            this.addNewProjectForm.on('submit', (ev) => {
+                ev.preventDefault();
+                this.createProject($(ev.target));
+            });
+        }
+    }
+
+    createProject($target) {
+        let data = $target.serialize();
+
+        let createProjectPromise = new Promise((resolve, reject) => {
+            let request = $.ajax({
+               url: "/project",
+               method: "POST",
+               data: data
+            });
+
+            request.done((data) => {
+                console.log("success, ", data);
+                resolve(data);
+            });
+
+            request.fail((jqXHR, textStatus) => {
+                reject(jqXHR, textStatus);
+            });
+        });
+
+        createProjectPromise.then((data) => {
+            console.log("success reg:", data);
+
+        })
+        .catch((jqXHR, textStatus) => {
+            console.log("error during project creation", jqXHR, textStatus);
+            alert("Error during project creation");
+        });
+    }
+
+    loginAndRegisterListeners() {
         if(this.loginForm) {
             this.loginForm.on("submit", (ev) => {
                 ev.preventDefault();
-                that.login($( ev.target ));
+                this.login($( ev.target ));
             });
         }
 
@@ -100,7 +145,7 @@ export default class IssueTracker {
                     alert("passwords you entered are not identical");
                     return false;
                 }
-                that.register($( ev.target ));
+                this.register($( ev.target ));
             });
         }
     }

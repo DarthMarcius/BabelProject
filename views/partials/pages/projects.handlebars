@@ -5,18 +5,23 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">Add New Project</h4>
       </div>
-      <div class="modal-body">
-          <form id="addNewProject">
-            <div class="form-group">
-              <label for="projectName">Project Name</label>
-              <input id="newprojectName" type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-            </div>
-          </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      <form id="addNewProject">
+          <div class="modal-body">
+                <input type="hidden" name="creator" value="{{user.id}}">
+                <div class="form-group">
+                  <label for="projectName">Project Name</label>
+                  <input id="newprojectName" name="name" type="text" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <label for="description">Project Description</label>
+                  <textarea name="description" id="description" class="form-control" rows="3"></textarea>
+                </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Create Project</button>
+          </div>
+      </form>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->

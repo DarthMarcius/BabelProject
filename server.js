@@ -1,19 +1,22 @@
 "use strict";
 
-var path = require("path");
-var express = require('express');
-var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
-var app = express();
-var appRoot = path.normalize(path.resolve(__dirname));
-var passport = require('passport');
-var flash = require('connect-flash');
-var LocalStrategy = require('passport-local').Strategy;
-var bcrypt = require('bcrypt-nodejs');
-var expressSession = require('express-session');
-var mongoose = require('mongoose');
-var mongoConnectionURL = "mongodb://localhost:27017/issue_tracker";
-var handlebars  = require('express-handlebars');
+let path = require("path");
+let express = require('express');
+let bodyParser = require('body-parser');
+let cookieParser = require('cookie-parser');
+let app = express();
+let ioServer = require('http').Server(app);
+let io = require('socket.io')(ioServer);
+let appRoot = path.normalize(path.resolve(__dirname));
+let passport = require('passport');
+let flash = require('connect-flash');
+let LocalStrategy = require('passport-local').Strategy;
+let bcrypt = require('bcrypt-nodejs');
+let expressSession = require('express-session');
+let mongoose = require('mongoose');
+let mongoConnectionURL = "mongodb://localhost:27017/issue_tracker";
+let handlebars  = require('express-handlebars');
+let eventEmitter = require('events').EventEmitter;
 
 app.use(express.static('public'));
 
@@ -31,7 +34,7 @@ app.use(expressSession({
 app.use(passport.initialize());
 app.use(passport.session());
 
-var resources = {
+let resources = {
     'app': app,
     'handlebars': handlebars,
     'mongoose': mongoose,
@@ -40,7 +43,9 @@ var resources = {
     'path': path,
     'passport': passport,
     'LocalStrategy': LocalStrategy,
-    'bcrypt': bcrypt
+    'bcrypt': bcrypt,
+    'eventEmitter': eventEmitter,
+    'io': io
 };
 
 var router = require('./server/helpers.js').init(resources);
