@@ -14,8 +14,8 @@
                 {{#each projectsList}}
                     <tr data-project-id={{this._id}}>
                         <td>{{@index}}</td>
-                        <td>{{this.name}}</td>
-                        <td>{{this.description}}</td>
+                        <td class="pr-name">{{this.name}}</td>
+                        <td class="pr-description">{{this.description}}</td>
                         <td>{{this.creator.username}}</td>
                         <td>{{this.updated}}</td>
                         <td><button class="project-edit btn btn-info">Edit</button></td>

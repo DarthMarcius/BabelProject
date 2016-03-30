@@ -1,11 +1,13 @@
 export default class IssueTracker {
     constructor() {
-        this.socket = io('http://localhost:' + window.resources.port);
-        this.initOptions();
+        let ioPath = 'http://localhost:' + window.resources.port;
+        console.log(ioPath);
+        this.socket = io(ioPath);
+        this.initCache();
         this.setListeners();
     }
 
-    initOptions() {
+    initCache() {
         this.createProjectButton = $(".add-project").length ? $(".add-project") : false;
         this.createProjectModal = $("#addProjectModal").length ? $("#addProjectModal") : false;
         this.loginForm = $(".login-form").length ? $(".login-form") : false;
@@ -15,6 +17,10 @@ export default class IssueTracker {
         this.addNewProjectForm = $("#addNewProject").length ? $("#addNewProject") : false;
         this.projectsPage = $(".projects-page").length ? $(".projects-page") : false;
         this.projectsSection = $(".projects-section");
+        this.projectEditSelector = ".project-edit";
+        this.projectDeleteSelector = ".project-delete";
+        this.deleteProjectFormSelector = "#deleteProject";
+        this.updateProjectFormSelector = "#updateProject";
     }
 
     login($target) {
@@ -103,6 +109,95 @@ export default class IssueTracker {
                 this.createProject($(ev.target));
             });
         }
+
+        $("body").on("click", this.projectEditSelector, (ev) => {
+            ev.stopPropagation();
+            let $parent = $(ev.target).closest("tr");
+            let projectId = $parent.attr("data-project-id");
+            let projectName = $parent.find(".pr-name").html();
+            let projectDescription = $parent.find(".pr-description").html();
+
+            $("#editProjectModal").modal();
+            $("#updatee-project-id").val(projectId);
+            $("#new-project-name").val(projectName);
+            $("#new-description").val(projectDescription);
+        });
+
+        $("body").on("click", this.projectDeleteSelector, (ev) => {
+            ev.stopPropagation();
+            let projectId = $(ev.target).closest("tr").attr("data-project-id");
+            $("#deleteProjectModal").modal();
+            $("#delete-project-id").val(projectId);
+        });
+
+        $("body").on("submit", this.deleteProjectFormSelector, (ev) => {
+            ev.preventDefault();
+            this.removeProject($(ev.target).serialize());
+        });
+
+        $("body").on("submit", this.updateProjectFormSelector, (ev) => {
+            ev.preventDefault();
+            this.updateProject($(ev.target).serialize());
+        });
+
+        this.socket.on("updateProjects", () => {
+            this.populateProjectsPage();
+        });
+    }
+
+    removeProject(data) {
+        let deleteProjectPromise = new Promise((resolve, reject) => {
+            let request = $.ajax({
+               url: "/project",
+               method: "DELETE",
+               data: data
+            });
+
+            request.done((data) => {
+                console.log("success, ", data);
+                resolve(data);
+            });
+
+            request.fail((jqXHR, textStatus) => {
+                reject(jqXHR, textStatus);
+            });
+        });
+
+        deleteProjectPromise.then((data) => {
+            $("#deleteProjectModal").modal("hide");
+        })
+        .catch((jqXHR, textStatus) => {
+            console.log("error removing project", jqXHR, textStatus);
+            alert("Error fetching projects");
+        });
+    }
+
+    updateProject(data) {
+        let updateProjectPromise = new Promise((resolve, reject) => {
+            let request = $.ajax({
+               url: "/project",
+               method: "PUT",
+               data: data
+            });
+
+            request.done((data) => {
+                console.log("success, ", data);
+                $("#editProjectModal").modal("hide");
+                resolve(data);
+            });
+
+            request.fail((jqXHR, textStatus) => {
+                reject(jqXHR, textStatus);
+            });
+        });
+
+        updateProjectPromise.then((data) => {
+            $("#deleteProjectModal").modal("hide");
+        })
+        .catch((jqXHR, textStatus) => {
+            console.log("error removing project", jqXHR, textStatus);
+            alert("Error fetching projects");
+        });
     }
 
     populateProjectsPage() {
@@ -166,6 +261,7 @@ export default class IssueTracker {
 
             request.done((data) => {
                 console.log("success, ", data);
+                $("#addProjectModal").modal("hide");
                 resolve(data);
             });
 

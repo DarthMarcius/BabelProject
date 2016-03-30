@@ -41,14 +41,14 @@
       </div>
       <form id="updateProject">
           <div class="modal-body">
-                <input type="hidden" value="" name="id">
+                <input id="updatee-project-id" type="hidden" name="projectId" value="">
                 <div class="form-group">
                   <label for="projectName">Project Name</label>
-                  <input id="newprojectName" name="name" type="text" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                  <input id="new-project-name" name="name" type="text" class="form-control" id="exampleInputEmail1" placeholder="Email">
                 </div>
                 <div class="form-group">
                   <label for="description">Project Description</label>
-                  <textarea name="description" id="description" class="form-control" rows="3"></textarea>
+                  <textarea placeholder="Project Description" name="description" id="new-description" class="form-control" rows="3"></textarea>
                 </div>
           </div>
           <div class="modal-footer">
@@ -68,6 +68,7 @@
         <h4 class="modal-title">Delete Project</h4>
       </div>
       <form id="deleteProject">
+          <input id="delete-project-id" type="hidden" name="projectId" value="">
           <div class="modal-body">
                 <p class="text text-danger">Are you sure you want to delete this project?</p>
                 <p class="text text-danger">All issues related to it will be destroyed</p>

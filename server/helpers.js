@@ -2,27 +2,28 @@
 
 module.exports = {
     init(resources) {
-        var that = this;
+        this.mongoose = resources.mongoose;
+        this.models = require(__dirname + '/models').defineModels(this.mongoose);
+        this.path = resources.path;
+        this.passport = resources.passport;
+        this.LocalStrategy = resources.LocalStrategy;
+        this.bcrypt = resources.bcrypt;
+        this.port = resources.port;
+        this.io = resources.io;
 
-        that.mongoose = resources.mongoose;
-        that.models = require(__dirname + '/models').defineModels(that.mongoose);
-        that.path = resources.path;
-        that.passport = resources.passport;
-        that.LocalStrategy = resources.LocalStrategy;
-        that.bcrypt = resources.bcrypt;
-        that.port= resources.port;
+        this.io.on('connection', (socket) => {
+            this.socket = socket;
+        });
 
-        that.dbConnect(resources, () => {
-            that.initLoginStrategies();
-            that.listenToRoutes(resources);
-            that.ioListeners(resources);
+        this.dbConnect(resources, () => {
+            this.initLoginStrategies();
+            this.listenToRoutes(resources);
+            this.ioListeners(resources);
         });
     },
 
     ioListeners(resources) {
-        resources.io.on('connection', (socket) => {
 
-        });
     },
 
     initLoginStrategies() {
@@ -191,8 +192,24 @@ module.exports = {
         });
 
         resources.app.get('/projectsItems', (req, res) => {
-            let projects = this.models.Project.find({})
-            .populate("creator")
+            let projects = this.models.Project.aggregate(
+                [
+                    {
+                        $lookup: {from: 'users', localField: 'creator', foreignField: '_id', as: 'creator'}
+                    },
+
+                    { $unwind : "$creator" },
+
+                    {
+                        $project: {
+                            name: 1,
+                            updated: { $dateToString: { format: "%Y-%m-%d", date: "$updated" } },
+                            creator: 1,
+                            description: 1
+                        }
+                    }
+                ]
+            )
             .exec((err, projects) => {
                 res.send(projects);
             });
@@ -318,15 +335,34 @@ module.exports = {
                 res.send({
                     status: "ok"
                 });
+                this.socket.emit('updateProjects', {});
             }
-
         });
 
         /**/
     },
 
 	updateProject(models, req, res) {
+        models.Project.findById(req.body.projectId, (err, project) => {
+            if (err) {
+                res.status(400).send('Error fetching project:' + err);
+                return;
+            }
 
+            project.name = req.body.name;
+            project.description = req.body.description;
+
+            project.save((err) => {
+                if (err) {
+                    res.status(400).send('Error updating project:' + err);
+                }else {
+                    res.status(200).send({
+                        status: "ok"
+                    });
+                    this.socket.emit('updateProjects', {});
+                }
+            });
+        });
     },
 
 	getProject(models, req, res) {
@@ -338,7 +374,20 @@ module.exports = {
 	},
 
 	removeProject(models, req, res) {
-
+        console.log("md", req.body)
+        models.Project.remove({"_id": req.body.projectId}, (err) => {
+            if (!err) {
+                res.status(200).send({
+                    message: "ok"
+                });
+                this.socket.emit('updateProjects', {});
+            }
+            else {
+                res.status(400).send({
+                    message: "Error removing prject"
+                });
+            }
+        });
 	},
 
     addIssue(models, req, res) {
