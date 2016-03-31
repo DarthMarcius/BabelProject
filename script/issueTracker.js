@@ -140,6 +140,11 @@ export default class IssueTracker {
             this.updateProject($(ev.target).serialize());
         });
 
+        $("body").on("click", ".project-item", (ev) => {
+            let $target = $(ev.target).closest(".project-item");
+            window.location.href = "project/" + $target.attr("data-project-id");
+        });
+
         this.socket.on("updateProjects", () => {
             this.populateProjectsPage();
         });

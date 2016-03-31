@@ -215,8 +215,24 @@ module.exports = {
             });
         });
 
-        resources.app.get('project/:id', that.loggedIn,  (req, res) => {
+        resources.app.get('/project/:id', that.loggedIn,  (req, res) => {
 
+            this.getProjectItem(req.params.id, (project) => {
+                console.log(project)
+                res.render('project', {
+                    name: "project-page",
+                    user: req.user,
+                    title: "Project page",
+                    port: that.port,
+                    project: project[0],
+                    ifCond(v1, v2, options) {
+                        if(v1 === v2) {
+                          return options.fn(this);
+                        }
+                        return options.inverse(this);
+                    }
+                });
+            });
         });
 
         resources.app.get('issue/:id', that.loggedIn,  (req, res) => {
@@ -297,6 +313,34 @@ module.exports = {
 
 		resources.app.delete("/log", (req, res) => {
             that.removeLog(this.models, req, res);
+        });
+    },
+
+    getProjectItem(id, callback) {
+        let projects = this.models.Project.aggregate(
+            [
+                {
+                    $match : { _id : this.mongoose.Types.ObjectId(id) }
+                },
+
+                {
+                    $lookup: {from: 'users', localField: 'creator', foreignField: '_id', as: 'creator'}
+                },
+
+                { $unwind : "$creator" },
+
+                {
+                    $project: {
+                        name: 1,
+                        updated: { $dateToString: { format: "%Y-%m-%d", date: "$updated" } },
+                        creator: 1,
+                        description: 1
+                    }
+                }
+            ]
+        )
+        .exec((err, project) => {
+            callback(project);
         });
     },
 
