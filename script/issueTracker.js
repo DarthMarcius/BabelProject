@@ -1,7 +1,6 @@
 export default class IssueTracker {
     constructor() {
         let ioPath = 'http://localhost:' + window.resources.port;
-        console.log(ioPath);
         this.socket = io(ioPath);
         this.initCache();
         this.setListeners();
@@ -21,6 +20,9 @@ export default class IssueTracker {
         this.projectDeleteSelector = ".project-delete";
         this.deleteProjectFormSelector = "#deleteProject";
         this.updateProjectFormSelector = "#updateProject";
+        this.projectPage = $(".project-page").length ? $(".project-page") : false;
+        this.addIssue = $(".add-issue");
+        this.addIssueForm = $("#addNewIssue").length ? $("#addNewIssue") : false;
     }
 
     login($target) {
@@ -35,7 +37,6 @@ export default class IssueTracker {
             });
 
             request.done((data) => {
-                console.log("success, ", data);
                 resolve(data);
             });
 
@@ -48,7 +49,6 @@ export default class IssueTracker {
             window.location = data.redirectTo;
         })
         .catch((jqXHR, textStatus) => {
-            //console.log("login error", jqXHR, textStatus);
             this.loginErrorModal.modal();
         });
     }
@@ -65,7 +65,6 @@ export default class IssueTracker {
             });
 
             request.done((data) => {
-                console.log("success, ", data);
                 resolve(data);
             });
 
@@ -91,6 +90,10 @@ export default class IssueTracker {
         $(window).load(() => {
             if(this.projectsPage) {
                 this.populateProjectsPage();
+            }
+
+            if(this.projectPage) {
+                this.populateProjectPage();
             }
         });
     }
@@ -148,6 +151,23 @@ export default class IssueTracker {
         this.socket.on("updateProjects", () => {
             this.populateProjectsPage();
         });
+
+        this.addIssue.on("click", (ev) => {
+            ev.stopPropagation();
+            ev.preventDefault();
+            console.log($("#addIssueModal"))
+            $("#addIssueModal").modal();
+        });
+
+        if(this.addIssueForm) {
+            this.addIssueForm.on("submit", (ev) => {
+                ev.preventDefault();
+                let serialized = $(ev.target).serialize();
+                let deserializedData = this.deserializeForm(serialized);
+                let estimatedMinutes = this.convertEstimate(deserializedData.originalEstimate);
+                console.log(estimatedMinutes)
+            });
+        }
     }
 
     removeProject(data) {
@@ -175,6 +195,71 @@ export default class IssueTracker {
             console.log("error removing project", jqXHR, textStatus);
             alert("Error fetching projects");
         });
+    }
+
+    deserializeForm(serializedFormData) {
+        let serializedDataArray = serializedFormData.split("&");
+        let deserializeddData = new Object();
+        let itemSplit;
+
+        for(let length = serializedDataArray.length, i = 0; i < length; i++) {
+            itemSplit = serializedDataArray[i].split("=");
+            deserializeddData[itemSplit[0]] = itemSplit[1];
+        }
+        return deserializeddData;
+    }
+
+    convertEstimate(estimateString) {
+        estimateString = estimateString.replace("+", " ");
+
+        let regexp = /(^\d*h \d*m$)|(^\d*(\.\d+)?h$)|(^\d*m$)/; /*e.g 1h 30m or 30m or 1.5h*/
+        let match = estimateString.match(regexp);
+        let matchSplit;
+        let splitLength;
+        let hours;
+        let minutes = 0;
+        let additionalMinutes = 0;
+
+        if(!match) {
+            return false;
+        }
+
+        match = match[0];
+        matchSplit = match.split(" ");
+        splitLength = matchSplit.length;
+
+        if(splitLength == 1) {
+            let indexOfM = matchSplit[0].indexOf("m");
+            let indexOfH = matchSplit[0].indexOf("h");
+
+            if(indexOfM != -1) {
+                minutes = matchSplit[0].slice(0, indexOfM);
+            }
+
+            if(indexOfH != -1) {
+                hours = matchSplit[0].slice(0, indexOfH);
+            }
+        }else {
+            let indexOfH = matchSplit[0].indexOf("h");
+            let indexOfM = matchSplit[1].indexOf("m");
+
+            if(indexOfH != -1) {
+                hours = matchSplit[0].slice(0, indexOfH);
+            }
+
+            if(indexOfM != -1) {
+                minutes = matchSplit[1].slice(0, indexOfM);
+            }
+        }
+
+        if(hours) {
+            additionalMinutes = parseInt(60 * hours);
+        }
+
+        minutes = parseInt(minutes);
+        minutes += additionalMinutes;
+
+        return minutes;
     }
 
     updateProject(data) {
@@ -254,6 +339,10 @@ export default class IssueTracker {
         }
     }
 
+    populateProjectPage() {
+        let $issueSection = $(".project-page .issues-section");
+    }
+
     createProject($target) {
         let data = $target.serialize();
 
@@ -293,7 +382,6 @@ export default class IssueTracker {
             });
 
             request.done((data) => {
-                console.log("success, ", data);
                 resolve(data);
             });
 

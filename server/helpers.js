@@ -218,7 +218,6 @@ module.exports = {
         resources.app.get('/project/:id', that.loggedIn,  (req, res) => {
 
             this.getProjectItem(req.params.id, (project) => {
-                console.log(project)
                 res.render('project', {
                     name: "project-page",
                     user: req.user,

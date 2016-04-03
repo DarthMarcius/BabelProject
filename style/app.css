@@ -5,3 +5,8 @@ tr {
 .projects-title {
     text-align: center;
 }
+
+
+.change-date-data {
+    min-width: 100px;
+}
