@@ -211,7 +211,7 @@ module.exports = {
                 ]
             )
             .exec((err, projects) => {
-                console.log("fetched projects is this:", projects)
+                console.log("fetched projects is this models:", this.models)
                 res.send(projects);
             });
         });
