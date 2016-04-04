@@ -481,7 +481,7 @@ export default class IssueTracker {
         let that = this;
 
         projectsPromise.then((data) => {
-            console.log("success:", data);
+            console.log("fetched projects:", data);
             populateProjectsTemplate(data);
         })
         .catch((jqXHR, textStatus) => {
