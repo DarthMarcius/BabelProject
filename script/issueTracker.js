@@ -1,6 +1,6 @@
 export default class IssueTracker {
     constructor() {
-        let ioPath = "https://" + window.location.hostname + window.resources.port;
+        let ioPath = "https://" + window.location.hostname + ":" + window.resources.port;
         this.socket = io(ioPath);
         this.initCache();
         this.setListeners();
