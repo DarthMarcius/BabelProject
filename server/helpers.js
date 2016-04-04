@@ -192,7 +192,20 @@ module.exports = {
         });
 
         resources.app.get('/projectsItems', (req, res) => {
-            let projects = this.models.Project.find()
+            let projects = this.models.Project.aggregate(
+                [
+
+
+                    {
+                        $project: {
+                            name: 1,
+                            updated: { $dateToString: { format: "%Y-%m-%d", date: "$updated" } },
+                            creator: 1,
+                            description: 1
+                        }
+                    }
+                ]
+            )
             .exec((err, projects) => {
                 console.log("fetched projects is this:", projects)
                 res.send(projects);
