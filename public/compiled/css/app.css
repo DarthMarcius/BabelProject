@@ -11,4 +11,12 @@ tr {
     min-width: 100px;
 }
 
+.help-block {
+    display: none;
+}
+
+.has-error .help-block {
+    display: block;
+}
+
 /*# sourceMappingURL=app.css.map */

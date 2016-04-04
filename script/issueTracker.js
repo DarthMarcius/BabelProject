@@ -23,6 +23,8 @@ export default class IssueTracker {
         this.projectPage = $(".project-page").length ? $(".project-page") : false;
         this.addIssue = $(".add-issue");
         this.addIssueForm = $("#addNewIssue").length ? $("#addNewIssue") : false;
+        this.issueEditSelector = ".issue-edit";
+        this.issueDeleteSelector = ".issue-delete";
     }
 
     login($target) {
@@ -93,7 +95,7 @@ export default class IssueTracker {
             }
 
             if(this.projectPage) {
-                this.populateProjectPage();
+                this.populateProjectPage(window.resources.project);
             }
         });
     }
@@ -143,6 +145,27 @@ export default class IssueTracker {
             this.updateProject($(ev.target).serialize());
         });
 
+        $("body").on("click", this.issueEditSelector, (ev) => {
+            ev.stopPropagation();
+            let $parent = $(ev.target).closest("tr");
+            let issueId = $parent.attr("data-issue-id");
+            let issueName = $parent.find(".issue-name").html();
+            let issueDescription = $parent.find(".issue-description").html();
+
+            $("#editIssueModal").modal();
+            $("#updatee-issue-id").val(issueId);
+            $("#new-issue-name").val(issueName);
+            $("#new-description").val(issueDescription);
+        });
+
+        $("body").on("click", this.issueDeleteSelector, (ev) => {
+            ev.stopPropagation();
+            console.log("here")
+            let issueId = $(ev.target).closest("tr").attr("data-issue-id");
+            $("#deleteIssueModal").modal();
+            $("#delete-issue-id").val(issueId);
+        });
+
         $("body").on("click", ".project-item", (ev) => {
             let $target = $(ev.target).closest(".project-item");
             window.location.href = "project/" + $target.attr("data-project-id");
@@ -165,36 +188,26 @@ export default class IssueTracker {
                 let serialized = $(ev.target).serialize();
                 let deserializedData = this.deserializeForm(serialized);
                 let estimatedMinutes = this.convertEstimate(deserializedData.originalEstimate);
-                console.log(estimatedMinutes)
+
+                if(!estimatedMinutes) {
+                    $(".original-estimate-group").addClass("has-error");
+                    return;
+                }
+
+                deserializedData.originalEstimate = estimatedMinutes;
+                this.createIssue(deserializedData);
+                console.log(deserializedData)
             });
         }
-    }
 
-    removeProject(data) {
-        let deleteProjectPromise = new Promise((resolve, reject) => {
-            let request = $.ajax({
-               url: "/project",
-               method: "DELETE",
-               data: data
-            });
-
-            request.done((data) => {
-                console.log("success, ", data);
-                resolve(data);
-            });
-
-            request.fail((jqXHR, textStatus) => {
-                reject(jqXHR, textStatus);
-            });
+        this.socket.on("updateIssues", (data) => {
+            console.log(data);
+            if(data.project == resources.project) {
+                this.populateProjectPage(resources.project);
+            }
         });
 
-        deleteProjectPromise.then((data) => {
-            $("#deleteProjectModal").modal("hide");
-        })
-        .catch((jqXHR, textStatus) => {
-            console.log("error removing project", jqXHR, textStatus);
-            alert("Error fetching projects");
-        });
+
     }
 
     deserializeForm(serializedFormData) {
@@ -203,6 +216,8 @@ export default class IssueTracker {
         let itemSplit;
 
         for(let length = serializedDataArray.length, i = 0; i < length; i++) {
+            serializedDataArray[i] = serializedDataArray[i].replace(/\+/g, " ");
+
             itemSplit = serializedDataArray[i].split("=");
             deserializeddData[itemSplit[0]] = itemSplit[1];
         }
@@ -210,8 +225,6 @@ export default class IssueTracker {
     }
 
     convertEstimate(estimateString) {
-        estimateString = estimateString.replace("+", " ");
-
         let regexp = /(^\d*h \d*m$)|(^\d*(\.\d+)?h$)|(^\d*m$)/; /*e.g 1h 30m or 30m or 1.5h*/
         let match = estimateString.match(regexp);
         let matchSplit;
@@ -262,6 +275,61 @@ export default class IssueTracker {
         return minutes;
     }
 
+    createIssue(data) {
+        let createIssuePromise = new Promise((resolve, reject) => {
+            let request = $.ajax({
+               url: "/issue",
+               method: "POST",
+               data: data
+            });
+
+            request.done((data) => {
+                console.log("success, ", data);
+                resolve(data);
+            });
+
+            request.fail((jqXHR, textStatus) => {
+                reject(jqXHR, textStatus);
+            });
+        });
+
+        createIssuePromise.then((data) => {
+            console.log("success reg:", data);
+            $("#addIssueModal").modal("hide");
+        })
+        .catch((jqXHR, textStatus) => {
+            console.log("error during project creation", jqXHR, textStatus);
+            alert("Error during issue creation");
+        });
+    }
+
+    removeProject(data) {
+        let deleteProjectPromise = new Promise((resolve, reject) => {
+            let request = $.ajax({
+               url: "/project",
+               method: "DELETE",
+               data: data
+            });
+
+            request.done((data) => {
+                console.log("success, ", data);
+                resolve(data);
+            });
+
+            request.fail((jqXHR, textStatus) => {
+                reject(jqXHR, textStatus);
+            });
+        });
+
+        deleteProjectPromise.then((data) => {
+            $("#deleteProjectModal").modal("hide");
+        })
+        .catch((jqXHR, textStatus) => {
+            console.log("error removing project", jqXHR, textStatus);
+            alert("Error fetching projects");
+        });
+    }
+
     updateProject(data) {
         let updateProjectPromise = new Promise((resolve, reject) => {
             let request = $.ajax({
@@ -290,6 +358,49 @@ export default class IssueTracker {
         });
     }
 
+    populateProjectPage(projectId) {
+        let issuesPromise = this.getIssues(projectId, populateIssuesTemplate);
+        let $issuesSection = $(".project-page .issues-section");
+
+        issuesPromise.then((data) => {
+            console.log("issues collection is::", data);
+            populateIssuesTemplate(data);
+        })
+
+        function populateIssuesTemplate(issuesList) {
+            let getProjectsPromise = new Promise((resolve, reject) => {
+                let request = $.ajax({
+                   url: "/templates/templates.html",
+                   method: "GET",
+                   dataType: 'html'
+                });
+
+                request.done((data) => {
+                    resolve(data);
+                });
+
+                request.fail((jqXHR, textStatus) => {
+                    reject(jqXHR, textStatus);
+                });
+            });
+
+            getProjectsPromise.then((data) => {
+                let source = $(data).find("#project-template").html();
+                let template = Handlebars.compile(source);
+                let context = {
+                    issuesList: issuesList
+                };
+                let html = template(context);
+                $issuesSection.html(html);
+
+            })
+            .catch((jqXHR, textStatus) => {
+                console.log("error during issues template fetch", jqXHR, textStatus);
+                alert("Error during project creation");
+            });
+        }
+    }
+
     populateProjectsPage() {
         let projectsPromise = this.getProjects();
         let projects;
@@ -308,7 +419,7 @@ export default class IssueTracker {
             console.log(projectsList)
             let getProjectsPromise = new Promise((resolve, reject) => {
                 let request = $.ajax({
-                   url: "templates/templates.html",
+                   url: "/templates/templates.html",
                    method: "GET",
                    dataType: 'html'
                 });
@@ -337,10 +448,6 @@ export default class IssueTracker {
                 alert("Error during project creation");
             });
         }
-    }
-
-    populateProjectPage() {
-        let $issueSection = $(".project-page .issues-section");
     }
 
     createProject($target) {
@@ -379,6 +486,28 @@ export default class IssueTracker {
             let request = $.ajax({
                url: "/projectsItems",
                method: "GET"
+            });
+
+            request.done((data) => {
+                resolve(data);
+            });
+
+            request.fail((jqXHR, textStatus) => {
+                reject(jqXHR, textStatus);
+            });
+        });
+        return getProjectsPromise;
+    }
+
+    getIssues(projectId, callback) {
+        console.log("pri:", projectId);
+        let getProjectsPromise = new Promise((resolve, reject) => {
+            let request = $.ajax({
+               url: "/issues",
+               method: "GET",
+               data: {
+                   projectId: projectId
+               }
             });
 
             request.done((data) => {

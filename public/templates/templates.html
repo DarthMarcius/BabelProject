@@ -25,4 +25,31 @@
             </tbody>
         </table>
     </script>
+
+    <script id="project-template" type="text/x-handlebars-template">
+        <table class="issues-table table table-hover">
+            <thead>
+                <tr>
+                    <th>IssueId</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Creator</th>
+                    <th>Change Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each issuesList}}
+                    <tr class="project-item" data-issue-id={{this._id}}>
+                        <td>{{this._id}}</td>
+                        <td class="issue-name">{{this.name}}</td>
+                        <td class="issue-description">{{this.description}}</td>
+                        <td>{{this.creator.username}}</td>
+                        <td class="change-date-data">{{this.updated}}</td>
+                        <td><button class="issue-edit btn btn-info">Edit</button></td>
+                        <td><button class="issue-delete btn btn-danger">Delete</button></td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </script>
 </div>

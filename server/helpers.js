@@ -362,8 +362,6 @@ module.exports = {
     },
 
     addProject(models, req, res) {
-        console.log(req.body);
-
         let project = new models.Project({
             name: req.body.name,
             creator: req.body.creator,
@@ -381,8 +379,6 @@ module.exports = {
                 this.socket.emit('updateProjects', {});
             }
         });
-
-        /**/
     },
 
 	updateProject(models, req, res) {
@@ -434,7 +430,30 @@ module.exports = {
 	},
 
     addIssue(models, req, res) {
+        console.log(req.body)
 
+        let issue = new models.Issue({
+            project: req.body.project,
+            name: req.body.name,
+            creator: req.body.creator,
+            description: req.body.description,
+            originalEstimateMinutes: req.body.originalEstimate,
+            realEstimateMinutes: req.body.originalEstimate
+        });
+
+        issue.save((err, user) => {
+            console.log(err)
+            if (err) {
+                res.status(400).send('Bad Request:' + err);
+            }else {
+                res.send({
+                    status: "ok"
+                });
+                this.socket.emit('updateIssues', {
+                    project: req.body.project
+                });
+            }
+        });
     },
 
 	updateIssue(models, req, res) {
@@ -446,7 +465,32 @@ module.exports = {
     },
 
 	getIssues(models, req, res) {
+        console.log("yoma: ", req.query.projectId)
+        let issues = this.models.Issue.aggregate(
+            [
+                {
+                    $match : { project : this.mongoose.Types.ObjectId(req.query.projectId) }
+                },
 
+                {
+                    $lookup: {from: 'users', localField: 'creator', foreignField: '_id', as: 'creator'}
+                },
+
+                { $unwind : "$creator" },
+
+                {
+                    $project: {
+                        name: 1,
+                        updated: { $dateToString: { format: "%Y-%m-%d", date: "$updated" } },
+                        creator: 1,
+                        description: 1
+                    }
+                }
+            ]
+        )
+        .exec((err, issues) => {
+            res.send(issues);
+        });
     },
 
 	removeIssue(models, req, res) {

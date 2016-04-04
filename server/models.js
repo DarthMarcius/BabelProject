@@ -27,7 +27,7 @@ module.exports= {
             comments: [{type: Schema.Types.ObjectId, ref: 'Comment'}],
             logs:  [{type: Schema.Types.ObjectId, ref: 'Log'}],
             originalEstimateMinutes: Number,
-            remainingEstimateMinutes: Number
+            realEstimateMinutes: Number
         });
 
         this.commentSchema = new Schema({
