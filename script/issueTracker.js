@@ -23,6 +23,8 @@ export default class IssueTracker {
         this.projectPage = $(".project-page").length ? $(".project-page") : false;
         this.addIssue = $(".add-issue");
         this.addIssueForm = $("#addNewIssue").length ? $("#addNewIssue") : false;
+        this.updateIssueForm = $("#updateIssue").length ? $("#updateIssue") : false;
+        this.deleteIssueForm = $("#deleteIssue").length ? $("#deleteIssue") : false;
         this.issueEditSelector = ".issue-edit";
         this.issueDeleteSelector = ".issue-delete";
     }
@@ -166,9 +168,28 @@ export default class IssueTracker {
             $("#delete-issue-id").val(issueId);
         });
 
+        if(this.deleteIssueForm) {
+            this.deleteIssueForm.on("submit", (ev) => {
+                ev.preventDefault();
+                this.deleteIssue($(ev.target).serialize());
+            });
+        }
+
+        if(this.updateIssueForm) {
+            this.updateIssueForm.on("submit", (ev) => {
+                ev.preventDefault();
+                this.updateIssue($(ev.target).serialize());
+            });
+        }
+
         $("body").on("click", ".project-item", (ev) => {
             let $target = $(ev.target).closest(".project-item");
-            window.location.href = "project/" + $target.attr("data-project-id");
+            window.location.href = "/project/" + $target.attr("data-project-id");
+        });
+
+        $("body").on("click", ".issue-item", (ev) => {
+            let $target = $(ev.target).closest(".issue-item");
+            window.location.href = "/issue/" + $target.attr("data-issue-id");
         });
 
         this.socket.on("updateProjects", () => {
@@ -206,8 +227,6 @@ export default class IssueTracker {
                 this.populateProjectPage(resources.project);
             }
         });
-
-
     }
 
     deserializeForm(serializedFormData) {
@@ -326,7 +345,7 @@ export default class IssueTracker {
         })
         .catch((jqXHR, textStatus) => {
             console.log("error removing project", jqXHR, textStatus);
-            alert("Error fetching projects");
+            alert("Error while removing project");
         });
     }
 
@@ -354,7 +373,62 @@ export default class IssueTracker {
         })
         .catch((jqXHR, textStatus) => {
             console.log("error removing project", jqXHR, textStatus);
-            alert("Error fetching projects");
+            alert("Error updating projects");
+        });
+    }
+
+    deleteIssue(data) {
+        let deleteIssuePromise = new Promise((resolve, reject) => {
+            let request = $.ajax({
+               url: "/issue",
+               method: "DELETE",
+               data: data
+            });
+
+            request.done((data) => {
+                console.log("success, ", data);
+                resolve(data);
+            });
+
+            request.fail((jqXHR, textStatus) => {
+                reject(jqXHR, textStatus);
+            });
+        });
+
+        deleteIssuePromise.then((data) => {
+            $("#deleteIssueModal").modal("hide");
+        })
+        .catch((jqXHR, textStatus) => {
+            console.log("error removing issue", jqXHR, textStatus);
+            alert("Error removing issue");
+        });
+    }
+
+    updateIssue(data) {
+        let updateIssuePromise = new Promise((resolve, reject) => {
+            let request = $.ajax({
+               url: "/issue",
+               method: "PUT",
+               data: data
+            });
+
+            request.done((data) => {
+                console.log("success, ", data);
+                $("#editProjectModal").modal("hide");
+                resolve(data);
+            });
+
+            request.fail((jqXHR, textStatus) => {
+                reject(jqXHR, textStatus);
+            });
+        });
+
+        updateIssuePromise.then((data) => {
+            $("#deleteProjectModal").modal("hide");
+        })
+        .catch((jqXHR, textStatus) => {
+            console.log("error updating issue", jqXHR, textStatus);
+            alert("Error while updating issue");
         });
     }
 
@@ -392,7 +466,7 @@ export default class IssueTracker {
                 };
                 let html = template(context);
                 $issuesSection.html(html);
-
+                $("#editIssueModal").modal("hide");
             })
             .catch((jqXHR, textStatus) => {
                 console.log("error during issues template fetch", jqXHR, textStatus);

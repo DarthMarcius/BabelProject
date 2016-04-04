@@ -234,8 +234,22 @@ module.exports = {
             });
         });
 
-        resources.app.get('issue/:id', that.loggedIn,  (req, res) => {
-
+        resources.app.get('/issue/:id', that.loggedIn,  (req, res) => {
+            this.getIssueItem(req.params.id, (issue) => {
+                res.render('issue', {
+                    name: "issue-page",
+                    user: req.user,
+                    title: "Issue page",
+                    port: that.port,
+                    issue: issue[0],
+                    ifCond(v1, v2, options) {
+                        if(v1 === v2) {
+                          return options.fn(this);
+                        }
+                        return options.inverse(this);
+                    }
+                });
+            });
         });
 
         resources.app.post("/project", (req, res) => {
@@ -340,6 +354,53 @@ module.exports = {
         )
         .exec((err, project) => {
             callback(project);
+        });
+    },
+
+    getIssueItem(id, callback) {
+        let projects = this.models.Issue.aggregate(
+            [
+                {
+                    $match : { _id : this.mongoose.Types.ObjectId(id) }
+                },
+
+                {
+                    $lookup: {from: 'users', localField: 'creator', foreignField: '_id', as: 'creator'}
+                },
+
+                {
+                    $lookup: {from: 'projects', localField: 'project', foreignField: '_id', as: 'project'}
+                },
+
+                /*{
+                    $lookup: {from: 'comments', localField: '_id', foreignField: 'issue_id', as: 'comments'}
+                },
+
+                {
+                    $lookup: {from: 'logs', localField: '_id', foreignField: 'issue_id', as: 'logs'}
+                },*/
+
+                { $unwind : "$creator" },
+
+                { $unwind : "$project" },
+
+                {
+                    $project: {
+                        name: 1,
+                        updated: { $dateToString: { format: "%Y-%m-%d", date: "$updated" } },
+                        creator: 1,
+                        description: 1,
+                        project: 1,
+                        comments: 1,
+                        logs: 1,
+                        originalEstimateMinutes: 1,
+                        realEstimateMinutes: 1
+                    }
+                }
+            ]
+        )
+        .exec((err, issue) => {
+            callback(issue);
         });
     },
 
@@ -457,7 +518,28 @@ module.exports = {
     },
 
 	updateIssue(models, req, res) {
+        models.Issue.findById(req.body.issueId, (err, issue) => {
+            if (err) {
+                res.status(400).send('Error fetching issue:' + err);
+                return;
+            }
 
+            issue.name = req.body.name;
+            issue.description = req.body.description;
+
+            issue.save((err) => {
+                if (err) {
+                    res.status(400).send('Error updating issue:' + err);
+                }else {
+                    res.status(200).send({
+                        status: "ok"
+                    });
+                    this.socket.emit('updateIssues', {
+                        project: req.body.project
+                    });
+                }
+            });
+        });
     },
 
 	getIssue(models, req, res) {
@@ -465,7 +547,6 @@ module.exports = {
     },
 
 	getIssues(models, req, res) {
-        console.log("yoma: ", req.query.projectId)
         let issues = this.models.Issue.aggregate(
             [
                 {
@@ -494,7 +575,21 @@ module.exports = {
     },
 
 	removeIssue(models, req, res) {
-
+        models.Issue.remove({"_id": req.body.issuetId}, (err) => {
+            if (!err) {
+                res.status(200).send({
+                    message: "ok"
+                });
+                this.socket.emit('updateIssues', {
+                    project: req.body.project
+                });
+            }
+            else {
+                res.status(400).send({
+                    message: "Error removing issue"
+                });
+            }
+        });
     },
 
     addComment(models, req, res) {

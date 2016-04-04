@@ -19,4 +19,14 @@ tr {
     display: block;
 }
 
+.nav-tabs .nav.active a {
+    background-color: #2780e3;
+    color: white;
+}
+
+.nav-tabs .nav.active a:focus {
+    background-color: #2780e3;
+    color: white;
+}
+
 /*# sourceMappingURL=app.css.map */

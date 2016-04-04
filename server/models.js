@@ -24,8 +24,6 @@ module.exports= {
             creator: {type: Schema.Types.ObjectId, ref: 'User'},
             description: String,
             project: {type: Schema.Types.ObjectId, ref: 'Project'},
-            comments: [{type: Schema.Types.ObjectId, ref: 'Comment'}],
-            logs:  [{type: Schema.Types.ObjectId, ref: 'Log'}],
             originalEstimateMinutes: Number,
             realEstimateMinutes: Number
         });
@@ -34,7 +32,7 @@ module.exports= {
             creator: {type: Schema.Types.ObjectId, ref: 'User'},
             updated: { type: Date, default: Date.now },
             text: String,
-            issue: {type: Schema.Types.ObjectId, ref: 'Issue'}
+            issue_id: {type: Schema.Types.ObjectId, ref: 'Issue'}
         });
 
         this.logSchema = new Schema({
@@ -42,7 +40,7 @@ module.exports= {
             updated: { type: Date, default: Date.now },
             text: String,
             timeSpent: String,
-            issue: {type: Schema.Types.ObjectId, ref: 'Issue'}
+            issue_id: {type: Schema.Types.ObjectId, ref: 'Issue'}
         });
     },
 
