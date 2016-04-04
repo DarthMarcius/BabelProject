@@ -14,9 +14,10 @@ let LocalStrategy = require('passport-local').Strategy;
 let bcrypt = require('bcrypt-nodejs');
 let expressSession = require('express-session');
 let mongoose = require('mongoose');
-let mongoConnectionURL = process.env.DATABASE_URL || "mongodb://localhost:27017/issue_tracker";
+let mongoConnectionURL = process.env.MONGOLAB_URI || "mongodb://localhost:27017/issue_tracker";
 let handlebars  = require('express-handlebars');
 let eventEmitter = require('events').EventEmitter;
+
 
 let port = process.env.PORT || 3000;
 
