@@ -192,26 +192,9 @@ module.exports = {
         });
 
         resources.app.get('/projectsItems', (req, res) => {
-            let projects = this.models.Project.aggregate(
-                [
-                    {
-                        $lookup: {from: 'users', localField: 'creator', foreignField: '_id', as: 'creator'}
-                    },
-
-                    { $unwind : "$creator" },
-
-                    {
-                        $project: {
-                            name: 1,
-                            updated: { $dateToString: { format: "%Y-%m-%d", date: "$updated" } },
-                            creator: 1,
-                            description: 1
-                        }
-                    }
-                ]
-            )
+            let projects = this.models.Project.find()
             .exec((err, projects) => {
-                console.log("fetched projects is this models:", this.models)
+                console.log("fetched projects is this:", projects)
                 res.send(projects);
             });
         });
