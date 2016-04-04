@@ -1,7 +1,7 @@
 export default class IssueTracker {
     constructor() {
         let ioPath = "https://" + window.location.hostname + ":" + window.resources.port;
-        this.socket = io();
+        this.socket = io("https://calm-lake-38279.herokuapp.com");
         this.initCache();
         this.setListeners();
     }
