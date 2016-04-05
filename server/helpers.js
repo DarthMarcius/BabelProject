@@ -196,7 +196,7 @@ module.exports = {
             let projects = this.models.Project.aggregate(
                 [
                     {
-                        $lookup: {from: 'users', localField: 'creator', foreignField: '_id', as: 'creator'}
+                        $lookup: {from: 'users', localField: 'creator.$oid', foreignField: '_id.$oid', as: 'creator'}
                     },
 
                     { $unwind : "$creator" },
