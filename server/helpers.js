@@ -194,8 +194,6 @@ module.exports = {
         resources.app.get('/projectsItems', (req, res) => {
             let projects = this.models.Project.aggregate(
                 [
-
-
                     {
                         $project: {
                             name: 1,
@@ -203,7 +201,13 @@ module.exports = {
                             creator: 1,
                             description: 1
                         }
-                    }
+                    },
+
+                    {
+                        $lookup: {from: 'users', localField: 'creator', foreignField: '_id', as: 'creator'}
+                    },
+
+                    { $unwind : "$creator" }
                 ]
             )
             .exec((err, projects) => {
