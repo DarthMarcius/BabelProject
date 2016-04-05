@@ -205,9 +205,7 @@ module.exports = {
 
                     {
                         $lookup: {from: 'users', localField: 'creator', foreignField: '_id', as: 'creator'}
-                    },
-
-                    { $unwind : "$creator" }
+                    }
                 ]
             )
             .exec((err, projects) => {
