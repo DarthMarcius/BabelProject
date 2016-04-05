@@ -79,6 +79,7 @@ module.exports = {
                             // create the user
                             var newUser = new that.models.User();
                             // set the user's local credentials
+                            newUser._id = that.mongoose.Types.ObjectId();
                             newUser.username = username;
                             newUser.password = that.createHash(password);
 
