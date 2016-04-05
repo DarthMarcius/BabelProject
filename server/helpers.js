@@ -195,6 +195,12 @@ module.exports = {
             let projects = this.models.Project.aggregate(
                 [
                     {
+                        $lookup: {from: 'users', localField: 'creator', foreignField: '_id', as: 'creator'}
+                    },
+
+                    { $unwind : "$creator" },
+
+                    {
                         $project: {
                             name: 1,
                             updated: { $dateToString: { format: "%Y-%m-%d", date: "$updated" } },

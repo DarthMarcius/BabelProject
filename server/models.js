@@ -3,6 +3,7 @@
 module.exports= {
     defineSchemas(Schema) {
         this.userSchema = new Schema({
+            _id: Schema.Types.ObjectId,
             username: String,
             password: String,
             email: String,
