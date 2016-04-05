@@ -201,10 +201,6 @@ module.exports = {
                             creator: 1,
                             description: 1
                         }
-                    },
-
-                    {
-                        $lookup: {from: 'users', localField: 'creator', foreignField: '_id', as: 'creator'}
                     }
                 ]
             )
