@@ -195,12 +195,6 @@ module.exports = {
         resources.app.get('/projectsItems', (req, res) => {
             let projects = this.models.Project.aggregate(
                 [
-                    /*{
-                        $lookup: {from: 'users', localField: 'creator', foreignField: '_id', as: 'creator'}
-                    },
-
-                    { $unwind : "$creator" },*/
-
                     {
                         $project: {
                             name: 1,
@@ -213,7 +207,6 @@ module.exports = {
             )
             .exec((err, projects) => {
                 this.models.Project.populate(projects, {path: "creator"}, (err, projects) => {
-                    console.log("fetched projects is this1:", projects)
                     res.send(projects);
                 });
             });
@@ -341,12 +334,6 @@ module.exports = {
                 },
 
                 {
-                    $lookup: {from: 'users', localField: 'creator', foreignField: '_id', as: 'creator'}
-                },
-
-                { $unwind : "$creator" },
-
-                {
                     $project: {
                         name: 1,
                         updated: { $dateToString: { format: "%Y-%m-%d", date: "$updated" } },
@@ -357,7 +344,9 @@ module.exports = {
             ]
         )
         .exec((err, project) => {
-            callback(project);
+            this.models.Project.populate(project, {path: "creator"}, (err, project) => {
+                callback(project);
+            });
         });
     },
 
@@ -368,13 +357,13 @@ module.exports = {
                     $match : { _id : this.mongoose.Types.ObjectId(id) }
                 },
 
-                {
+                /*{
                     $lookup: {from: 'users', localField: 'creator', foreignField: '_id', as: 'creator'}
                 },
 
                 {
                     $lookup: {from: 'projects', localField: 'project', foreignField: '_id', as: 'project'}
-                },
+                },*/
 
                 /*{
                     $lookup: {from: 'comments', localField: '_id', foreignField: 'issue_id', as: 'comments'}
@@ -382,12 +371,12 @@ module.exports = {
 
                 {
                     $lookup: {from: 'logs', localField: '_id', foreignField: 'issue_id', as: 'logs'}
-                },*/
+                },
 
                 { $unwind : "$creator" },
 
                 { $unwind : "$project" },
-
+*/
                 {
                     $project: {
                         name: 1,
@@ -557,11 +546,11 @@ module.exports = {
                     $match : { project : this.mongoose.Types.ObjectId(req.query.projectId) }
                 },
 
-                {
+                /*{
                     $lookup: {from: 'users', localField: 'creator', foreignField: '_id', as: 'creator'}
                 },
 
-                { $unwind : "$creator" },
+                { $unwind : "$creator" },*/
 
                 {
                     $project: {
@@ -574,7 +563,9 @@ module.exports = {
             ]
         )
         .exec((err, issues) => {
-            res.send(issues);
+            this.models.Issue.populate(issues, {path: "creator"}, (err, issues) => {
+                res.send(issues);
+            });
         });
     },
 
