@@ -195,11 +195,11 @@ module.exports = {
         resources.app.get('/projectsItems', (req, res) => {
             let projects = this.models.Project.aggregate(
                 [
-                    {
+                    /*{
                         $lookup: {from: 'users', localField: 'creator', foreignField: '_id', as: 'creator'}
                     },
 
-                    { $unwind : "$creator" },
+                    { $unwind : "$creator" },*/
 
                     {
                         $project: {
@@ -212,8 +212,10 @@ module.exports = {
                 ]
             )
             .exec((err, projects) => {
-                console.log("fetched projects is this:", projects)
-                res.send(projects);
+                this.models.Project.populate(projects, {path: "creator"}, (err, projects) => {
+                    console.log("fetched projects is this1:", projects)
+                    res.send(projects);
+                });
             });
         });
 
