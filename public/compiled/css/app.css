@@ -29,4 +29,23 @@ tr {
     color: white;
 }
 
+.new-comment,
+.new-worklog {
+    margin: 0 auto 5px auto;
+    display: block;
+}
+
+.glyphicon-time {
+    cursor: pointer;
+    display: block;
+    pointer-events: auto;
+}
+
+.glyphicon-time::before {
+    line-height: 25px;
+    display: inline-block;
+    right: 6px;
+    position: relative;
+}
+
 /*# sourceMappingURL=app.css.map */

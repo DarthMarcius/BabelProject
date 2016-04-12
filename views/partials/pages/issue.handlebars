@@ -28,14 +28,18 @@
                 <!-- Tab panes -->
                 <div class="tab-content">
                     <div class="tab-pane fade in active panel panel-primary" id="comments-section">
-                        <div class="panel-body">
+                        <div class="panel-body issue-comments">
                             Basic panel example
+
                         </div>
+                        <button type="button" class="btn btn-primary new-comment">New Comment</button>
                     </div>
                     <div class="tab-pane fade panel panel-primary" id="logs-section">
-                        <div class="panel-body">
+                        <div class="panel-body issue-worklogs">
                             Basic panel example2
+
                         </div>
+                        <button type="button" class="btn btn-primary new-worklog">New Worklog</button>
                     </div>
                 </div>
         </div>
@@ -57,29 +61,59 @@
     </div>
 </div>
 
-<div id="addIssueModal" class="modal fade" tabindex="-1" role="dialog">
+<div id="addCommentModal" class="modal fade" tabindex="-1" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Add New Issue</h4>
+        <h4 class="modal-title">Add Comment</h4>
       </div>
-      <form id="addNewIssue">
+      <form id="addNewComment">
           <div class="modal-body">
                 <input type="hidden" name="creator" value="{{user.id}}">
-                <input type="hidden" name="project" value="{{issue.project}}">
+                <input type="hidden" name="issueId" value="{{issue._id}}">
                 <div class="form-group">
-                    <label for="issueName">Issue Name</label>
-                    <input id="issueName" name="name" type="text" class="form-control" placeholder="Email">
+                    <label for="description">Comment text</label>
+                    <textarea name="text" id="description" placeholder="Please type your comment here" class="form-control" rows="3"></textarea>
                 </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Post Comment</button>
+          </div>
+      </form>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div id="addWorkLogModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Add Work Log</h4>
+      </div>
+      <form id="addNewWorklog">
+          <div class="modal-body">
+                <input type="hidden" name="creator" value="{{user.id}}">
+                <input type="hidden" name="issueId" value="{{issue._id}}">
+                <div class="form-group has-feedback">
+                    <div class='input-group date' id="work-log-datetimepicker" >
+                        <label for="date-time-picker-input">Date Started</label>
+                        <input class="form-control" id="date-time-picker-input" placeholder="pick worklog start time" data-format="MM/dd/yyyy HH:mm PP" type="text"></input>
+                        <span class="input-group-addon glyphicon glyphicon glyphicon-time form-control-feedback" aria-hidden="true"></span>
+                    </div>
+
+                </div>
+
                 <div class="form-group">
-                    <label for="description">Issue Description</label>
-                    <textarea name="description" id="description" placeholder="Issue Description" class="form-control" rows="3"></textarea>
+                    <label for="work-log-description">Log description</label>
+                    <textarea name="text" id="work-log-description" placeholder="Describe what have you been working on" class="form-control" rows="3"></textarea>
                 </div>
                 <div class="form-group original-estimate-group">
-                    <label for="original-estimate">Original estimate</label>
-                    <input id="original-estimate" name="originalEstimate" type="text" class="form-control" placeholder="e.g 1h 30m or 30m or 1.5h">
-                    <p class="help-block">Please enter valid estimate</p>
+                    <label for="timeSpent">Time Spent</label>
+                    <input id="timeSpent" name="timeSpent" type="text" class="form-control" placeholder="e.g 1h 30m or 30m or 1.5h">
+                    <p class="help-block">Please enter valid worklog</p>
                 </div>
           </div>
           <div class="modal-footer">

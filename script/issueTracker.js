@@ -3,6 +3,7 @@ export default class IssueTracker {
         let ioPath = window.location.hostname == "localhost" ? "http://localhost:" + resources.port : "https://" + window.location.hostname;
         this.socket = io(ioPath);
         this.initCache();
+        this.initDom();
         this.setListeners();
     }
 
@@ -27,6 +28,24 @@ export default class IssueTracker {
         this.deleteIssueForm = $("#deleteIssue").length ? $("#deleteIssue") : false;
         this.issueEditSelector = ".issue-edit";
         this.issueDeleteSelector = ".issue-delete";
+        this.addComment = $(".new-comment").length ? $(".new-comment") : false;
+        this.addWrokLog = $(".new-worklog").length ? $(".new-worklog") : false;
+        this.addCommentModal = $("#addCommentModal");
+        this.addWorkLogModal = $("#addWorkLogModal");
+        this.addNewCommentFormSelector = "#addNewComment";
+        this.addNewWorklogFormSelector = "#addNewWorklog";
+        this.dateTimePicker = $("#work-log-datetimepicker").length ? $("#work-log-datetimepicker") : false;
+    }
+
+    initDom() {
+        if(this.dateTimePicker) {
+            this.dateTimePicker.datetimepicker({
+                defaultDate: new Date()
+            });
+            $("#date-time-picker-input").focus((ev) => {
+                $(".input-group-addon").click();
+            });
+        }
     }
 
     login($target) {
@@ -90,6 +109,7 @@ export default class IssueTracker {
     setListeners() {
         this.loginAndRegisterListeners();
         this.projectsListeners();
+        this.issueListeners();
 
         $(window).load(() => {
             if(this.projectsPage) {
@@ -226,6 +246,28 @@ export default class IssueTracker {
             if(data.project == resources.project) {
                 this.populateProjectPage(resources.project);
             }
+        });
+    }
+
+    issueListeners() {
+        if(this.addComment) {
+            this.addComment.on("click", (ev) => {
+                this.addCommentModal.modal();
+            });
+        }
+
+        if(this.addWrokLog) {
+            this.addWrokLog.on("click", (ev) => {
+                this.addWorkLogModal.modal();
+            });
+        }
+
+        $("body").on("submit", this.addNewCommentFormSelector, (ev) => {
+            ev.preventDefault();
+        });
+
+        $("body").on("submit", this.addNewWorklogFormSelector, (ev) => {
+            ev.preventDefault();
         });
     }
 

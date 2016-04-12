@@ -232,19 +232,23 @@ module.exports = {
         });
 
         resources.app.get('/issue/:id', that.loggedIn,  (req, res) => {
+
             this.getIssueItem(req.params.id, (issue) => {
-                res.render('issue', {
-                    name: "issue-page",
-                    user: req.user,
-                    title: "Issue page",
-                    port: that.port,
-                    issue: issue[0],
-                    ifCond(v1, v2, options) {
-                        if(v1 === v2) {
-                          return options.fn(this);
+
+                this.models.Issue.populate(issue, {path: "creator"}, (err, issue) => {
+                    res.render('issue', {
+                        name: "issue-page",
+                        user: req.user,
+                        title: "Issue page",
+                        port: that.port,
+                        issue: issue[0],
+                        ifCond(v1, v2, options) {
+                            if(v1 === v2) {
+                              return options.fn(this);
+                            }
+                            return options.inverse(this);
                         }
-                        return options.inverse(this);
-                    }
+                    });
                 });
             });
         });
