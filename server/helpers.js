@@ -301,10 +301,6 @@ module.exports = {
             that.updateComment(this.models, req, res);
         });
 
-		resources.app.get("/comment", (req, res) => {
-            that.getComment(this.models, req, res);
-        });
-
 		resources.app.get("/comments", (req, res) => {
 			that.getComments(this.models, req, res);
 		});
@@ -592,19 +588,53 @@ module.exports = {
     },
 
     addComment(models, req, res) {
+        console.log(req.body)
 
+        let comment = new models.Comment({
+            creator: req.body.creator,
+            text: req.body.text,
+            issue_id: req.body.issueId
+        });
+
+        comment.save((err, user) => {
+            console.log(err)
+            if (err) {
+                res.status(400).send('Bad Request:' + err);
+            }else {
+                res.send({
+                    status: "ok"
+                });
+                this.socket.emit('updateComments', {
+                    issue: req.body.issueId
+                });
+            }
+        });
     },
 
 	updateComment(models, req, res) {
 
 	},
 
-	getComment(models, req, res) {
-
-	},
-
 	getComments(models, req, res) {
+        this.models.Comment.aggregate(
+            [
+                {
+                    $match : { issue_id : this.mongoose.Types.ObjectId(req.query.issueId) }
+                },
 
+                {
+                    $project: {
+                        creator: 1,
+                        updated: { $dateToString: { format: "%Y-%m-%d", date: "$updated" } },
+                        text: 1
+                    }
+                }
+            ]
+        ).exec((err, comments) => {
+            this.models.Comment.populate(comments, {path: "creator"}, (err, comments) => {
+                res.send(comments);
+            });
+        });
 	},
 
 	removeComment(models, req, res) {

@@ -22,6 +22,7 @@ export default class IssueTracker {
         this.deleteProjectFormSelector = "#deleteProject";
         this.updateProjectFormSelector = "#updateProject";
         this.projectPage = $(".project-page").length ? $(".project-page") : false;
+        this.issuePage = $(".issue-page").length ? $(".issue-page") : false;
         this.addIssue = $(".add-issue");
         this.addIssueForm = $("#addNewIssue").length ? $("#addNewIssue") : false;
         this.updateIssueForm = $("#updateIssue").length ? $("#updateIssue") : false;
@@ -118,6 +119,10 @@ export default class IssueTracker {
 
             if(this.projectPage) {
                 this.populateProjectPage(window.resources.project);
+            }
+
+            if(this.issuePage) {
+                this.populateIssuePage(window.resources.issue);
             }
         });
     }
@@ -264,11 +269,21 @@ export default class IssueTracker {
 
         $("body").on("submit", this.addNewCommentFormSelector, (ev) => {
             ev.preventDefault();
+            this.createComment($(ev.target).serialize());
         });
 
         $("body").on("submit", this.addNewWorklogFormSelector, (ev) => {
             ev.preventDefault();
         });
+
+        this.socket.on("updateComments", (data) => {
+            console.log(data);
+            if(data.issue == resources.issue) {
+                this.populateIssuePage(resources.issue);
+            }
+        });
+
+
     }
 
     deserializeForm(serializedFormData) {
@@ -334,6 +349,35 @@ export default class IssueTracker {
         minutes += additionalMinutes;
 
         return minutes;
+    }
+
+    createComment(data) {
+        console.log(data)
+        let createCommentPromise = new Promise((resolve, reject) => {
+            let request = $.ajax({
+               url: "/comment",
+               method: "POST",
+               data: data
+            });
+
+            request.done((data) => {
+                console.log("success, ", data);
+                resolve(data);
+            });
+
+            request.fail((jqXHR, textStatus) => {
+                reject(jqXHR, textStatus);
+            });
+        });
+
+        createCommentPromise.then((data) => {
+            console.log("success creating comment:", data);
+            $("#addCommentModal").modal("hide");
+        })
+        .catch((jqXHR, textStatus) => {
+            console.log("Error during comment creation", jqXHR, textStatus);
+            alert("Error during comment creation");
+        });
     }
 
     createIssue(data) {
@@ -517,6 +561,48 @@ export default class IssueTracker {
         }
     }
 
+    populateIssuePage(issueId) {
+        let issuesPromise = this.getComments(issueId);
+        let $commentsSection = $(".issue-page .issue-comments");
+
+        issuesPromise.then((data) => {
+            console.log("issues comments is::", data);
+            populateIssuesTemplate(data);
+        })
+
+        function populateIssuesTemplate(commentsList) {
+            let getProjectsPromise = new Promise((resolve, reject) => {
+                let request = $.ajax({
+                   url: "/templates/templates.html",
+                   method: "GET",
+                   dataType: 'html'
+                });
+
+                request.done((data) => {
+                    resolve(data);
+                });
+
+                request.fail((jqXHR, textStatus) => {
+                    reject(jqXHR, textStatus);
+                });
+            });
+
+            getProjectsPromise.then((data) => {
+                let source = $(data).find("#comments-template").html();
+                let template = Handlebars.compile(source);
+                let context = {
+                    commentsList: commentsList
+                };
+                let html = template(context);
+                $commentsSection.html(html);
+            })
+            .catch((jqXHR, textStatus) => {
+                console.log("error during comments template fetch", jqXHR, textStatus);
+                alert("Error during project creation");
+            });
+        }
+    }
+
     populateProjectsPage() {
         let projectsPromise = this.getProjects();
         let projects;
@@ -617,7 +703,7 @@ export default class IssueTracker {
 
     getIssues(projectId, callback) {
         console.log("pri:", projectId);
-        let getProjectsPromise = new Promise((resolve, reject) => {
+        let getIssuesPromise = new Promise((resolve, reject) => {
             let request = $.ajax({
                url: "/issues",
                method: "GET",
@@ -634,7 +720,29 @@ export default class IssueTracker {
                 reject(jqXHR, textStatus);
             });
         });
-        return getProjectsPromise;
+        return getIssuesPromise;
+    }
+
+    getComments(issueId) {
+        console.log("issueId:", issueId);
+        let getCommentsPromise = new Promise((resolve, reject) => {
+            let request = $.ajax({
+               url: "/comments",
+               method: "GET",
+               data: {
+                   issueId: issueId
+               }
+            });
+
+            request.done((data) => {
+                resolve(data);
+            });
+
+            request.fail((jqXHR, textStatus) => {
+                reject(jqXHR, textStatus);
+            });
+        });
+        return getCommentsPromise;
     }
 
     loginAndRegisterListeners() {

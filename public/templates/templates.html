@@ -52,4 +52,18 @@
             </tbody>
         </table>
     </script>
+
+    <script id="comments-template" type="text/x-handlebars-template">
+        {{#each commentsList}}
+            <article class="comment-item panel panel-primary" data-comment-id={{this._id}}>
+                <header class="panel-heading">
+                    <span class="comment-info">{{this.creator.username}} added a comment - {{this.updated}}</span>
+                    <section class="comment-controlls"></section>
+                </header>
+                <section class="panel-body">
+                    {{this.text}}
+                </section>
+            </article>
+        {{/each}}
+    </script>
 </div>

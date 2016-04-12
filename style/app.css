@@ -47,3 +47,7 @@ tr {
     right: 6px;
     position: relative;
 }
+
+.comment-item header {
+    color: white;
+}

@@ -48,4 +48,8 @@ tr {
     position: relative;
 }
 
+.comment-item header {
+    color: white;
+}
+
 /*# sourceMappingURL=app.css.map */
