@@ -36,6 +36,10 @@ export default class IssueTracker {
         this.addNewCommentFormSelector = "#addNewComment";
         this.addNewWorklogFormSelector = "#addNewWorklog";
         this.dateTimePicker = $("#work-log-datetimepicker").length ? $("#work-log-datetimepicker") : false;
+        this.editCommentThumbSelector = ".edit-comment";
+        this.deleteCommentThumbSelector = ".delete-comment";
+        this.deleteCommentForm = $("#deleteComment").length ? $("#deleteComment") : false;
+        this.updateCommentForm = $("#updateComment").length ? $("#updateComment") : false;
     }
 
     initDom() {
@@ -277,13 +281,35 @@ export default class IssueTracker {
         });
 
         this.socket.on("updateComments", (data) => {
-            console.log(data);
-            if(data.issue == resources.issue) {
-                this.populateIssuePage(resources.issue);
+            if(data.issue == window.resources.issue) {
+                this.populateIssuePage(window.resources.issue);
             }
         });
 
+        $("body").on("click", this.deleteCommentThumbSelector, (ev) => {
+            $("#deleteCommentModal").modal();
+            $("#delete-comment-id").val($(ev.target).closest(".comment-item").attr("data-comment-id"));
+        });
 
+        $("body").on("click", this.editCommentThumbSelector, (ev) => {
+            $("#editCommentModal").modal();
+            $("#edit-comment-id").val($(ev.target).closest(".comment-item").attr("data-comment-id"));
+            $("#comment-text").val($(ev.target).closest(".comment-item").find(".panel-body").text().trim());
+        });
+
+        if(this.deleteCommentForm) {
+            this.deleteCommentForm.on("submit", (ev) => {
+                ev.preventDefault();
+                this.deleteComment($(ev.target).serialize());
+            });
+        }
+
+        if(this.updateCommentForm) {
+            this.updateCommentForm.on("submit", (ev) => {
+                ev.preventDefault();
+                this.updateComment($(ev.target).serialize());
+            });
+        }
     }
 
     deserializeForm(serializedFormData) {
@@ -571,7 +597,15 @@ export default class IssueTracker {
         })
 
         function populateIssuesTemplate(commentsList) {
-            let getProjectsPromise = new Promise((resolve, reject) => {
+            commentsList.forEach((comment) => {
+                if(comment.creator._id === window.resources.user.id) {
+                    comment.isCommentOwner = true;
+                }else {
+                    comment.isCommentOwner = false;
+                }
+            });
+
+            let getCommentsPromise = new Promise((resolve, reject) => {
                 let request = $.ajax({
                    url: "/templates/templates.html",
                    method: "GET",
@@ -587,11 +621,12 @@ export default class IssueTracker {
                 });
             });
 
-            getProjectsPromise.then((data) => {
+            getCommentsPromise.then((data) => {
                 let source = $(data).find("#comments-template").html();
                 let template = Handlebars.compile(source);
                 let context = {
-                    commentsList: commentsList
+                    commentsList: commentsList,
+                    currentUser: window.resources.user.id
                 };
                 let html = template(context);
                 $commentsSection.html(html);
@@ -724,7 +759,7 @@ export default class IssueTracker {
     }
 
     getComments(issueId) {
-        console.log("issueId:", issueId);
+        console.log("issueIdl:", issueId);
         let getCommentsPromise = new Promise((resolve, reject) => {
             let request = $.ajax({
                url: "/comments",
@@ -743,6 +778,66 @@ export default class IssueTracker {
             });
         });
         return getCommentsPromise;
+    }
+
+    updateComment(data) {
+        let deserializedData = this.deserializeForm(data)
+        deserializedData.issueId = window.resources.issue;
+        let updateCommentPromise = new Promise((resolve, reject) => {
+            let request = $.ajax({
+               url: "/comment",
+               method: "PUT",
+               data: deserializedData
+            });
+
+            request.done((data) => {
+                console.log("success, ", data);
+                $("#editCommentModal").modal("hide");
+                resolve(data);
+            });
+
+            request.fail((jqXHR, textStatus) => {
+                reject(jqXHR, textStatus);
+            });
+        });
+
+        updateCommentPromise.then((data) => {
+            $("#deleteProjectModal").modal("hide");
+        })
+        .catch((jqXHR, textStatus) => {
+            console.log("error updating issue", jqXHR, textStatus);
+            alert("Error while updating issue");
+        });
+    }
+
+    deleteComment(data) {
+        console.log(data);
+        let deserializedData = this.deserializeForm(data)
+        deserializedData.issueId = window.resources.issue;
+        let deleteCommentPromise = new Promise((resolve, reject) => {
+            let request = $.ajax({
+               url: "/comment",
+               method: "DELETE",
+               data: deserializedData
+            });
+
+            request.done((data) => {
+                console.log("success, ", data);
+                resolve(data);
+            });
+
+            request.fail((jqXHR, textStatus) => {
+                reject(jqXHR, textStatus);
+            });
+        });
+
+        deleteCommentPromise.then((data) => {
+            $("#deleteCommentModal").modal("hide");
+        })
+        .catch((jqXHR, textStatus) => {
+            console.log("error removing comment", jqXHR, textStatus);
+            alert("Error removing comment");
+        });
     }
 
     loginAndRegisterListeners() {

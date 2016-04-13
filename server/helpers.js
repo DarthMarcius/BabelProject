@@ -535,10 +535,6 @@ module.exports = {
         });
     },
 
-	getIssue(models, req, res) {
-
-    },
-
 	getIssues(models, req, res) {
         let issues = this.models.Issue.aggregate(
             [
@@ -612,7 +608,27 @@ module.exports = {
     },
 
 	updateComment(models, req, res) {
+        models.Comment.findById(req.body.commentId, (err, comment) => {
+            if (err) {
+                res.status(400).send('Error fetching comment:' + err);
+                return;
+            }
 
+            comment.text = req.body.text;
+
+            comment.save((err) => {
+                if (err) {
+                    res.status(400).send('Error updating comment:' + err);
+                }else {
+                    res.status(200).send({
+                        status: "ok"
+                    });
+                    this.socket.emit('updateComments', {
+                        issue: req.body.issueId
+                    });
+                }
+            });
+        });
 	},
 
 	getComments(models, req, res) {
@@ -638,7 +654,22 @@ module.exports = {
 	},
 
 	removeComment(models, req, res) {
-
+        console.log(req.body)
+        models.Comment.remove({"_id": req.body.commentId}, (err) => {
+            if (!err) {
+                res.status(200).send({
+                    message: "ok"
+                });
+                this.socket.emit('updateComments', {
+                    issue: req.body.issueId
+                });
+            }
+            else {
+                res.status(400).send({
+                    message: "Error removing comment"
+                });
+            }
+        });
 	},
 
     addLog(models, req, res) {

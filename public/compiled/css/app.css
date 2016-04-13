@@ -52,4 +52,13 @@ tr {
     color: white;
 }
 
+.comment-controlls {
+    float: right;
+}
+
+.comment-controlls span {
+    cursor: pointer;
+    margin-left: 5px;
+}
+
 /*# sourceMappingURL=app.css.map */

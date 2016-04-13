@@ -58,7 +58,12 @@
             <article class="comment-item panel panel-primary" data-comment-id={{this._id}}>
                 <header class="panel-heading">
                     <span class="comment-info">{{this.creator.username}} added a comment - {{this.updated}}</span>
-                    <section class="comment-controlls"></section>
+                    <section class="comment-controlls">
+                        {{#if this.isCommentOwner}}
+                            <span class="edit-comment glyphicon glyphicon-pencil"></span>
+                            <span class="delete-comment glyphicon glyphicon-trash"></span>
+                        {{/if}}
+                    </section>
                 </header>
                 <section class="panel-body">
                     {{this.text}}
