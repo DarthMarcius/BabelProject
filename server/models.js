@@ -41,7 +41,7 @@ module.exports= {
             updated: { type: Date, default: Date.now },
             dateStarted: { type: Date, default: Date.now },
             text: String,
-            timeSpent: String,
+            timeSpent: Number,
             issue_id: {type: Schema.Types.ObjectId, ref: 'Issue'}
         });
     },

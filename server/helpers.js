@@ -673,7 +673,28 @@ module.exports = {
 	},
 
     addLog(models, req, res) {
+        console.log(req.body)
+        let log = new models.Log({
+            creator: req.body.creator,
+            text: req.body.text,
+            issue_id: req.body.issueId,
+            dateStarted: req.body.logDateTime,
+            timeSpent: estimatedMinutes
+        });
 
+        log.save((err, user) => {
+            console.log(err)
+            if (err) {
+                res.status(400).send('Bad Request:' + err);
+            }else {
+                res.send({
+                    status: "ok"
+                });
+                this.socket.emit('updateWorkLogs', {
+                    issue: req.body.issueId
+                });
+            }
+        });
     },
 
 	updateLog(models, req, res) {

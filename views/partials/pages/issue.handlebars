@@ -86,45 +86,6 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<div id="addWorkLogModal" class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Add Work Log</h4>
-      </div>
-      <form id="addNewWorklog">
-          <div class="modal-body">
-                <input type="hidden" name="creator" value="{{user.id}}">
-                <input type="hidden" name="issueId" value="{{issue._id}}">
-                <div class="form-group has-feedback">
-                    <div class='input-group date' id="work-log-datetimepicker" >
-                        <label for="date-time-picker-input">Date Started</label>
-                        <input class="form-control" id="date-time-picker-input" placeholder="pick worklog start time" data-format="MM/dd/yyyy HH:mm PP" type="text"></input>
-                        <span class="input-group-addon glyphicon glyphicon glyphicon-time form-control-feedback" aria-hidden="true"></span>
-                    </div>
-
-                </div>
-
-                <div class="form-group">
-                    <label for="work-log-description">Log description</label>
-                    <textarea name="text" id="work-log-description" placeholder="Describe what have you been working on" class="form-control" rows="3"></textarea>
-                </div>
-                <div class="form-group original-estimate-group">
-                    <label for="timeSpent">Time Spent</label>
-                    <input id="timeSpent" name="timeSpent" type="text" class="form-control" placeholder="e.g 1h 30m or 30m or 1.5h">
-                    <p class="help-block">Please enter valid worklog</p>
-                </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Create Issue</button>
-          </div>
-      </form>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
 <div id="editCommentModal" class="modal fade" tabindex="-1" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -164,6 +125,45 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
             <button type="submit" class="btn btn-danger">Delete Comment</button>
+          </div>
+      </form>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div id="addWorkLogModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Add Work Log</h4>
+      </div>
+      <form id="addNewWorklog">
+          <div class="modal-body">
+                <input type="hidden" name="creator" value="{{user.id}}">
+                <input type="hidden" name="issueId" value="{{issue._id}}">
+                <div class="form-group log-date-time has-feedback">
+                    <div class='input-group date' id="work-log-datetimepicker" >
+                        <label for="date-time-picker-input">Date Started</label>
+                        <input name="logDateTime" class="form-control" id="date-time-picker-input" placeholder="pick worklog start time" data-format="MM/dd/yyyy HH:mm PP" type="text">
+                        <span class="input-group-addon glyphicon glyphicon glyphicon-time form-control-feedback" aria-hidden="true"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="work-log-description">Log description</label>
+                    <textarea name="text" id="work-log-description" placeholder="Describe what have you been working on" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="form-group time-spent-group">
+                    <label for="timeSpent">Time Spent</label>
+                    <input id="timeSpent" name="timeSpent" type="text" class="form-control" placeholder="e.g 1h 30m or 30m or 1.5h">
+                    <p class="help-block">Please enter valid time format</p>
+                </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Log Work</button>
           </div>
       </form>
     </div><!-- /.modal-content -->

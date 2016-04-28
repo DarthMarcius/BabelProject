@@ -71,4 +71,28 @@
             </article>
         {{/each}}
     </script>
+
+    <script id="#work-logs-template" type="text/x-handlebars-template">
+        {{#each workLogsList}}
+            <article class="comment-item panel panel-primary" data-comment-id={{this._id}}>
+                <header class="panel-heading">
+                    <span class="comment-info">{{this.creator.username}} added a worklog - {{this.dateStarted}}</span>
+                    <section class="comment-controlls">
+                        {{#if this.isWorkLogOwner}}
+                            <span class="edit-comment glyphicon glyphicon-pencil"></span>
+                            <span class="delete-comment glyphicon glyphicon-trash"></span>
+                        {{/if}}
+                    </section>
+                </header>
+                <section class="panel-body">
+                    <p class="time-spent">
+                        {{this.text}}
+                    </p>
+                    <p class="worklog-text">
+                        {{this.text}}
+                    </p>
+                </section>
+            </article>
+        {{/each}}
+    </script>
 </div>

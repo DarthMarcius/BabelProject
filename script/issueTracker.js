@@ -278,9 +278,38 @@ export default class IssueTracker {
 
         $("body").on("submit", this.addNewWorklogFormSelector, (ev) => {
             ev.preventDefault();
+            let serialized = $(ev.target).serialize();
+            let deserializedData = this.deserializeForm(serialized);
+            let estimatedMinutes = this.convertEstimate(deserializedData.timeSpent);
+            let logDateTime = new Date($("#date-time-picker-input").val());
+            let result = new Object();
+
+            if(!logDateTime || logDateTime === "Invalid Date") {
+                $(".log-date-time").addClass("has-error");
+                return;
+            }
+
+            if(!estimatedMinutes) {
+                $(".time-spent-group").addClass("has-error");
+                return;
+            }
+
+            result.estimatedMinutes = estimatedMinutes;
+            result.logDateTime = logDateTime;
+            result.text = deserializedData.text;
+            result.creator = deserializedData.creator;
+            result.issueId = deserializedData.issueId;
+
+            this.createWorklog(result);
         });
 
         this.socket.on("updateComments", (data) => {
+            if(data.issue == window.resources.issue) {
+                this.populateIssueComments(window.resources.issue);
+            }
+        });
+
+        this.socket.on("updateWorkLogs", (data) => {
             if(data.issue == window.resources.issue) {
                 this.populateIssuePage(window.resources.issue);
             }
@@ -314,16 +343,16 @@ export default class IssueTracker {
 
     deserializeForm(serializedFormData) {
         let serializedDataArray = serializedFormData.split("&");
-        let deserializeddData = new Object();
+        let deserializedData = new Object();
         let itemSplit;
 
         for(let length = serializedDataArray.length, i = 0; i < length; i++) {
             serializedDataArray[i] = serializedDataArray[i].replace(/\+/g, " ");
 
             itemSplit = serializedDataArray[i].split("=");
-            deserializeddData[itemSplit[0]] = itemSplit[1];
+            deserializedData[itemSplit[0]] = itemSplit[1];
         }
-        return deserializeddData;
+        return deserializedData;
     }
 
     convertEstimate(estimateString) {
@@ -588,15 +617,20 @@ export default class IssueTracker {
     }
 
     populateIssuePage(issueId) {
-        let issuesPromise = this.getComments(issueId);
+        this.populateIssueComments(issueId);
+        this.populateIssueWorklogs(issueId);
+    }
+
+    populateIssueComments(issueId) {
+        let commentsPromise = this.getComments(issueId);
         let $commentsSection = $(".issue-page .issue-comments");
 
-        issuesPromise.then((data) => {
+        commentsPromise.then((data) => {
             console.log("issues comments is::", data);
-            populateIssuesTemplate(data);
+            populateCommentsTemplate(data);
         })
 
-        function populateIssuesTemplate(commentsList) {
+        function populateCommentsTemplate(commentsList) {
             commentsList.forEach((comment) => {
                 if(comment.creator._id === window.resources.user.id) {
                     comment.isCommentOwner = true;
@@ -630,6 +664,57 @@ export default class IssueTracker {
                 };
                 let html = template(context);
                 $commentsSection.html(html);
+            })
+            .catch((jqXHR, textStatus) => {
+                console.log("error during comments template fetch", jqXHR, textStatus);
+                alert("Error during project creation");
+            });
+        }
+    }
+
+    populateIssueWorklogs(issueId) {
+        let workLogsPromise = this.getWorklogs(issueId);
+        let $workLogsSection = $(".issue-page .issue-comments");
+
+        workLogsPromise.then((data) => {
+            console.log("issues comments is::", data);
+            //populateWorklogsTemplate(data);
+        })
+
+        function populateWorklogsTemplate(workLogsList) {
+            workLogsList.forEach((comment) => {
+                if(comment.creator._id === window.resources.user.id) {
+                    comment.isCommentOwner = true;
+                }else {
+                    comment.isCommentOwner = false;
+                }
+            });
+
+            let getCommentsPromise = new Promise((resolve, reject) => {
+                let request = $.ajax({
+                   url: "/templates/templates.html",
+                   method: "GET",
+                   dataType: 'html'
+                });
+
+                request.done((data) => {
+                    resolve(data);
+                });
+
+                request.fail((jqXHR, textStatus) => {
+                    reject(jqXHR, textStatus);
+                });
+            });
+
+            getCommentsPromise.then((data) => {
+                let source = $(data).find("#work-logs-template").html();
+                let template = Handlebars.compile(source);
+                let context = {
+                    workLogsList: workLogsList,
+                    currentUser: window.resources.user.id
+                };
+                let html = template(context);
+                $workLogsSection.html(html);
             })
             .catch((jqXHR, textStatus) => {
                 console.log("error during comments template fetch", jqXHR, textStatus);
@@ -837,6 +922,34 @@ export default class IssueTracker {
         .catch((jqXHR, textStatus) => {
             console.log("error removing comment", jqXHR, textStatus);
             alert("Error removing comment");
+        });
+    }
+
+    createWorklog(data) {
+        let createWorklogPromise = new Promise((resolve, reject) => {
+            let request = $.ajax({
+               url: "/log",
+               method: "POST",
+               data: data
+            });
+
+            request.done((data) => {
+                console.log("success, ", data);
+                resolve(data);
+            });
+
+            request.fail((jqXHR, textStatus) => {
+                reject(jqXHR, textStatus);
+            });
+        });
+
+        createWorklogPromise.then((data) => {
+            console.log("success reg:", data);
+            $("#addWorkLogModal").modal("hide");
+        })
+        .catch((jqXHR, textStatus) => {
+            console.log("error during log creation", jqXHR, textStatus);
+            alert("Error during log creation");
         });
     }
 
