@@ -679,7 +679,7 @@ module.exports = {
             text: req.body.text,
             issue_id: req.body.issueId,
             dateStarted: req.body.logDateTime,
-            timeSpent: estimatedMinutes
+            timeSpent:  req.body.estimatedMinutes
         });
 
         log.save((err, user) => {
@@ -706,7 +706,26 @@ module.exports = {
 	},
 
 	getLogs(models, req, res) {
+        this.models.Log.aggregate(
+            [
+                {
+                    $match : { issue_id : this.mongoose.Types.ObjectId(req.query.issueId) }
+                },
 
+                {
+                    $project: {
+                        creator: 1,
+                        dateStarted: { $dateToString: { format: "%Y-%m-%d", date: "$updated" } },
+                        text: 1,
+                        timeSpent: 1
+                    }
+                }
+            ]
+        ).exec((err, comments) => {
+            this.models.Comment.populate(comments, {path: "creator"}, (err, comments) => {
+                res.send(comments);
+            });
+        });
 	},
 
 	removeLog(models, req, res) {

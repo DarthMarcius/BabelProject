@@ -40,6 +40,8 @@ export default class IssueTracker {
         this.deleteCommentThumbSelector = ".delete-comment";
         this.deleteCommentForm = $("#deleteComment").length ? $("#deleteComment") : false;
         this.updateCommentForm = $("#updateComment").length ? $("#updateComment") : false;
+        this.deleteWorklogButtonSelector = ".delete-work-log";
+        this.ediWorklogButtonSelector = ".edit-work-log";
     }
 
     initDom() {
@@ -228,7 +230,7 @@ export default class IssueTracker {
         this.addIssue.on("click", (ev) => {
             ev.stopPropagation();
             ev.preventDefault();
-            console.log($("#addIssueModal"))
+            //console.log($("#addIssueModal"))
             $("#addIssueModal").modal();
         });
 
@@ -311,7 +313,7 @@ export default class IssueTracker {
 
         this.socket.on("updateWorkLogs", (data) => {
             if(data.issue == window.resources.issue) {
-                this.populateIssuePage(window.resources.issue);
+                this.populateIssueWorklogs(window.resources.issue);
             }
         });
 
@@ -339,6 +341,17 @@ export default class IssueTracker {
                 this.updateComment($(ev.target).serialize());
             });
         }
+
+        $("body").on("click", this.deleteWorklogButtonSelector, (ev) => {console.log("wha1")
+            $("#deleteWorklogModal").modal();
+            $("#delete-work-log-id").val($(ev.target).closest(".work-log-item").attr("data-work-log-id"));
+        });
+
+        $("body").on("click", this.ediWorklogButtonSelector, (ev) => {console.log("wha")
+            $("#editWorklogModal").modal();
+            $("#edit-work-log-id").val($(ev.target).closest(".work-log-item").attr("data-work-log-id"));
+            $("#edit-work-log-text").val($(ev.target).closest(".work-log-item").find(".worklog-text").text().trim());
+        });
     }
 
     deserializeForm(serializedFormData) {
@@ -404,6 +417,14 @@ export default class IssueTracker {
         minutes += additionalMinutes;
 
         return minutes;
+    }
+
+    minutesToString(minutes) {
+        let hours = minutes / 60;
+        let resultString = hours < 1 ? ( (minutes == 1) ? parseInt(minutes) + " minute" : parseInt(minutes) + " minutes" ) : ( (hours == 1) ? hours + " hour" : hours + " hours" );
+        resultString = 'Time spent ' + resultString;
+
+        return resultString;
     }
 
     createComment(data) {
@@ -674,23 +695,27 @@ export default class IssueTracker {
 
     populateIssueWorklogs(issueId) {
         let workLogsPromise = this.getWorklogs(issueId);
-        let $workLogsSection = $(".issue-page .issue-comments");
+        let $workLogsSection = $(".issue-page .issue-worklogs");
 
         workLogsPromise.then((data) => {
-            console.log("issues comments is::", data);
-            //populateWorklogsTemplate(data);
+            console.log("issues logs is:", data);
+            data.forEach((workLog) => {
+                workLog.timeSpent = this.minutesToString(workLog.timeSpent);
+            });
+
+            populateWorklogsTemplate(data);
         })
 
         function populateWorklogsTemplate(workLogsList) {
-            workLogsList.forEach((comment) => {
-                if(comment.creator._id === window.resources.user.id) {
-                    comment.isCommentOwner = true;
+            workLogsList.forEach((workLog) => {
+                if(workLog.creator._id === window.resources.user.id) {
+                    workLog.isWorkLogOwner = true;
                 }else {
-                    comment.isCommentOwner = false;
+                    workLog.isWorkLogOwner = false;
                 }
             });
 
-            let getCommentsPromise = new Promise((resolve, reject) => {
+            let getWorkLogsPromise = new Promise((resolve, reject) => {
                 let request = $.ajax({
                    url: "/templates/templates.html",
                    method: "GET",
@@ -706,7 +731,7 @@ export default class IssueTracker {
                 });
             });
 
-            getCommentsPromise.then((data) => {
+            getWorkLogsPromise.then((data) => {
                 let source = $(data).find("#work-logs-template").html();
                 let template = Handlebars.compile(source);
                 let context = {
@@ -863,6 +888,27 @@ export default class IssueTracker {
             });
         });
         return getCommentsPromise;
+    }
+
+    getWorklogs(issueId) {
+        let getWorkLogsPromise = new Promise((resolve, reject) => {
+            let request = $.ajax({
+               url: "/logs",
+               method: "GET",
+               data: {
+                   issueId: issueId
+               }
+            });
+
+            request.done((data) => {
+                resolve(data);
+            });
+
+            request.fail((jqXHR, textStatus) => {
+                reject(jqXHR, textStatus);
+            });
+        });
+        return getWorkLogsPromise;
     }
 
     updateComment(data) {

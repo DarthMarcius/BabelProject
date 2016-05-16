@@ -48,15 +48,22 @@ tr {
     position: relative;
 }
 
-.comment-item header {
+.comment-item header,
+.work-log-item header {
     color: white;
 }
 
-.comment-controlls {
+.comment-controlls,
+.work-log-controlls {
     float: right;
 }
 
-.comment-controlls span {
+.comment-controlls span,
+.work-log-controlls span {
     cursor: pointer;
     margin-left: 5px;
+}
+
+.alert-info {
+    background-color: #2780e3;
 }
