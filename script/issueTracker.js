@@ -42,6 +42,8 @@ export default class IssueTracker {
         this.updateCommentForm = $("#updateComment").length ? $("#updateComment") : false;
         this.deleteWorklogButtonSelector = ".delete-work-log";
         this.ediWorklogButtonSelector = ".edit-work-log";
+        this.deleteWorklogForm = $("#deleteWorklog").length ? $("#deleteWorklog") : false;
+        this.editWorklogForm = $("#updateWorklog").length ? $("#updateWorklog") : false;
     }
 
     initDom() {
@@ -352,6 +354,13 @@ export default class IssueTracker {
             $("#edit-work-log-id").val($(ev.target).closest(".work-log-item").attr("data-work-log-id"));
             $("#edit-work-log-text").val($(ev.target).closest(".work-log-item").find(".worklog-text").text().trim());
         });
+
+        if(this.deleteWorklogForm) {
+            this.deleteWorklogForm.on("submit", (ev) => {
+                ev.preventDefault();
+                this.deleteWorklog($(ev.target).serialize());
+            });
+        }
     }
 
     deserializeForm(serializedFormData) {
@@ -700,8 +709,13 @@ export default class IssueTracker {
         workLogsPromise.then((data) => {
             console.log("issues logs is:", data);
             data.forEach((workLog) => {
-                workLog.timeSpent = this.minutesToString(workLog.timeSpent);
+                workLog.timeSpent = this.minutesToString(workLog.timeSpent);console.log("wbl" + workLog.dateStarted)
+                //workLog.dateStarted = new Date(workLog.dateStarted);
+                //workLog.dateStarted = workLog.dateStarted.getMonth() + 1 + "/" + workLog.dateStarted.getDate() + "/" + workLog.dateStarted.getFullYear() + " " + workLog.dateStarted.getHours() + ":" + workLog.dateStarted.getMinutes();
+                console.log("wl" +workLog.dateStarted)
             });
+
+
 
             populateWorklogsTemplate(data);
         })
@@ -996,6 +1010,36 @@ export default class IssueTracker {
         .catch((jqXHR, textStatus) => {
             console.log("error during log creation", jqXHR, textStatus);
             alert("Error during log creation");
+        });
+    }
+
+    deleteWorklog(data) {
+        console.log(data);
+        let deserializedData = this.deserializeForm(data)
+        deserializedData.issueId = window.resources.issue;
+        let deleteCommentPromise = new Promise((resolve, reject) => {
+            let request = $.ajax({
+               url: "/log",
+               method: "DELETE",
+               data: deserializedData
+            });
+
+            request.done((data) => {
+                console.log("success, ", data);
+                resolve(data);
+            });
+
+            request.fail((jqXHR, textStatus) => {
+                reject(jqXHR, textStatus);
+            });
+        });
+
+        deleteCommentPromise.then((data) => {
+            $("#deleteWorklogModal").modal("hide");
+        })
+        .catch((jqXHR, textStatus) => {
+            console.log("error removing worklog", jqXHR, textStatus);
+            alert("Error removing worklog");
         });
     }
 

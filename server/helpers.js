@@ -729,6 +729,21 @@ module.exports = {
 	},
 
 	removeLog(models, req, res) {
-
+        console.log(req.body)
+        models.Log.remove({"_id": req.body.worklogId}, (err) => {
+            if (!err) {
+                res.status(200).send({
+                    message: "ok"
+                });
+                this.socket.emit('updateWorkLogs', {
+                    issue: req.body.issueId
+                });
+            }
+            else {
+                res.status(400).send({
+                    message: "Error removing worklog"
+                });
+            }
+        });
 	}
 }

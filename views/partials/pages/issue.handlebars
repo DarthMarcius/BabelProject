@@ -29,15 +29,13 @@
                 <div class="tab-content">
                     <div class="tab-pane fade in active panel panel-primary" id="comments-section">
                         <div class="panel-body issue-comments">
-                            Basic panel example
-
+                            No comments yet
                         </div>
                         <button type="button" class="btn btn-primary new-comment">New Comment</button>
                     </div>
                     <div class="tab-pane fade panel panel-primary" id="logs-section">
                         <div class="panel-body issue-worklogs">
-                            Basic panel example2
-
+                            No Worklogs Yet
                         </div>
                         <button type="button" class="btn btn-primary new-worklog">New Worklog</button>
                     </div>
@@ -96,6 +94,7 @@
       <form id="updateComment">
           <div class="modal-body">
               <input type="hidden" id="edit-comment-id" name="commentId" value="">
+              <input type="hidden" name="issueId" value="{{issue._id}}">
               <div class="form-group">
                   <label for="comment-text">Comment text</label>
                   <textarea name="text" id="comment-text" placeholder="Please type your comment here" class="form-control" rows="3"></textarea>
@@ -119,6 +118,7 @@
       </div>
       <form id="deleteComment">
           <input id="delete-comment-id" type="hidden" name="commentId" value="">
+          <input type="hidden" name="issueId" value="{{issue._id}}">
           <div class="modal-body">
                 <p class="text text-danger">Are you sure you want to delete this comment?</p>
           </div>
@@ -179,7 +179,8 @@
       </div>
       <form id="updateWorklog">
           <div class="modal-body">
-              <input type="hidden" id="edit-work-log-id" name="commentId" value="">
+              <input type="hidden" id="edit-work-log-id" name="worklogId" value="">
+              <input type="hidden" name="issueId" value="{{issue._id}}">
               <div class="form-group">
                   <label for="comment-text">Worklog text</label>
                   <textarea name="text" id="edit-work-log-text" placeholder="Please type your comment here" class="form-control" rows="3"></textarea>
@@ -202,7 +203,8 @@
         <h4 class="modal-title">Delete Worklog</h4>
       </div>
       <form id="deleteWorklog">
-          <input id="delete-work-log-id" type="hidden" name="commentId" value="">
+          <input id="delete-work-log-id" type="hidden" name="worklogId" value="">
+          <input type="hidden" name="issueId" value="{{issue._id}}">
           <div class="modal-body">
                 <p class="text text-danger">Are you sure you want to delete this worklog?</p>
           </div>
