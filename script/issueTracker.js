@@ -297,7 +297,7 @@ export default class IssueTracker {
                 $(".time-spent-group").addClass("has-error");
                 return;
             }
-
+console.log(logDateTime)
             result.estimatedMinutes = estimatedMinutes;
             result.logDateTime = logDateTime;
             result.text = deserializedData.text;
@@ -667,6 +667,10 @@ export default class IssueTracker {
                 }else {
                     comment.isCommentOwner = false;
                 }
+
+                comment.updated = new Date(comment.updated);
+                comment.updated = comment.updated.getMonth() + 1 + "/" + comment.updated.getDate() + "/" + comment.updated.getFullYear() + " " + comment.updated.getHours() + ":" + comment.updated.getMinutes();
+                //console.log("wl" +new Date(workLog.dateStarted))s
             });
 
             let getCommentsPromise = new Promise((resolve, reject) => {
@@ -709,10 +713,10 @@ export default class IssueTracker {
         workLogsPromise.then((data) => {
             console.log("issues logs is:", data);
             data.forEach((workLog) => {
-                workLog.timeSpent = this.minutesToString(workLog.timeSpent);console.log("wbl" + workLog.dateStarted)
-                //workLog.dateStarted = new Date(workLog.dateStarted);
-                //workLog.dateStarted = workLog.dateStarted.getMonth() + 1 + "/" + workLog.dateStarted.getDate() + "/" + workLog.dateStarted.getFullYear() + " " + workLog.dateStarted.getHours() + ":" + workLog.dateStarted.getMinutes();
-                console.log("wl" +workLog.dateStarted)
+                workLog.timeSpent = this.minutesToString(workLog.timeSpent);
+                workLog.dateStarted = new Date(workLog.dateStarted);
+                workLog.dateStarted = workLog.dateStarted.getMonth() + 1 + "/" + workLog.dateStarted.getDate() + "/" + workLog.dateStarted.getFullYear() + " " + workLog.dateStarted.getHours() + ":" + workLog.dateStarted.getMinutes();
+                //console.log("wl" +new Date(workLog.dateStarted))
             });
 
 

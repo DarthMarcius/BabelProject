@@ -641,7 +641,7 @@ module.exports = {
                 {
                     $project: {
                         creator: 1,
-                        updated: { $dateToString: { format: "%Y-%m-%d", date: "$updated" } },
+                        updated: 1,
                         text: 1
                     }
                 }
@@ -678,10 +678,10 @@ module.exports = {
             creator: req.body.creator,
             text: req.body.text,
             issue_id: req.body.issueId,
-            dateStarted: req.body.logDateTime,
+            dateStarted: new Date(req.body.logDateTime),
             timeSpent:  req.body.estimatedMinutes
         });
-
+console.log("time:", log.dateStarted)
         log.save((err, user) => {
             console.log(err)
             if (err) {
@@ -715,7 +715,7 @@ module.exports = {
                 {
                     $project: {
                         creator: 1,
-                        dateStarted: { $dateToString: { format: "%Y-%m-%d", date: "$updated" } },
+                        dateStarted: 1,
                         text: 1,
                         timeSpent: 1
                     }
