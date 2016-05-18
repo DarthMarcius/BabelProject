@@ -430,7 +430,8 @@ module.exports = {
                 res.send({
                     status: "ok"
                 });
-                this.socket.emit('updateProjects', {});
+                /*this.socket.emit('updateProjects', {});*/
+                this.io.sockets.emit('updateProjects', {});
             }
         });
     },
@@ -452,7 +453,8 @@ module.exports = {
                     res.status(200).send({
                         status: "ok"
                     });
-                    this.socket.emit('updateProjects', {});
+                    //this.socket.emit('updateProjects', {});
+                    this.io.sockets.emit('updateProjects', {});
                 }
             });
         });
@@ -473,7 +475,8 @@ module.exports = {
                 res.status(200).send({
                     message: "ok"
                 });
-                this.socket.emit('updateProjects', {});
+                //this.socket.emit('updateProjects', {});
+                this.io.sockets.emit('updateProjects', {});
             }
             else {
                 res.status(400).send({
@@ -503,7 +506,10 @@ module.exports = {
                 res.send({
                     status: "ok"
                 });
-                this.socket.emit('updateIssues', {
+                /*this.socket.emit('updateIssues', {
+                    project: req.body.project
+                });*/
+                this.io.sockets.emit('updateIssues', {
                     project: req.body.project
                 });
             }
@@ -527,7 +533,10 @@ module.exports = {
                     res.status(200).send({
                         status: "ok"
                     });
-                    this.socket.emit('updateIssues', {
+                    /*this.socket.emit('updateIssues', {
+                        project: req.body.project
+                    });*/
+                    this.io.sockets.emit('updateIssues', {
                         project: req.body.project
                     });
                 }
@@ -571,7 +580,10 @@ module.exports = {
                 res.status(200).send({
                     message: "ok"
                 });
-                this.socket.emit('updateIssues', {
+                /*this.socket.emit('updateIssues', {
+                    project: req.body.project
+                });*/
+                this.io.sockets.emit('updateIssues', {
                     project: req.body.project
                 });
             }
@@ -600,7 +612,10 @@ module.exports = {
                 res.send({
                     status: "ok"
                 });
-                this.socket.emit('updateComments', {
+                /*this.socket.emit('updateComments', {
+                    issue: req.body.issueId
+                });*/
+                this.io.sockets.emit('updateComments', {
                     issue: req.body.issueId
                 });
             }
@@ -623,7 +638,10 @@ module.exports = {
                     res.status(200).send({
                         status: "ok"
                     });
-                    this.socket.emit('updateComments', {
+                    /*this.socket.emit('updateComments', {
+                        issue: req.body.issueId
+                    });*/
+                    this.io.sockets.emit('updateComments', {
                         issue: req.body.issueId
                     });
                 }
@@ -660,7 +678,10 @@ module.exports = {
                 res.status(200).send({
                     message: "ok"
                 });
-                this.socket.emit('updateComments', {
+                /*this.socket.emit('updateComments', {
+                    issue: req.body.issueId
+                });*/
+                this.io.sockets.emit('updateComments', {
                     issue: req.body.issueId
                 });
             }
@@ -689,7 +710,10 @@ module.exports = {
                 res.send({
                     status: "ok"
                 });
-                this.socket.emit('updateWorkLogs', {
+                /*this.socket.emit('updateWorkLogs', {
+                    issue: req.body.issueId
+                });*/
+                this.io.sockets.emit('updateWorkLogs', {
                     issue: req.body.issueId
                 });
             }
@@ -715,7 +739,10 @@ module.exports = {
                     res.status(200).send({
                         status: "ok"
                     });
-                    this.socket.emit('updateWorkLogs', {
+                    /*this.socket.emit('updateWorkLogs', {
+                        issue: req.body.issueId
+                    });*/
+                    this.io.sockets.emit('updateWorkLogs', {
                         issue: req.body.issueId
                     });
                 }
@@ -757,7 +784,10 @@ module.exports = {
                 res.status(200).send({
                     message: "ok"
                 });
-                this.socket.emit('updateWorkLogs', {
+                /*this.socket.emit('updateWorkLogs', {
+                    issue: req.body.issueId
+                });*/
+                this.io.sockets.emit('updateWorkLogs', {
                     issue: req.body.issueId
                 });
             }
