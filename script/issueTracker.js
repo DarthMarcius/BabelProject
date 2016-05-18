@@ -291,100 +291,6 @@ export default class IssueTracker {
             this.createComment($(ev.target).serialize());
         });
 
-        $("body").on("submit", this.addNewWorklogFormSelector, (ev) => {
-            ev.preventDefault();
-            let serialized = $(ev.target).serialize();
-            let deserializedData = this.deserializeForm(serialized);
-            let estimatedMinutes = this.convertEstimate(deserializedData.timeSpent);
-            let logDateTime = new Date($("#date-time-picker-input").val());
-            let result = new Object();
-
-            if(!logDateTime || logDateTime === "Invalid Date") {
-                $(".log-date-time").addClass("has-error");
-                return;
-            }
-
-            if(!estimatedMinutes) {
-                $(".time-spent-group").addClass("has-error");
-                return;
-            }
-
-            result.estimatedMinutes = estimatedMinutes;
-            result.logDateTime = logDateTime;
-            result.text = deserializedData.text;
-            result.creator = deserializedData.creator;
-            result.issueId = deserializedData.issueId;
-
-            this.createWorklog(result);
-        });
-
-        this.addIssue.on("click", (ev) => {
-            ev.stopPropagation();
-            ev.preventDefault();
-            //console.log($("#addIssueModal"))
-            $("#addIssueModal").modal();
-        });
-
-        if(this.addIssueForm) {
-            this.addIssueForm.on("submit", (ev) => {
-                ev.preventDefault();
-                let serialized = $(ev.target).serialize();
-                let deserializedData = this.deserializeForm(serialized);
-                let estimatedMinutes = this.convertEstimate(deserializedData.originalEstimate);
-
-                if(!estimatedMinutes) {
-                    $(".original-estimate-group").addClass("has-error");
-                    return;
-                }
-
-                deserializedData.originalEstimate = estimatedMinutes;
-                this.createIssue(deserializedData);
-                console.log(deserializedData)
-            });
-        }
-
-        this.socket.on("updateIssues", (data) => {
-            console.log(data);
-            if(data.project == resources.project) {
-                this.populateProjectPage(resources.project);
-            }
-        });
-    }
-
-    issueListeners() {
-        if(this.addComment) {
-            this.addComment.on("click", (ev) => {
-                this.addCommentModal.modal();
-            });
-        }
-
-        if(this.addWrokLog) {
-            this.addWrokLog.on("click", (ev) => {
-                this.addWorkLogModal.modal();
-            });
-
-            this.addWorkLogModal.on("show.bs.modal", (ev) => {
-                if(this.dateTimePicker) {
-                    if(this.dateTimePicker.data('DateTimePicker')) {
-                        this.dateTimePicker.data('DateTimePicker').date(new Date());
-                    }else {
-                        this.dateTimePicker.datetimepicker({
-                            defaultDate: new Date()
-                        });
-                    }
-
-                    /*$("#date-time-picker-input").focus((ev) => {
-                        $(".input-group-addon").click();
-                    });*/
-                }
-            })
-        }
-
-        $("body").on("submit", this.addNewCommentFormSelector, (ev) => {
-            ev.preventDefault();
-            this.createComment($(ev.target).serialize());
-        });
-
         $("body").on("submit", this.updateWorklogFormSelector, (ev) => {
             ev.preventDefault();
             let serialized = $(ev.target).serialize();
@@ -416,6 +322,33 @@ export default class IssueTracker {
             if(data.issue == window.resources.issue) {
                 this.populateIssueComments(window.resources.issue);
             }
+        });
+
+        $("body").on("submit", this.addNewWorklogFormSelector, (ev) => {
+            ev.preventDefault();
+            let serialized = $(ev.target).serialize();
+            let deserializedData = this.deserializeForm(serialized);
+            let estimatedMinutes = this.convertEstimate(deserializedData.timeSpent);
+            let logDateTime = new Date($("#date-time-picker-input").val());
+            let result = new Object();
+
+            if(!logDateTime || logDateTime === "Invalid Date") {
+                $(".log-date-time").addClass("has-error");
+                return;
+            }
+
+            if(!estimatedMinutes) {
+                $(".time-spent-group").addClass("has-error");
+                return;
+            }
+
+            result.estimatedMinutes = estimatedMinutes;
+            result.logDateTime = logDateTime;
+            result.text = deserializedData.text;
+            result.creator = deserializedData.creator;
+            result.issueId = deserializedData.issueId;
+
+            this.createWorklog(result);
         });
 
         this.socket.on("updateWorkLogs", (data) => {
