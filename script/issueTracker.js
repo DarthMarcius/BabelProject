@@ -35,7 +35,9 @@ export default class IssueTracker {
         this.addWorkLogModal = $("#addWorkLogModal");
         this.addNewCommentFormSelector = "#addNewComment";
         this.addNewWorklogFormSelector = "#addNewWorklog";
+        this.updateWorklogFormSelector = "#updateWorklog";
         this.dateTimePicker = $("#work-log-datetimepicker").length ? $("#work-log-datetimepicker") : false;
+        this.dateTimePickerEditSelector = "#work-log-datetimepicker-edit";
         this.editCommentThumbSelector = ".edit-comment";
         this.deleteCommentThumbSelector = ".delete-comment";
         this.deleteCommentForm = $("#deleteComment").length ? $("#deleteComment") : false;
@@ -47,14 +49,7 @@ export default class IssueTracker {
     }
 
     initDom() {
-        if(this.dateTimePicker) {
-            this.dateTimePicker.datetimepicker({
-                defaultDate: new Date()
-            });
-            $("#date-time-picker-input").focus((ev) => {
-                $(".input-group-addon").click();
-            });
-        }
+
     }
 
     login($target) {
@@ -273,6 +268,22 @@ export default class IssueTracker {
             this.addWrokLog.on("click", (ev) => {
                 this.addWorkLogModal.modal();
             });
+
+            this.addWorkLogModal.on("show.bs.modal", (ev) => {
+                if(this.dateTimePicker) {
+                    if(this.dateTimePicker.data('DateTimePicker')) {
+                        this.dateTimePicker.data('DateTimePicker').date(new Date());
+                    }else {
+                        this.dateTimePicker.datetimepicker({
+                            defaultDate: new Date()
+                        });
+                    }
+
+                    /*$("#date-time-picker-input").focus((ev) => {
+                        $(".input-group-addon").click();
+                    });*/
+                }
+            })
         }
 
         $("body").on("submit", this.addNewCommentFormSelector, (ev) => {
@@ -297,7 +308,7 @@ export default class IssueTracker {
                 $(".time-spent-group").addClass("has-error");
                 return;
             }
-console.log(logDateTime)
+
             result.estimatedMinutes = estimatedMinutes;
             result.logDateTime = logDateTime;
             result.text = deserializedData.text;
@@ -305,6 +316,100 @@ console.log(logDateTime)
             result.issueId = deserializedData.issueId;
 
             this.createWorklog(result);
+        });
+
+        this.addIssue.on("click", (ev) => {
+            ev.stopPropagation();
+            ev.preventDefault();
+            //console.log($("#addIssueModal"))
+            $("#addIssueModal").modal();
+        });
+
+        if(this.addIssueForm) {
+            this.addIssueForm.on("submit", (ev) => {
+                ev.preventDefault();
+                let serialized = $(ev.target).serialize();
+                let deserializedData = this.deserializeForm(serialized);
+                let estimatedMinutes = this.convertEstimate(deserializedData.originalEstimate);
+
+                if(!estimatedMinutes) {
+                    $(".original-estimate-group").addClass("has-error");
+                    return;
+                }
+
+                deserializedData.originalEstimate = estimatedMinutes;
+                this.createIssue(deserializedData);
+                console.log(deserializedData)
+            });
+        }
+
+        this.socket.on("updateIssues", (data) => {
+            console.log(data);
+            if(data.project == resources.project) {
+                this.populateProjectPage(resources.project);
+            }
+        });
+    }
+
+    issueListeners() {
+        if(this.addComment) {
+            this.addComment.on("click", (ev) => {
+                this.addCommentModal.modal();
+            });
+        }
+
+        if(this.addWrokLog) {
+            this.addWrokLog.on("click", (ev) => {
+                this.addWorkLogModal.modal();
+            });
+
+            this.addWorkLogModal.on("show.bs.modal", (ev) => {
+                if(this.dateTimePicker) {
+                    if(this.dateTimePicker.data('DateTimePicker')) {
+                        this.dateTimePicker.data('DateTimePicker').date(new Date());
+                    }else {
+                        this.dateTimePicker.datetimepicker({
+                            defaultDate: new Date()
+                        });
+                    }
+
+                    /*$("#date-time-picker-input").focus((ev) => {
+                        $(".input-group-addon").click();
+                    });*/
+                }
+            })
+        }
+
+        $("body").on("submit", this.addNewCommentFormSelector, (ev) => {
+            ev.preventDefault();
+            this.createComment($(ev.target).serialize());
+        });
+
+        $("body").on("submit", this.updateWorklogFormSelector, (ev) => {
+            ev.preventDefault();
+            let serialized = $(ev.target).serialize();
+            let deserializedData = this.deserializeForm(serialized);
+            let estimatedMinutes = this.convertEstimate(deserializedData.timeSpent);
+            let logDateTime = new Date($("#date-time-picker-update-input").val());
+            let result = new Object();
+
+            if(!logDateTime || logDateTime === "Invalid Date") {
+                $(".log-date-time-update").addClass("has-error");
+                return;
+            }
+
+            if(!estimatedMinutes) {
+                $(".update-time-spent-group").addClass("has-error");
+                return;
+            }
+
+            result.estimatedMinutes = estimatedMinutes;
+            result.logDateTime = logDateTime;
+            result.text = deserializedData.text;
+            result.issueId = deserializedData.issueId;
+            result.worklogId = deserializedData.worklogId;
+
+            this.updateWorklog(result);
         });
 
         this.socket.on("updateComments", (data) => {
@@ -349,10 +454,24 @@ console.log(logDateTime)
             $("#delete-work-log-id").val($(ev.target).closest(".work-log-item").attr("data-work-log-id"));
         });
 
-        $("body").on("click", this.ediWorklogButtonSelector, (ev) => {console.log("wha")
+        $("body").on("click", this.ediWorklogButtonSelector, (ev) => {
+            let $currentItem = $(ev.target).closest(".work-log-item");
+            let dateTime = $currentItem.find(".work-log-info").html().split("- ")[1];
+            let timeSpent = $currentItem.find(".time-spent").attr("data-minutes");
+            let timeSpentNotation = this.minutesToString(timeSpent, "notation");
+
             $("#editWorklogModal").modal();
-            $("#edit-work-log-id").val($(ev.target).closest(".work-log-item").attr("data-work-log-id"));
-            $("#edit-work-log-text").val($(ev.target).closest(".work-log-item").find(".worklog-text").text().trim());
+            $("#edit-work-log-id").val($currentItem.attr("data-work-log-id"));
+            $("#edit-work-log-text").val($currentItem.find(".worklog-text").text().trim());
+            $("#timeSpentUpdate").val(timeSpentNotation);
+
+            if($(this.dateTimePickerEditSelector).data('DateTimePicker')) {
+                $(this.dateTimePickerEditSelector).data('DateTimePicker').date(dateTime);
+            }else {
+                $(this.dateTimePickerEditSelector).datetimepicker({
+                    defaultDate: dateTime
+                });
+            }
         });
 
         if(this.deleteWorklogForm) {
@@ -428,10 +547,18 @@ console.log(logDateTime)
         return minutes;
     }
 
-    minutesToString(minutes) {
+    minutesToString(minutes, notation) {
         let hours = minutes / 60;
-        let resultString = hours < 1 ? ( (minutes == 1) ? parseInt(minutes) + " minute" : parseInt(minutes) + " minutes" ) : ( (hours == 1) ? hours + " hour" : hours + " hours" );
-        resultString = 'Time spent ' + resultString;
+        if(!notation) {
+            var resultString = hours < 1 ? ( (minutes == 1) ? parseInt(minutes) + " minute" : parseInt(minutes) + " minutes" ) : ( (hours == 1) ? hours + " hour" : hours + " hours" );
+            resultString = 'Time spent: ' + resultString;
+        } else if(notation === "notation") {
+            let remainder = hours % 1;
+            let minutes = remainder * 60;
+            hours = hours - remainder;
+            console.log(remainder)
+            var resultString = hours < 1 ? parseInt(minutes) + "m" : hours + "h" + " " + minutes + "m";
+        }
 
         return resultString;
     }
@@ -713,13 +840,12 @@ console.log(logDateTime)
         workLogsPromise.then((data) => {
             console.log("issues logs is:", data);
             data.forEach((workLog) => {
+                workLog.timeSpentMinutes = workLog.timeSpent;
                 workLog.timeSpent = this.minutesToString(workLog.timeSpent);
                 workLog.dateStarted = new Date(workLog.dateStarted);
                 workLog.dateStarted = workLog.dateStarted.getMonth() + 1 + "/" + workLog.dateStarted.getDate() + "/" + workLog.dateStarted.getFullYear() + " " + workLog.dateStarted.getHours() + ":" + workLog.dateStarted.getMinutes();
                 //console.log("wl" +new Date(workLog.dateStarted))
             });
-
-
 
             populateWorklogsTemplate(data);
         })
@@ -1016,6 +1142,35 @@ console.log(logDateTime)
             alert("Error during log creation");
         });
     }
+
+    updateWorklog(data) {console.log("data", data)
+        let updateWorklogPromise = new Promise((resolve, reject) => {
+            let request = $.ajax({
+               url: "/log",
+               method: "PUT",
+               data: data
+            });
+
+            request.done((data) => {
+                console.log("success, ", data);
+                resolve(data);
+            });
+
+            request.fail((jqXHR, textStatus) => {
+                reject(jqXHR, textStatus);
+            });
+        });
+
+        updateWorklogPromise.then((data) => {
+            console.log("success workloglog:", data);
+            $("#editWorklogModal").modal("hide");
+        })
+        .catch((jqXHR, textStatus) => {
+            console.log("error during log update", jqXHR, textStatus);
+            alert("Error during log update");
+        });
+    }
+
 
     deleteWorklog(data) {
         console.log(data);

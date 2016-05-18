@@ -673,7 +673,6 @@ module.exports = {
 	},
 
     addLog(models, req, res) {
-        console.log(req.body)
         let log = new models.Log({
             creator: req.body.creator,
             text: req.body.text,
@@ -681,7 +680,7 @@ module.exports = {
             dateStarted: new Date(req.body.logDateTime),
             timeSpent:  req.body.estimatedMinutes
         });
-console.log("time:", log.dateStarted)
+
         log.save((err, user) => {
             console.log(err)
             if (err) {
@@ -698,7 +697,30 @@ console.log("time:", log.dateStarted)
     },
 
 	updateLog(models, req, res) {
+        console.log(req.body)
+        models.Log.findById(req.body.worklogId, (err, worklog) => {
+            if (err) {
+                res.status(400).send('Error fetching worklog:' + err);
+                return;
+            }
 
+            worklog.text = req.body.text;
+            worklog.dateStarted = new Date(req.body.logDateTime);
+            worklog.timeSpent=   req.body.estimatedMinutes;
+
+            worklog.save((err) => {
+                if (err) {
+                    res.status(400).send('Error updating comment:' + err);
+                }else {
+                    res.status(200).send({
+                        status: "ok"
+                    });
+                    this.socket.emit('updateWorkLogs', {
+                        issue: req.body.issueId
+                    });
+                }
+            });
+        });
 	},
 
 	getLog(models, req, res) {

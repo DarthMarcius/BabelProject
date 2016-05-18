@@ -180,16 +180,22 @@
           <div class="modal-body">
               <input type="hidden" id="edit-work-log-id" name="worklogId" value="">
               <input type="hidden" name="issueId" value="{{issue._id}}">
-              <div class="form-group log-date-time has-feedback">
-                  <div class='input-group date' id="work-log-datetimepicker" >
+              <div class="form-group log-date-time-update has-feedback">
+                  <div class='input-group date' id="work-log-datetimepicker-edit" >
                       <label for="date-time-picker-input">Date Started</label>
-                      <input name="logDateTime" class="form-control" id="date-time-picker-input" placeholder="pick worklog start time" data-format="MM/dd/yyyy HH:mm PP" type="text">
+                      <input name="logDateTime" class="form-control" id="date-time-picker-update-input" placeholder="pick worklog start time" data-format="MM/dd/yyyy HH:mm PP" type="text">
                       <span class="input-group-addon glyphicon glyphicon glyphicon-time form-control-feedback" aria-hidden="true"></span>
                   </div>
               </div>
               <div class="form-group">
                   <label for="comment-text">Worklog text</label>
                   <textarea name="text" id="edit-work-log-text" placeholder="Please type your comment here" class="form-control" rows="3"></textarea>
+              </div>
+
+              <div class="form-group update-time-spent-group">
+                  <label for="timeSpent">Time Spent</label>
+                  <input id="timeSpentUpdate" name="timeSpent" type="text" class="form-control" placeholder="e.g 1h 30m or 30m or 1.5h">
+                  <p class="help-block">Please enter valid time format</p>
               </div>
           </div>
           <div class="modal-footer">
