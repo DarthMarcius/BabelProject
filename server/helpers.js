@@ -393,7 +393,7 @@ module.exports = {
             ]
         )
         .exec((err, issue) => {
-            callback(issue);
+            callback(issue, err);
         });
     },
 
@@ -755,25 +755,42 @@ module.exports = {
 	},
 
 	getLogs(models, req, res) {
-        this.models.Log.aggregate(
-            [
-                {
-                    $match : { issue_id : this.mongoose.Types.ObjectId(req.query.issueId) }
-                },
-
-                {
-                    $project: {
-                        creator: 1,
-                        dateStarted: 1,
-                        text: 1,
-                        timeSpent: 1
-                    }
+        let getOriginalEstimatePromise = new Promise((resolve, reject) => {
+            this.getIssueItem(req.query.issueId, (issue, err) => {
+                if(err) {
+                    reject(err);
+                    return false;
                 }
-            ]
-        ).exec((err, comments) => {
-            this.models.Comment.populate(comments, {path: "creator"}, (err, comments) => {
-                res.send(comments);
+                resolve(issue[0].originalEstimateMinutes);
             });
+        });
+        getOriginalEstimatePromise.then((originelEstimate) => {
+            this.models.Log.aggregate(
+                [
+                    {
+                        $match : { issue_id : this.mongoose.Types.ObjectId(req.query.issueId) }
+                    },
+
+                    {
+                        $project: {
+                            creator: 1,
+                            dateStarted: 1,
+                            text: 1,
+                            timeSpent: 1
+                        }
+                    }
+                ]
+            ).exec((err, worklogs) => {
+                this.models.Log.populate(worklogs, {path: "creator"}, (err, worklogs) => {
+                    res.send({
+                        originelEstimate: originelEstimate,
+                        worklogs: worklogs
+                    });
+                });
+            });
+        }).
+        catch((err) => {
+            console.log("error fetching issue esmimate: ", err)
         });
 	},
 

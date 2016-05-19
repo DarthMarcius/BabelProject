@@ -487,10 +487,10 @@ export default class IssueTracker {
             resultString = 'Time spent: ' + resultString;
         } else if(notation === "notation") {
             let remainder = hours % 1;
-            let minutes = remainder * 60;
-            hours = hours - remainder;
-            console.log(remainder)
-            var resultString = hours < 1 ? parseInt(minutes) + "m" : hours + "h" + " " + minutes + "m";
+            let minutes = parseInt(remainder * 60);
+            hours = parseInt(hours - remainder);
+
+            var resultString = hours < 1 ? minutes + "m" : hours + "h" + " " + minutes + "m";
         }
 
         return resultString;
@@ -769,10 +769,13 @@ export default class IssueTracker {
     populateIssueWorklogs(issueId) {
         let workLogsPromise = this.getWorklogs(issueId);
         let $workLogsSection = $(".issue-page .issue-worklogs");
+        let issueOriginalEstimate;
+        let that = this;
 
         workLogsPromise.then((data) => {
             console.log("issues logs is:", data);
-            data.forEach((workLog) => {
+            let {originelEstimate, worklogs} = data;
+            worklogs.forEach((workLog) => {
                 workLog.timeSpentMinutes = workLog.timeSpent;
                 workLog.timeSpent = this.minutesToString(workLog.timeSpent);
                 workLog.dateStarted = new Date(workLog.dateStarted);
@@ -780,10 +783,16 @@ export default class IssueTracker {
                 //console.log("wl" +new Date(workLog.dateStarted))
             });
 
-            populateWorklogsTemplate(data);
+            issueOriginalEstimate = originelEstimate;
+
+            populateWorklogsTemplate({
+                originelEstimate: originelEstimate,
+                workLogsList: worklogs
+            });
         })
 
-        function populateWorklogsTemplate(workLogsList) {
+        function populateWorklogsTemplate(data) {console.log("this", this)
+            let {originelEstimate, workLogsList} = data;
             workLogsList.forEach((workLog) => {
                 if(workLog.creator._id === window.resources.user.id) {
                     workLog.isWorkLogOwner = true;
@@ -817,11 +826,42 @@ export default class IssueTracker {
                 };
                 let html = template(context);
                 $workLogsSection.html(html);
+
+                that.populateIssueTimeTracking(issueOriginalEstimate, workLogsList);
             })
             .catch((jqXHR, textStatus) => {
                 console.log("error during comments template fetch", jqXHR, textStatus);
                 alert("Error during project creation");
             });
+        }
+    }
+
+    populateIssueTimeTracking(issueOriginalEstimate, workLogsList) {
+        let issueLoggedMinutes = 0;
+        let issueLoggedTimeString;
+        let issueEstimatedTimeString;
+        let loggedPercent;
+
+        workLogsList.forEach((worklog) => {
+            issueLoggedMinutes += worklog.timeSpentMinutes;
+        });
+
+        issueLoggedTimeString = this.minutesToString(issueLoggedMinutes, "notation");
+        issueEstimatedTimeString = this.minutesToString(issueOriginalEstimate, "notation");
+
+        loggedPercent = issueLoggedMinutes * 100 / issueOriginalEstimate;
+        console.log(issueOriginalEstimate, issueLoggedMinutes, loggedPercent)
+        $(".progress-bar").css({
+            width: loggedPercent + "%"
+        });
+
+        $(".issue-logged").html(issueLoggedTimeString);
+        $(".issue-estimated").html(issueEstimatedTimeString);
+
+        if(issueLoggedMinutes > issueOriginalEstimate) {
+            $(".progress-bar").removeClass("progress-bar-success").addClass("progress-bar-danger");
+        }else {
+            $(".progress-bar").removeClass("progress-bar-danger").addClass("progress-bar-success");
         }
     }
 
@@ -977,7 +1017,7 @@ export default class IssueTracker {
                }
             });
 
-            request.done((data) => {
+            request.done((data) => {console.log("from Serever: ", data)
                 resolve(data);
             });
 

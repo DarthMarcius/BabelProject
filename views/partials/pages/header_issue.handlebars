@@ -13,6 +13,10 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <form class="navbar-form navbar-left">
+            <a class="btn btn-navbar btn-primary" href="/project/{{issue.project}}">Back To Project</a>
+        </form>
+
         <form class="navbar-form navbar-right" role="logout">
             <span class="text-info">Welcome: {{user.username}}</span>
             <a href="/logout" class="btn btn-info" style="margin-left: 15px;">Logout</a>
