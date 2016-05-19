@@ -495,7 +495,7 @@ export default class IssueTracker {
 
         return resultString;
     }
-
+console.log("test")
     createComment(data) {
         console.log(data)
         let createCommentPromise = new Promise((resolve, reject) => {
